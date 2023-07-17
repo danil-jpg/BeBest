@@ -1,0 +1,65 @@
+.select {
+	position: relative;
+	&__header {
+		padding: 10px 16px 10px;
+		color: #CCCDCD;
+		font-size: 16px;
+		border-radius: 4px;
+		border: 2px solid #20252B;
+		background: #0F1215;
+		cursor: pointer;
+		position: relative;
+		&:hover {
+			box-shadow: 0 0 5px rgb(42, 51, 66);
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 45%;
+			right: 20px;
+			transform: translateY(-50%) rotate(45deg);
+			width: 10px;
+			height: 10px;
+			display: block;
+			border: 2px solid #CCCDCD;
+			border-width: 0 2px 2px 0;
+			transition: all .2s;
+		}
+		&.active .select__header::after{
+			transform: translateY(-50%) rotate(225deg);
+		}
+	}
+	&__list {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		border: 2px solid #20252B;
+		background: #1f252c;
+		z-index: 2;
+		transition: all .2s;
+		transform: scale(0);
+		pointer-events: none;
+		visibility: hidden;
+		opacity: 0;
+		&.active {
+			transform: scale(1);
+			pointer-events: all;
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+	&__item {
+		font-size: 16px;
+		padding: 12px 16px;
+		cursor: pointer;
+		&:hover {
+			background: rgb(32, 39, 51);
+		}
+	}
+
+	&__default {
+		color: #3C434D;
+	}
+
+}
