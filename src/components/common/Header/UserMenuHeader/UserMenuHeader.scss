@@ -1,0 +1,43 @@
+.user-header {
+	margin: 0 0 0 auto;
+	display: flex;
+	align-items: center;
+	&__link,
+	&__link-list {
+		display: flex;
+		align-items: center;
+	}
+	&__link-list {
+		margin: 0 34px 0 0;
+	}
+	&__link {
+		font-weight: 600;
+		line-height: normal;
+		margin: 0 16px 0 0;
+		position: relative;
+		&:hover {
+			color: #F14A73;
+		}
+		&::after {
+			content: "";
+			width: 1px;
+			height: 16px;
+			background: rgba(139, 145, 158, 0.6);
+			position: absolute;
+			top: 50%;
+			right: -7.5px;
+			transform: translateY(-50%);
+		}
+		&:last-child {
+			margin: 0;
+			&::after {
+				display: none;
+			}
+		}
+	}
+	&__icon {
+		&_user {
+			margin: 0 8px 0 0;
+		}
+	}
+}

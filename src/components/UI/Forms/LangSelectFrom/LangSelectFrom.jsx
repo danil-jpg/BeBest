@@ -1,14 +1,19 @@
 import React, { useRef, useState, useEffect } from 'react';
-import s from './SelectForm.module.scss';
-import { isActive } from '../../../utils/isActive';
+import s from './LangSelectFrom.module.scss';
+import { isActive } from '../../../../utils/isActive';
 
-const SelectForm = ({ style, list, def }) => {
+const LangSelectFrom = ({ style, list }) => {
     const [active, setActive] = useState(false);
 
     let selectHeader = useRef(null);
     let select = useRef(null);
+    let selectedLang = {};
 
-    let firstChild = def ? def : '';
+    list.forEach((el) => {
+        if (el.selected) {
+            selectedLang = { ...el };
+        }
+    });
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -45,13 +50,8 @@ const SelectForm = ({ style, list, def }) => {
                 onClick={onHeaderClickHandler}
                 ref={selectHeader}
             >
-                {def ? (
-                    <span className={`${s.select__default}`}>{def}</span>
-                ) : (
-                    <>
-                        <span className={`${s.select__text}`}>{list[0]}</span>
-                    </>
-                )}
+                <img src={selectedLang.icon} alt='icon' />
+                <span>{selectedLang.title}</span>
             </p>
             <ul className={`${s.select__list} ${isActive(active, s.active)}`}>
                 {list.map((el, i) => (
@@ -60,7 +60,8 @@ const SelectForm = ({ style, list, def }) => {
                         className={`${s.select__item}`}
                         onClick={onItemClickHandler}
                     >
-                        {el}
+                        <img src={el.icon} alt='icon' />
+                        <span>{el.title}</span>
                     </li>
                 ))}
             </ul>
@@ -68,4 +69,4 @@ const SelectForm = ({ style, list, def }) => {
     );
 };
 
-export default SelectForm;
+export default LangSelectFrom;

@@ -1,10 +1,8 @@
-import React from "react";
+import React from 'react';
 import './Catalog.scss';
 
 const Catalog = (props) => {
-	return (
-		<></>
-	)
-}
+    return <></>;
+};
 
 export default Catalog;

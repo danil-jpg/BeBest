@@ -51,7 +51,6 @@ body {
 		border: 4px solid $bgBase;
 		border-radius: 5px;
 	}
-
 }
 input,
 button,
@@ -81,7 +80,9 @@ button::-moz-focus-inner {
 	padding: 0;
 	border: 0;
 }
-
+a {
+	color: #454b58;
+}
 a,
 a:visited {
 	transition: $linkTransition;

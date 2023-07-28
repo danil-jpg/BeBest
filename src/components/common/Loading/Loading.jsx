@@ -1,6 +1,5 @@
 import React from 'react';
 import './Loading.scss';
-import { Link } from 'react-router-dom';
 import LoadingItem from 'react-loading';
 
 const Loading = (props) => {

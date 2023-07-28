@@ -5,7 +5,6 @@ import eng from '../../../assets/icons/eng.svg';
 import spain from '../../../assets/icons/spain.svg';
 import { v1 } from 'uuid';
 
-
 const initialState = {
     logo,
     list: [
@@ -13,7 +12,7 @@ const initialState = {
             id: v1(),
             title: 'Курсы',
             to: '',
-	},
+        },
         {
             id: v1(),
             title: 'Уроки',
@@ -50,19 +49,19 @@ const initialState = {
             id: v1(),
             title: 'ua',
             icon: ua,
-            value: 'ua',
+            selected: true,
         },
         {
             id: v1(),
-            title: 'eng',
+            title: 'en',
             icon: eng,
-            value: 'eng',
+            selected: false,
         },
         {
             id: v1(),
             title: 'es',
             icon: spain,
-            value: 'es',
+            selected: false,
         },
     ],
 };
@@ -72,7 +71,13 @@ export const headerSlice = createSlice({
     initialState,
     reducers: {
         setLang: (state, action) => {
-            console.log(state);
+            state.langList.forEach(el => {
+                if (el.id === action.payload) {
+                    el.selected = true;
+                } else {
+                    el.selected = false;
+                }
+            })
         },
     },
 });

@@ -8,11 +8,14 @@ const Catalog = React.lazy(() => import('../../pages/Catalog/Catalog'));
 
 const Main = (props) => {
     return (
-        <Suspense fallback={<Loading />}>
-            <Routes>
-                <Route index element={<Home />} />
-            </Routes>
-        </Suspense>
+        <div className='main'>
+            <Suspense fallback={<Loading />}>
+                <Routes>
+                    <Route index element={<Home />} />
+                    <Route path='catalog' element={<Catalog />} />
+                </Routes>
+            </Suspense>
+        </div>
     );
 };
 

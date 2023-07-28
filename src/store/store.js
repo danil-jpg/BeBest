@@ -3,7 +3,7 @@ import headerSlice from './slices/headerSlice/headerSlice';
 
 export const store = configureStore({
 	reducer: {
-		setLang: headerSlice,
+		headerSlice,
 	},
 	devTools: true,
 })

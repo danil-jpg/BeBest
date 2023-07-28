@@ -1,32 +1,41 @@
-import React from "react";
+import React from 'react';
 import './Header.scss';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import UserMenuHeader from './UserMenuHeader/UserMenuHeader';
+import { useSelector } from 'react-redux';
+import ContainerMain from '../ContainerMain/ContainerMain';
 
-const Header = (props) => {
-	return (
-		<header className="header">
-			<div className="header__body">
-				<Link></Link>
-			</div>
-			{/* <Link to="" className="header__logo-link">
-				<img src="" alt="" className="header__logo" />
-			</Link>
+const Header = ({ home = false }) => {
+    let data = useSelector((state) => state.headerSlice);
 
-			<ul className="header__list">
-				<li className="header__item">
-					<Link to="" className="header__link"></Link>
-				</li>
-			</ul> 
+	
 
-			<div className="user-header">
+    return (
+        <header className={home ? 'header header_home' : 'header'}>
+            <ContainerMain>
+                <div className='header__body'>
+                    <Link to='/' className='header__logo-wrap'>
+                        <img
+                            src={data.logo}
+                            alt='logo'
+                            className='header__logo'
+                        />
+                    </Link>
+                    <ul className='header__list'>
+                        {data?.list.map((el) => (
+                            <li className='header__item' key={el.id}>
+                                <Link to={el.to} className='header__link'>
+                                    {el.title}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
 
-			</div>
-
-			<div className="lang-select">
-				
-			</div> */}
-		</header>
-	)
-}
+                    <UserMenuHeader />
+                </div>
+            </ContainerMain>
+        </header>
+    );
+};
 
 export default Header;
