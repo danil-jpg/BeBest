@@ -7,12 +7,9 @@ const Catalog = React.lazy(() => import("../../pages/Catalog/Catalog"));
 
 const Main = (props) => {
 	return (
-		<BrowserRouter>
 			<Routes>
 				<Route index element={<Home />} />
-				<Route path='catalog' element={<Catalog />} />
 			</Routes>
-		</BrowserRouter>
 	)
 }
 
