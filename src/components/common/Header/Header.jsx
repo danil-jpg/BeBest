@@ -8,7 +8,6 @@ import ContainerMain from '../ContainerMain/ContainerMain';
 const Header = ({ home = false }) => {
     let data = useSelector((state) => state.headerSlice);
 
-	
 
     return (
         <header className={home ? 'header header_home' : 'header'}>
