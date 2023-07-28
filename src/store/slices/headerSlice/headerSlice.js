@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 import logo from '../../../assets/images/header/logo.svg';
 import ua from '../../../assets/icons/ua.svg';
 import eng from '../../../assets/icons/eng.svg';
 import spain from '../../../assets/icons/spain.svg';
-import { v1 } from "uuid";
+import { v1 } from 'uuid';
 
 const initialState = {
 	logo,
@@ -75,6 +75,8 @@ export const headerSlice = createSlice({
 		}
 	}
 })
+
+
 
 export const { setLang } = headerSlice.actions;
 export default headerSlice.reducer;
