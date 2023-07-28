@@ -54,6 +54,7 @@
     "img-optimize-loader": "^1.0.7",
     "node-sass": "^9.0.0",
     "react-error-overlay": "6.0.9",
+    "react-loading": "^2.0.3",
     "react-refresh": "^0.14.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
