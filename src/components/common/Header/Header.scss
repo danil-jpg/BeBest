@@ -8,6 +8,10 @@
 	top: 0;
 	width: 100%;
 	padding: 14px 0;
+	&_home {
+		background: transparent;
+		box-shadow: none;
+	}
 	&__body,
 	&__list {
 		display: flex;
@@ -15,10 +19,6 @@
 	}
 	&__list {
 		flex: 1 1 auto;
-	}
-	&_home {
-		background: transparent;
-		box-shadow: none;
 	}
 	&__logo-wrap {
 		margin: 0 6.7% 0 0;
