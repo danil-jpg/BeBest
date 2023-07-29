@@ -4,6 +4,37 @@ import { v1 } from 'uuid';
 
 const initialState = {
     logo,
+    titleInfo: 'О портале',
+    titleCategories: 'Категории обучения',
+    copyright: 'Unsounded ©  2021',
+    socialList: [
+        {
+            id: v1(),
+            value: 'facebook',
+        },
+        {
+            id: v1(),
+            value: 'instagram',
+        },
+        {
+            id: v1(),
+            value: 'twitter',
+        },
+    ],
+    messengerList: [
+        {
+            id: v1(),
+            value: 'whatsup',
+        },
+        {
+            id: v1(),
+            value: 'telegram',
+        },
+        {
+            id: v1(),
+            value: 'viber',
+        },
+    ],
     categories: [
         {
             id: v1(),
@@ -55,11 +86,11 @@ const initialState = {
     ],
 };
 
-export const headerSlice = createSlice({
+export const footerSlice = createSlice({
     name: 'footer',
     initialState,
     reducers: {},
 });
 
 // export const { setLang } = headerSlice.actions;
-export default headerSlice.reducer;
+export default footerSlice.reducer;
