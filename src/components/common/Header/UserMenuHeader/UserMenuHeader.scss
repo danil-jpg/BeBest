@@ -15,8 +15,17 @@
 		line-height: normal;
 		margin: 0 16px 0 0;
 		position: relative;
+		&_entered {
+			margin: 0 20px 0 0;
+			&:hover {
+				fill: #f04973;
+			}
+		}
+		&_entered::after {
+			display: none;
+		}
 		&:hover {
-			color: #F14A73;
+			color: #f14a73;
 		}
 		&::after {
 			content: "";

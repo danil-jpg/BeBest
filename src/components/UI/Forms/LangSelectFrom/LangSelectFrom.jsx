@@ -1,9 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import s from './LangSelectFrom.module.scss';
 import { isActive } from '../../../../utils/isActive';
+import { useDispatch } from 'react-redux';
+import { setLang } from '../../../../store/slices/headerSlice/headerSlice';
 
 const LangSelectFrom = ({ style, list }) => {
     const [active, setActive] = useState(false);
+    const dispatch = useDispatch();
 
     let selectHeader = useRef(null);
     let select = useRef(null);
@@ -33,9 +36,8 @@ const LangSelectFrom = ({ style, list }) => {
         setActive(!active);
     };
 
-    const onItemClickHandler = (e) => {
-        let current = e.currentTarget.innerHTML;
-        selectHeader.current.innerHTML = current;
+    const onItemClickHandler = (id) => {
+        dispatch(setLang(id));
         onHeaderClickHandler();
     };
 
@@ -54,11 +56,11 @@ const LangSelectFrom = ({ style, list }) => {
                 <span>{selectedLang.title}</span>
             </p>
             <ul className={`${s.select__list} ${isActive(active, s.active)}`}>
-                {list.map((el, i) => (
+                {list.map(el => (
                     <li
-                        key={i}
+                        key={el.id}
                         className={`${s.select__item}`}
-                        onClick={onItemClickHandler}
+                        onClick={()=>{onItemClickHandler(el.id)}}
                     >
                         <img src={el.icon} alt='icon' />
                         <span>{el.title}</span>
