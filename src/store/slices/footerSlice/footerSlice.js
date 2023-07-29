@@ -48,6 +48,11 @@ const initialState = {
         },
         {
             id: v1(),
+            title: 'Немецкий язык',
+            to: '',
+        },
+        {
+            id: v1(),
             title: 'Курсы HTML',
             to: '',
         },

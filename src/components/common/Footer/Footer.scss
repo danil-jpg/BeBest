@@ -1,5 +1,5 @@
 .footer {
-	padding: 47px 0 44px;
+    padding: 44px 0 48px;
 	background: #fff;
 	&__body,
 	&__social,
@@ -60,5 +60,8 @@
 		display: block;
 		font: 15px;
 		line-height: 1.8;
+		&:hover {
+			color: #f04973;
+		}
 	}
 }
