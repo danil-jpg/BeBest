@@ -1,24 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import s from './SelectForm.module.scss';
-import { isActive } from '../../../../utils/isActive';
-import { useDispatch } from 'react-redux';
-import { setLangSpeak } from '../../../../store/slices/catalogSlice/catalogSlice';
+import { isActive } from '../../../utils/isActive';
 
-const isSelected = elem => elem.selected;
-
-const SelectForm = ({ style, list }) => {
+const SelectForm = ({ style, list, def }) => {
     const [active, setActive] = useState(false);
-    const dispatch = useDispatch();
 
     let selectHeader = useRef(null);
     let select = useRef(null);
-    let selectedItem = {};
 
-    list.forEach((el) => {
-        if (el.selected) {
-            selectedItem = { ...el };
-        }
-    });
+    let firstChild = def ? def : '';
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -38,8 +28,9 @@ const SelectForm = ({ style, list }) => {
         setActive(!active);
     };
 
-    const onItemClickHandler = (id) => {
-        dispatch(setLangSpeak(id));
+    const onItemClickHandler = (e) => {
+        let current = e.currentTarget.innerHTML;
+        selectHeader.current.innerHTML = current;
         onHeaderClickHandler();
     };
 
@@ -54,16 +45,22 @@ const SelectForm = ({ style, list }) => {
                 onClick={onHeaderClickHandler}
                 ref={selectHeader}
             >
-                {selectedItem.title}
+                {def ? (
+                    <span className={`${s.select__default}`}>{def}</span>
+                ) : (
+                    <>
+                        <span className={`${s.select__text}`}>{list[0]}</span>
+                    </>
+                )}
             </p>
             <ul className={`${s.select__list} ${isActive(active, s.active)}`}>
-                {list.map(el => (
+                {list.map((el, i) => (
                     <li
-                        key={el.id}
-                        className={`${s.select__item} ${isActive(el.selected, s.selected)}`}
-                        onClick={()=>{onItemClickHandler(el.id)}}
+                        key={i}
+                        className={`${s.select__item}`}
+                        onClick={onItemClickHandler}
                     >
-                        {el.title}
+                        {el}
                     </li>
                 ))}
             </ul>
