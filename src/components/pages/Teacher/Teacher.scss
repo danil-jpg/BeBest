@@ -1,0 +1,37 @@
+@keyframes waves {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 15px 15px;
+    }
+}
+
+.teacher {
+    &__background {
+        background-image: url('../../../assets//images/teacher/background.svg');
+        position: absolute;
+        object-fit: contain;
+        height: 1125px;
+        background-repeat: no-repeat;
+        width: 631px;
+        animation: waves;
+        animation-duration: 2s;
+        animation-direction: alternate-reverse;
+        animation-iteration-count: infinite;
+    }
+    &__background2 {
+        position: absolute;
+        right: 0;
+        background-image: url('../../../assets//images/teacher/background2.svg');
+        position: absolute;
+        object-fit: contain;
+        height: 637px;
+        background-repeat: no-repeat;
+        width: 840px;
+        animation: waves;
+        animation-duration: 2s;
+        animation-direction: alternate-reverse;
+        animation-iteration-count: infinite;
+    }
+}

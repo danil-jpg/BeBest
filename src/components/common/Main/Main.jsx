@@ -7,6 +7,7 @@ import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 
 const Home = React.lazy(() => import('../../pages/Home/Home'));
 const Catalog = React.lazy(() => import('../../pages/Catalog/Catalog'));
+const Teacher = React.lazy(() => import('../../pages/Teacher/Teacher'));
 
 const Main = (props) => {
     return (
@@ -16,6 +17,7 @@ const Main = (props) => {
                 <Routes>
                     <Route index element={<Home />} />
                     <Route path='catalog' element={<Catalog />} />
+                    <Route path='teacher' element={<Teacher />} />
                 </Routes>
             </Suspense>
         </main>
