@@ -2,11 +2,11 @@ import React from 'react';
 import SelectForm from '../SelectForm/SelectForm';
 import s from './SelectFormContainer.module.scss';
 
-const SelectFormContainer = ({ style, className = '', title, list, def }) => {
+const SelectFormContainer = ({ style, title, list}) => {
   return (
-    <div className={`${s.selectContainer} ${className}`} style={style ? style : {}}>
-      <h2 className={s.selectContainer__title}>{title}</h2>
-      <SelectForm list={list} def={def} />
+    <div className={`${s.selectContainer}`} style={style ? style : {}}>
+      <p className={s.selectContainer__title}>{title}</p>
+      <SelectForm list={list}  />
     </div>
   );
 };

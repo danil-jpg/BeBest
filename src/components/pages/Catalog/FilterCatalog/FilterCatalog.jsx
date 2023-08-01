@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux';
 const FilterCatalog = (props) => {
     let data = useSelector(state => state.catalogSlice);
 
-    console.log(data);
-
     return <form className='filter-catalog'>
         <h2 className="filter-catalog__title">
             Фильтры
