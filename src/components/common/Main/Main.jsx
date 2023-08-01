@@ -10,17 +10,15 @@ const Catalog = React.lazy(() => import('../../pages/Catalog/Catalog'));
 
 const Main = (props) => {
     return (
-        <div className='main'>
+        <main className='main'>
             <Breadcrumbs />
-            <ContainerMain>
-                <Suspense fallback={<Loading />}>
-                    <Routes>
-                        <Route index element={<Home />} />
-                        <Route path='catalog' element={<Catalog />} />
-                    </Routes>
-                </Suspense>
-            </ContainerMain>
-        </div>
+            <Suspense fallback={<Loading />}>
+                <Routes>
+                    <Route index element={<Home />} />
+                    <Route path='catalog' element={<Catalog />} />
+                </Routes>
+            </Suspense>
+        </main>
     );
 };
 

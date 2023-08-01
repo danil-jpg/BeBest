@@ -1,0 +1,12 @@
+.catalog {
+	&__row {
+		display: flex;
+	}
+	&__filter {
+		flex: 0 0 280px;
+		margin-right: 5.073%;
+	}
+	&__body {
+		flex: 0 1 100%;
+	}
+}
