@@ -5,8 +5,8 @@ import Picture from '../../UI/Picture/Picture';
 import { IconRenderer } from '../../UI/IconRenderer/IconRenderer';
 import quotes from '../../../assets/images/teacher/quote.png';
 import quotesWebp from '../../../assets/images/teacher/quote.png?as=webp';
-import chatSvg from '../../../assets/icons/chat.svg';
-import { Link } from 'react-router-dom';
+
+import TeacherGreet from './TeacherGreet/TeacherGreet';
 
 const Teacher = (props) => {
     return (
@@ -16,34 +16,7 @@ const Teacher = (props) => {
             <ContainerMain>
                 <div className='teacher__body'>
                     <div className='teacher__body__left'>
-                        <div className='teacher__vid'>
-                            <iframe
-                                className='teacher__vid_vid'
-                                src='https://www.youtube.com/embed/CjkI-RkaBng?controls=0'
-                                frameBorder='0'
-                                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                                allowfullscreen></iframe>
-                            <div className='teacher__descr'>
-                                <div className='teacher__descr__left'>
-                                    <img src='' className='teacher__descr_avatar' />
-                                    <div className='teacher__descr_stars'>
-                                        <IconRenderer id='star' className='teacher__descr_star' />
-                                        <IconRenderer id='star' className='teacher__descr_star' />
-                                        <IconRenderer id='star' className='teacher__descr_star' />
-                                        <IconRenderer id='star' className='teacher__descr_star' />
-                                        <IconRenderer id='star' className='teacher__descr_star' />
-                                    </div>
-                                    <div className='teacher__descr_recommend'>Рекомендуем</div>
-                                    <div className='teacher__descr_chat-wr'>
-                                        <img src={chatSvg} className='teacher__descr_chat-img' />
-                                        <Link to={''} className='teacher__descr_chat-text'>
-                                            Начать чат
-                                        </Link>
-                                    </div>
-                                </div>
-                                <div className='teacher__descr__right'></div>
-                            </div>
-                        </div>
+                        <TeacherGreet />
                         {/* <div className='teacher__about'>
                             <p className='teacher__about_title'>Обо мне</p>
                             <div className='teacher__about_texts-wr'>
