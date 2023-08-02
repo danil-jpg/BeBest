@@ -13,8 +13,15 @@ import {
     setOldLearn,
 } from '../../../../store/slices/filterSlice/filterSlice';
 import RangeSlider from '../../../UI/Forms/RangeSlider/RangeSlider';
+import MainButton from '../../../UI/Buttons/MainButton/MainButton';
+import { Link } from 'react-router-dom';
 
-const titlePrice = 'Цена';
+const titles = {
+    filter: 'Фильтры',
+    price: 'Цена',
+    clear: 'Сбросить фильтр',
+    submit: 'Применить',
+};
 
 const FilterCatalog = (props) => {
     let data = useSelector((state) => state.filterSlice);
@@ -22,7 +29,7 @@ const FilterCatalog = (props) => {
 
     return (
         <form className='filter-catalog'>
-            <h2 className='filter-catalog__title'>Фильтры</h2>
+            <h2 className='filter-catalog__title'>{titles.filter}</h2>
             <div className='filter-catalog__body'>
                 <div className='filter-catalog__inner'>
                     <SelectFormContainer
@@ -50,7 +57,7 @@ const FilterCatalog = (props) => {
                     />
                 </div>
                 <div className='filter-catalog__inner'>
-                    <RangeSlider title={titlePrice} />
+                    <RangeSlider title={titles.price} />
                 </div>
                 <div className='filter-catalog__inner'>
                     <SelectFormContainer
@@ -76,6 +83,19 @@ const FilterCatalog = (props) => {
                         list={data.oldLearn.list}
                         setItem={setOldLearn}
                     />
+                </div>
+                <div className='filter-catalog__footer'>
+                    <MainButton
+                        style={{
+                            textTransform: 'uppercase',
+                            margin: '0 0 13px',
+                        }}
+                    >
+                        {titles.submit}
+                    </MainButton>
+                    <Link to='' className='filter-catalog__clear-btn'>
+                        {titles.clear}
+                    </Link>
                 </div>
             </div>
         </form>
