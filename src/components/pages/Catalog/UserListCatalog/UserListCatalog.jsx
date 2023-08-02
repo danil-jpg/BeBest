@@ -1,8 +1,14 @@
 import React from 'react';
 import './UserListCatalog.scss';
+import UserItemCatalog from '../../../common/UserItemCatalog/UserItemCatalog';
 
 const UserListCatalog = (props) => {
-    return <div className='UserListCatalog'></div>;
+    return (
+        <ul className='list-catalog'>
+            <UserItemCatalog />
+        </ul>
+    );
 };
+
 
 export default UserListCatalog;
