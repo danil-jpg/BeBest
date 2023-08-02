@@ -8,7 +8,20 @@
 		font-size: 15px;
 		line-height: 1.266;
 		font-weight: 700;
-		margin: 0 0 5px;
+		margin: 0 0 10px;
 	}
-	
+	&__inner {
+		margin: 0 0 40px;
+		&:last-child {
+			margin: 0 0 30px;
+		}
+	}
+	&__clear-btn {
+		display: block;
+		color: #F04973;
+		text-align: center;
+		font-weight: 500;
+		line-height: 1.2;
+		text-decoration-line: underline;
+	}
 }

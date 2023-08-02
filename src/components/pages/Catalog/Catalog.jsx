@@ -11,19 +11,21 @@ const data = {
 
 const Catalog = (props) => {
     return (
-        <div className='catalog'>
-            <ContainerMain>
-                <Title>{data.title}</Title>
-                <div className='catalog__row'>
-                    <div className='catalog__filter'>
-                        <FilterCatalog />
+        <>
+            <div className='catalog'>
+                <ContainerMain>
+                    <Title>{data.title}</Title>
+                    <div className='catalog__row'>
+                        <div className='catalog__filter'>
+                            <FilterCatalog />
+                        </div>
+                        <div className='catalog__body'>
+                            <UserListCatalog />
+                        </div>
                     </div>
-                    <div className='catalog__body'>
-                        <UserListCatalog />
-                    </div>
-                </div>
-            </ContainerMain>
-        </div>
+                </ContainerMain>
+            </div>
+        </>
     );
 };
 
