@@ -34,4 +34,25 @@
         animation-direction: alternate-reverse;
         animation-iteration-count: infinite;
     }
+
+    &__body {
+        display: grid;
+        grid-template-columns: 1fr 32.5%;
+        column-gap: 50px;
+    }
+    &__vid {
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+
+        &_vid {
+            width: 100%;
+            height: 450px;
+        }
+    }
+    &__descr_star {
+        fill: red;
+        width: 13px;
+        height: 13px;
+    }
 }
