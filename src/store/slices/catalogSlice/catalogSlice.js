@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v1 } from 'uuid';
-import { selectItem } from '../../../utils/selectItem';
 
 const initialState = {
     langList: [

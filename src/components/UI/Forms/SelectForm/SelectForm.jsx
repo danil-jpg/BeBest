@@ -4,9 +4,7 @@ import { isActive } from '../../../../utils/isActive';
 import { useDispatch } from 'react-redux';
 import { setLangSpeak } from '../../../../store/slices/catalogSlice/catalogSlice';
 
-const isSelected = elem => elem.selected;
-
-const SelectForm = ({ style, list }) => {
+const SelectForm = ({ style, list, setItem }) => {
     const [active, setActive] = useState(false);
     const dispatch = useDispatch();
 
@@ -39,7 +37,7 @@ const SelectForm = ({ style, list }) => {
     };
 
     const onItemClickHandler = (id) => {
-        dispatch(setLangSpeak(id));
+        dispatch(setItem(id));
         onHeaderClickHandler();
     };
 
