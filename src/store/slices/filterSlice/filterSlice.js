@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v1 } from 'uuid';
-import { selectItem } from '../../../utils/selectItem';
+import {
+    selectItem,
+    updateList,
+    updateListSelection,
+} from '../../../utils/updateListSelection';
 
 const initialState = {
     lessonSpeak: {
@@ -34,13 +38,13 @@ const initialState = {
             {
                 id: v1(),
                 title: '10:00-14:00',
-                value: '',
+                value: 'morning',
                 selected: true,
             },
             {
                 id: v1(),
                 title: '15:00-19:00',
-                value: '',
+                value: 'evening',
                 selected: false,
             },
         ],
@@ -87,6 +91,90 @@ const initialState = {
             },
         ],
     },
+    sex: {
+        title: 'Пол',
+        value: 'lessonSpeak',
+        list: [
+            {
+                id: v1(),
+                title: 'Оба пола',
+                value: 'double',
+                selected: true,
+            },
+            {
+                id: v1(),
+                title: 'Мужской',
+                value: 'men',
+                selected: false,
+            },
+            {
+                id: v1(),
+                title: 'Женский',
+                value: 'women',
+                selected: false,
+            },
+        ],
+    },
+    preparingTest: {
+        title: 'Подготовка к тестам',
+        value: 'lessonTime',
+        list: [
+            {
+                id: v1(),
+                title: '10:00-14:00',
+                value: 'morning',
+                selected: true,
+            },
+            {
+                id: v1(),
+                title: '15:00-19:00',
+                value: 'evening',
+                selected: false,
+            },
+        ],
+    },
+    aspectLearn: {
+        title: 'Аспекты обучения',
+        value: 'lessonCountry',
+        list: [
+            {
+                id: v1(),
+                title: 'Украина',
+                value: 'ukraine',
+                selected: true,
+            },
+            {
+                id: v1(),
+                title: 'Англия',
+                value: 'england',
+                selected: false,
+            },
+        ],
+    },
+    oldLearn: {
+        title: 'Возраст обучения',
+        value: 'langSpeak',
+        list: [
+            {
+                id: v1(),
+                title: '10-14',
+                value: 'small',
+                selected: true,
+            },
+            {
+                id: v1(),
+                title: '15-19',
+                value: 'middle',
+                selected: false,
+            },
+            {
+                id: v1(),
+                title: '20+',
+                value: 'big',
+                selected: false,
+            },
+        ],
+    },
 };
 
 export const filterSlice = createSlice({
@@ -94,44 +182,64 @@ export const filterSlice = createSlice({
     initialState,
     reducers: {
         setLessonSpeak: (state, action) => {
-            state.lessonSpeak.list.forEach((el) => {
-                if (el.id === action.payload) {
-                    el.selected = true;
-                } else {
-                    el.selected = false;
-                }
-            });
+            state.lessonSpeak.list = updateListSelection(
+                state.lessonSpeak.list,
+                action.payload
+            );
         },
         setLessonTime: (state, action) => {
-            state.lessonTime.list.forEach((el) => {
-                if (el.id === action.payload) {
-                    el.selected = true;
-                } else {
-                    el.selected = false;
-                }
-            });
+            state.lessonTime.list = updateListSelection(
+                state.lessonTime.list,
+                action.payload
+            );
         },
         setLessonCountry: (state, action) => {
-            state.lessonCountry.list.forEach((el) => {
-                if (el.id === action.payload) {
-                    el.selected = true;
-                } else {
-                    el.selected = false;
-                }
-            });
+            state.lessonCountry.list = updateListSelection(
+                state.lessonCountry.list,
+                action.payload
+            );
         },
         setLangSpeak: (state, action) => {
-            state.langSpeak.list.forEach((el) => {
-                if (el.id === action.payload) {
-                    el.selected = true;
-                } else {
-                    el.selected = false;
-                }
-            });
+            state.langSpeak.list = updateListSelection(
+                state.langSpeak.list,
+                action.payload
+            );
+        },
+        setSex: (state, action) => {
+            state.sex.list = updateListSelection(
+                state.sex.list,
+                action.payload
+            );
+        },
+        setPreparingTest: (state, action) => {
+            state.preparingTest.list = updateListSelection(
+                state.preparingTest.list,
+                action.payload
+            );
+        },
+        setAspectLearn: (state, action) => {
+            state.aspectLearn.list = updateListSelection(
+                state.aspectLearn.list,
+                action.payload
+            );
+        },
+        setOldLearn: (state, action) => {
+            state.oldLearn.list = updateListSelection(
+                state.oldLearn.list,
+                action.payload
+            );
         },
     },
 });
 
-export const { setLessonSpeak, setLessonTime, setLessonCountry, setLangSpeak } =
-    filterSlice.actions;
+export const {
+    setLessonSpeak,
+    setLessonTime,
+    setLessonCountry,
+    setLangSpeak,
+    setSex,
+    setPreparingTest,
+    setAspectLearn,
+    setOldLearn,
+} = filterSlice.actions;
 export default filterSlice.reducer;
