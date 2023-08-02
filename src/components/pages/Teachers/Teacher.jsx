@@ -5,6 +5,8 @@ import Picture from '../../UI/Picture/Picture';
 import { IconRenderer } from '../../UI/IconRenderer/IconRenderer';
 import quotes from '../../../assets/images/teacher/quote.png';
 import quotesWebp from '../../../assets/images/teacher/quote.png?as=webp';
+import chatSvg from '../../../assets/icons/chat.svg';
+import { Link } from 'react-router-dom';
 
 const Teacher = (props) => {
     return (
@@ -30,6 +32,13 @@ const Teacher = (props) => {
                                         <IconRenderer id='star' className='teacher__descr_star' />
                                         <IconRenderer id='star' className='teacher__descr_star' />
                                         <IconRenderer id='star' className='teacher__descr_star' />
+                                    </div>
+                                    <div className='teacher__descr_recommend'>Рекомендуем</div>
+                                    <div className='teacher__descr_chat-wr'>
+                                        <img src={chatSvg} className='teacher__descr_chat-img' />
+                                        <Link to={''} className='teacher__descr_chat-text'>
+                                            Начать чат
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className='teacher__descr__right'></div>
