@@ -4,10 +4,10 @@ import TabsUserItem from './TabsUserItem/TabsUserItem';
 import BodyUserItem from './BodyUserItem/BodyUserItem';
 import ImageUserItem from './ImageUserItem/ImageUserItem';
 
-const UserItemCatalog = () => {
+const UserItemCatalog = ({ user }) => {
     return (
         <li className='item-catalog'>
-            <ImageUserItem />
+            <ImageUserItem photo={user.avatar.url} amountStars={user.stars} />
             <BodyUserItem />
             <TabsUserItem />
         </li>

@@ -1,0 +1,38 @@
+.body-item-catalog {
+	flex: 1 1 auto;
+	margin: 0 33px;
+	&__body-inner {
+		margin: 0 0 15px;
+		&_name {
+			margin: 0 0 20px;
+		}
+		&:last-child {
+			margin: 0;
+		}
+	}
+	&__name,
+	&__text {
+		color: #292c32;
+	}
+	&__title,
+	&__name,
+	&__country,
+	&__text {
+		line-height: 1.1;
+	}
+	&__name {
+		font-size: 20px;
+		font-weight: 700;
+		margin: 0 0 7px;
+	}
+	&__country,
+	&__text {
+		font-weight: 600;
+	}
+	&__title {
+		font-size: 13px;
+		font-weight: 500;
+		color: #8B919E;
+		margin: 0 0 5px;
+	}
+}

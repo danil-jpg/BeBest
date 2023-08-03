@@ -7,9 +7,9 @@ const TabsUserItem = () => {
         <div className='tabs-item-catalog'>
             <div className='tabs-item-catalog__tab-wrap'>
                 <div className='tabs-item-catalog__header'>
-                    <Link>index</Link>
-                    <Link>description</Link>
-                    <Link>calendar</Link>
+                    <Link></Link>
+                    <Link></Link>
+                    <Link></Link>
                 </div>
                 <div className='tabs-item-catalog__body'>
                     <div className='tabs-item-catalog__item'></div>
