@@ -17,9 +17,9 @@ const Teacher = (props) => {
                 <div className='teacher__body'>
                     <div className='teacher__body__left'>
                         <TeacherGreet />
-                        {/* <div className='teacher__about'>
+                        <div className='teacher__about'>
                             <p className='teacher__about_title'>Обо мне</p>
-                            <div className='teacher__about_texts-wr'>
+                            <div className='teacher__about_text-wr'>
                                 <div className='teacher__about_text_left'>
                                     <Picture img={quotes} webp={quotesWebp} />
                                 </div>
@@ -36,7 +36,7 @@ const Teacher = (props) => {
                                     <p className='teacher__about_translate'>Перевести текст</p>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                     <div className='teacher__body__right'></div>
                 </div>
