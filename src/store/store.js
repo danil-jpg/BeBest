@@ -4,6 +4,7 @@ import footerSlice from './slices/footerSlice/footerSlice';
 import breadcrumbSlice from './slices/breadcrumbSlice/breadcrumbSlice';
 import catalogSlice from './slices/catalogSlice/catalogSlice';
 import filterSlice from './slices/filterSlice/filterSlice';
+import tabsUserSlice from './slices/tabsUserSlice/tabsUserSlice';
 
 export const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
         breadcrumbSlice,
         catalogSlice,
         filterSlice,
+        tabsUserSlice,
     },
     devTools: true,
 });
