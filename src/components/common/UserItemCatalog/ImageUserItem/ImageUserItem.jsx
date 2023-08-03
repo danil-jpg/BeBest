@@ -2,14 +2,45 @@ import React, { useEffect, useState } from 'react';
 import './ImageUserItem.scss';
 import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer';
 import { v1 } from 'uuid';
-import { isActive } from '../../../../utils/isActive';
-import { useDispatch, useSelector } from 'react-redux';
+
+let defaultStarList = [
+    {
+        id: v1(),
+        selected: false,
+    },
+    {
+        id: v1(),
+        selected: false,
+    },
+    {
+        id: v1(),
+        selected: false,
+    },
+    {
+        id: v1(),
+        selected: false,
+    },
+    {
+        id: v1(),
+        selected: false,
+    },
+];
 
 const ImageUserItem = ({ photo, amountStars }) => {
-    const [starList, setStarList] = useState(
-        useSelector((state) => state.catalogSlice.stars)
-    );
-    
+    let [starList, setStarList] = useState([]);
+
+    useEffect(() => {
+        let resList = [...defaultStarList];
+
+        resList.forEach((el, index) => {
+            if (++index < amountStars) {
+                el.selected = true;
+            }
+        });
+
+        setStarList([...resList]);
+    }, []);
+
     const imgSrc = `http://bebest.pp.ua${photo}`;
 
     return (
@@ -28,14 +59,13 @@ const ImageUserItem = ({ photo, amountStars }) => {
                 </button>
             </div>
             <div className='image-item-catalog__rating'>
-                {starList?.map((el) => (
+                {starList?.map((el, index) => (
                     <IconRenderer
-                        id='star'
+                        id='yellowStar'
                         key={el.id}
-                        className={`image-item-catalog__star ${isActive(
-                            el.selected,
-                            'selected'
-                        )}`}
+                        className={`image-item-catalog__star ${
+                            amountStars > index ? 'selected' : ''
+                        }`}
                     />
                 ))}
             </div>

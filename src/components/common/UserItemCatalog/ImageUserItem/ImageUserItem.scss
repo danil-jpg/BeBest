@@ -24,6 +24,10 @@
 		width: 14px;
 		height: 13px;
 		margin: 0 4px 0 0;
+		fill: #CCCCCC;
+		&.selected{
+			fill: #FFC452;
+		}
 		&:last-child {
 			margin: 0;
 		}

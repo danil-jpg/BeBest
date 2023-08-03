@@ -1,4 +1,29 @@
 .tabs-item-catalog {
 	width: 100%;
 	max-width: 403px;
+	&__header {
+		display: flex;
+		align-items: center;
+		margin: 0 0 15px;
+	}
+	&__btn {
+		font-size: 15px;
+		font-weight: 500;
+		margin: 0 25px 0 0;
+		color: rgba(69, 75, 88, 0.6);
+		&:last-child {
+			margin: 0;
+		}
+		&.active {
+			color: #F04973;
+			text-shadow: 0 0 1px #F04973;
+		}
+	}
+	&__body {
+		min-height: 189px;
+		margin: 0 0 16px;
+	}
+	&__item {
+		display: none;
+	}
 }
