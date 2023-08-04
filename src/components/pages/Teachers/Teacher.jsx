@@ -11,6 +11,9 @@ import TeacherGreet from './TeacherGreet/TeacherGreet';
 import { Link } from 'react-router-dom';
 import '@event-calendar/core/index.css';
 import TeacherPosibility from './TeacherPosibility/TeacherPosibility';
+import TeacherCv from './TeacherCv/TeacherCv';
+import TeacherMarks from './TeacherMarks/TeacherMarks';
+import TeacherLesson from './TeacherLessons/TeacherLesson';
 
 const Teacher = (props) => {
     const ref = useRef();
@@ -94,8 +97,12 @@ const Teacher = (props) => {
                         </div>
                         <div className='ec ' ref={ref}></div>
                         <TeacherPosibility />
+                        <TeacherCv />
+                        <TeacherMarks />
                     </div>
-                    <div className='teacher__body__right'></div>
+                    <div className='teacher__body__right'>
+                        <TeacherLesson />
+                    </div>
                 </div>
             </ContainerMain>
         </div>
