@@ -23,7 +23,8 @@ const ArticleCard = ({ image, title, text }) => {
                 <h2 className='article-card__title'>{title}</h2>
                 <p className='article-card__text'>{text}</p>
                 <MainButton size='small' style={{
-                    flex: '0 0 auto'
+                    flex: '0 0 auto',
+                    maxWidth: '140px'
                 }}>{data.titleBtn}</MainButton>
             </div>
         </li>
