@@ -59,7 +59,7 @@ const FilterCatalog = (props) => {
                 <div className='filter-catalog__inner'>
                     <RangeSlider title={titles.price} />
                 </div>
-                <div className='filter-catalog__inner'>
+                <div className='filter-catalog__inner filter-catalog__inner_last'>
                     <SelectFormContainer
                         title={data.sex.title}
                         list={data.sex.list}
@@ -88,7 +88,7 @@ const FilterCatalog = (props) => {
                     <MainButton
                         style={{
                             textTransform: 'uppercase',
-                            margin: '0 0 13px',
+                            margin: '0 0 18px',
                         }}
                     >
                         {titles.submit}
