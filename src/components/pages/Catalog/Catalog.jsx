@@ -9,6 +9,7 @@ import { getUsers } from '../../../store/slices/catalogSlice/catalogSlice';
 
 const data = {
     title: 'Список преподавателей',
+    titleArticles: 'Полезные статьи',
 };
 
 const Catalog = (props) => {
@@ -31,6 +32,16 @@ const Catalog = (props) => {
                             <UserListCatalog />
                         </div>
                     </div>
+                </ContainerMain>
+            </div>
+            <div className='articles-catalog'>
+                <ContainerMain>
+                    <Title align={'center'}>{data.titleArticles}</Title>
+                    <ul className="article-catalog__list">
+                        {
+                            
+                        }
+                    </ul>
                 </ContainerMain>
             </div>
         </>
