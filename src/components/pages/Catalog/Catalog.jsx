@@ -6,6 +6,8 @@ import FilterCatalog from './FilterCatalog/FilterCatalog';
 import UserListCatalog from './UserListCatalog/UserListCatalog';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../../store/slices/catalogSlice/catalogSlice';
+import axios from 'axios';
+import CatalogArticles from './CatalogArticles/CatalogArticles';
 
 const data = {
     title: 'Список преподавателей',
@@ -34,16 +36,7 @@ const Catalog = (props) => {
                     </div>
                 </ContainerMain>
             </div>
-            <div className='articles-catalog'>
-                <ContainerMain>
-                    <Title align={'center'}>{data.titleArticles}</Title>
-                    <ul className="article-catalog__list">
-                        {
-                            
-                        }
-                    </ul>
-                </ContainerMain>
-            </div>
+            <CatalogArticles />
         </>
     );
 };

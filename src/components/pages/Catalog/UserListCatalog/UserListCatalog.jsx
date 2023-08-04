@@ -6,11 +6,11 @@ import Loading from '../../../common/Loading/Loading';
 
 const UserListCatalog = (props) => {
     const users = useSelector((state) => state.catalogSlice.users);
-    console.log(users);
+
     if (!users.length) {
         return <Loading />;
     }
-
+    
     return (
         <ul className='list-catalog'>
             {users.map((user) => (

@@ -7,17 +7,27 @@ const data = {
     titleBtn: 'Детальнее',
 };
 
-const ArticleCard = ({ state }) => {
+const ArticleCard = ({ image, title, text }) => {
+    let imageSrc = `http://bebest.pp.ua${image}`;
+
     return (
         <li className='article-card'>
             <div className='article-card__image-wrap'>
-                <Picture img='' webp='' className='article-card__image' />
+                <Picture
+                    img={imageSrc}
+                    webp=''
+                    className='article-card__image'
+                />
             </div>
             <div className='article-card__body'>
-                <h2 className='article-card__title'></h2>
-                <p className='article-card__text'></p>
-                <MainButton size='small'>{data.titleBtn}</MainButton>
+                <h2 className='article-card__title'>{title}</h2>
+                <p className='article-card__text'>{text}</p>
+                <MainButton size='small' style={{
+                    flex: '0 0 auto'
+                }}>{data.titleBtn}</MainButton>
             </div>
         </li>
     );
 };
+
+export default ArticleCard;
