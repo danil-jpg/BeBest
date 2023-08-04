@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './TabsUserItem.scss';
 import { v1 } from 'uuid';
-import { setTab } from '../../../../store/slices/tabsUserSlice/tabsUserSlice';
 import { isActive } from '../../../../utils/isActive';
+import MainButton from '../../../UI/Buttons/MainButton/MainButton';
+import Video from '../../Video/Video';
 
 let styleView = {
     display: 'block',
@@ -29,7 +30,12 @@ let tabs = [
     },
 ];
 
-const TabsUserItem = () => {
+let titlesBtn = {
+    lesson: 'Пробный урок',
+    profile: 'Профиль преподавателя',
+};
+
+const TabsUserItem = ({ description, videoSrc }) => {
     let [tabList, setTabList] = useState(tabs);
     let [view, setView] = useState('video');
 
@@ -72,13 +78,16 @@ const TabsUserItem = () => {
                         style={view === 'video' ? styleView : {}}
                         className='tabs-item-catalog__item'
                     >
-                        1
+                        <Video
+                            src={videoSrc}
+                            className='tabs-item-catalog__video-wrap'
+                        />
                     </div>
                     <div
                         style={view === 'description' ? styleView : {}}
                         className='tabs-item-catalog__item'
                     >
-                        2
+                        {description}
                     </div>
                     <div
                         style={view === 'calendar' ? styleView : {}}
@@ -89,7 +98,10 @@ const TabsUserItem = () => {
                 </div>
             </div>
             <div className='tabs-item-catalog__footer'>
-                
+                <MainButton style={{ maxWidth: '161px' }}>
+                    {titlesBtn.lesson}
+                </MainButton>
+                <MainButton type='white'>{titlesBtn.profile}</MainButton>
             </div>
         </div>
     );
