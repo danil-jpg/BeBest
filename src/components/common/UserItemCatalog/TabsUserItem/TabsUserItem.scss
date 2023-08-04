@@ -15,8 +15,8 @@
 			margin: 0;
 		}
 		&.active {
-			color: #F04973;
-			text-shadow: 0 0 1px #F04973;
+			color: #f04973;
+			text-shadow: 0 0 1px #f04973;
 		}
 	}
 	&__body {
@@ -25,5 +25,14 @@
 	}
 	&__item {
 		display: none;
+		line-height: 1.57;
+	}
+	&__footer {
+		display: flex;
+		column-gap: 16px;
+	}
+	&__video-wrap {
+		width: 277px;
+		height: 166px;
 	}
 }

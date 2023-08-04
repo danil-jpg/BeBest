@@ -1,36 +1,48 @@
 import React from 'react';
 import './BodyUserItem.scss';
 
-const BodyUserItem = () => {
+const titles = {
+    langLesson: 'Язык обучения',
+    langSpeak: 'Языки общения',
+    amountStudent: 'Кол-во учеников',
+    amountLessons: 'Кол-во проведенных уроков',
+};
+
+const BodyUserItem = ({
+    name,
+    country,
+    CommunicationLang,
+    lang,
+    amountStudent,
+    amountLessons,
+}) => {
     return (
         <div className='body-item-catalog'>
             <div className='body-item-catalog__body-inner body-item-catalog__body-inner_name'>
-                <h2 className='body-item-catalog__name'>
-                    Анна Михайлова
-                </h2>
-                <p className='body-item-catalog__country'>
-                    Украина
-                </p>
-            </div>
-            <div className='body-item-catalog__body-inner'>
-                <h3 className='body-item-catalog__title'>Язык обучения</h3>
-                <p className='body-item-catalog__text'>испанский</p>
-            </div>
-            <div className='body-item-catalog__body-inner'>
-                <h3 className='body-item-catalog__title'>Языки общения</h3>
-                <p className='body-item-catalog__text'>
-                    английский, голландский, китайский
-                </p>
-            </div>
-            <div className='body-item-catalog__body-inner'>
-                <h3 className='body-item-catalog__title'>Кол-во учеников</h3>
-                <p className='body-item-catalog__text'>15</p>
+                <h2 className='body-item-catalog__name'>{name}</h2>
+                <p className='body-item-catalog__country'>{country}</p>
             </div>
             <div className='body-item-catalog__body-inner'>
                 <h3 className='body-item-catalog__title'>
-                    Кол-во проведенных уроков
+                    {titles.langLesson}
                 </h3>
-                <p className='body-item-catalog__text'>34</p>
+                <p className='body-item-catalog__text'>{lang}</p>
+            </div>
+            <div className='body-item-catalog__body-inner'>
+                <h3 className='body-item-catalog__title'>{titles.langSpeak}</h3>
+                <p className='body-item-catalog__text'>{CommunicationLang}</p>
+            </div>
+            <div className='body-item-catalog__body-inner'>
+                <h3 className='body-item-catalog__title'>
+                    {titles.amountStudent}
+                </h3>
+                <p className='body-item-catalog__text'>{amountStudent}</p>
+            </div>
+            <div className='body-item-catalog__body-inner'>
+                <h3 className='body-item-catalog__title'>
+                    {titles.amountLessons}
+                </h3>
+                <p className='body-item-catalog__text'>{amountLessons}</p>
             </div>
         </div>
     );

@@ -1,0 +1,50 @@
+.video-wrap {
+	position: relative;
+	&.show iframe {
+		display: block;
+	}
+	&__image-wrap {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	&__image {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+	iframe {
+		position: relative;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		display: none;
+		z-index: 2;
+	}
+	&__btn {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		width: 42px;
+		height: 42px;
+		border: 2px solid rgba(255, 255, 255, 0.4);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		&:hover {
+			box-shadow: 0 0 10px #fff;
+		}
+	}
+	&__icon-btn {
+		width: 11px;
+		height: 13px;
+		fill: #fff;
+		stroke: #fff;
+		margin: 2px 0 0 3px;
+	}
+}

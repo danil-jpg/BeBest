@@ -8,8 +8,18 @@ const UserItemCatalog = ({ user }) => {
     return (
         <li className='item-catalog'>
             <ImageUserItem photo={user.avatar.url} amountStars={user.stars} />
-            <BodyUserItem />
-            <TabsUserItem />
+            <BodyUserItem
+                name={user.username}
+                country={user.country}
+                CommunicationLang={user.CommunicationLang}
+                lang={user.lang}
+                amountStudent={user.amountStudent}
+                amountLessons={user.amountLessons}
+            />
+            <TabsUserItem
+                description={user.description}
+                videoSrc={user.video}
+            />
         </li>
     );
 };
