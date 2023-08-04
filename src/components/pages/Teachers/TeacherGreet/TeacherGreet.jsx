@@ -26,8 +26,8 @@ const TeacherGreet = () => {
             setObj(res.data.filter((el) => el.id === 10)[0]);
         };
         fetchData();
-    }, [name, avatar]);
-    console.log(obj);
+    }, []);
+
     return (
         <div className='teacher__vid'>
             <iframe
