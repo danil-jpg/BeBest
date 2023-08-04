@@ -1,0 +1,42 @@
+.how-working {
+
+    // .how-working__card
+
+    &__card {
+        max-width: 400px;
+        height: auto;
+        // .how-working__card-images
+
+        &-images {
+
+            display: flex;
+            align-items: center;
+            max-width: 155px;
+            justify-content: space-between;
+        }
+
+        // .how-working__card-information
+
+        &-information {
+            padding-top: 21px;
+        }
+
+        // .how-working__card-title
+
+        &-title {
+            color: #292C32;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 22px
+        }
+
+        // .how-working__card-description
+
+        &-description {
+            color: #454B58;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 25px;
+        }
+    }
+}
