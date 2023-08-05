@@ -98,7 +98,7 @@ const Teacher = (props) => {
                         <div className='ec ' ref={ref}></div>
                         <TeacherPosibility />
                         <TeacherCv />
-                        <TeacherMarks />
+                        {/* <TeacherMarks /> */}
                     </div>
                     <div className='teacher__body__right'>
                         <TeacherLesson />
