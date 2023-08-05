@@ -42,6 +42,7 @@ export const getUsers = createAsyncThunk(
     }
 );
 
+
 export const catalogSlice = createSlice({
     name: 'catalog',
     initialState,

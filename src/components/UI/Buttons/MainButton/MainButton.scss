@@ -1,6 +1,4 @@
 .main-btn {
-	background: linear-gradient(90deg, #f04973 0%, #fa6655 100%);
-	box-shadow: 0px 15px 25px 0px rgba(193, 42, 61, 0.2);
 	display: block;
 	width: 100%;
 	text-align: center;
@@ -10,12 +8,29 @@
 		padding: 19px 15px 17px;
 		border-radius: 10px;
 	}
+	&_small {
+		padding: 13px 5px;
+		border-radius: 7px;
+	}
+	&_white {
+		background:
+			linear-gradient(white, white) padding-box,
+			linear-gradient(90deg, #f04973 0%, #fa6655 100%) border-box;
+		border: 1px solid transparent;
+	}
+	&_red {
+		background: linear-gradient(90deg, #f04973 0%, #fa6655 100%);
+		box-shadow: 0px 15px 25px 0px rgba(193, 42, 61, 0.2);
+	}
 	span {
 		color: #fff;
 		position: relative;
 		z-index: 2;
-		font-size: 14px;
 		font-weight: 700;
+	}
+	&_white span {
+		color: #F04973;
+		font-weight: 600;
 	}
 	&::after {
 		content: "";
@@ -24,14 +39,20 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(90deg, #00D2FF 0%, #2596FF 100%);
+		background: linear-gradient(90deg, #00d2ff 0%, #2596ff 100%);
 		opacity: 0;
-		transition: opacity .2s;
+		transition: opacity 0.2s;
+	}
+	&_white::after {
+		background: linear-gradient(90deg, #f04973 0%, #fa6655 100%);
 	}
 	&:hover {
 		box-shadow: 0px 15px 25px 0px rgba(42, 150, 193, 0.2);
 	}
-	&:hover::after{
+	&_white:hover span {
+		color: #fff;
+	}
+	&:hover::after {
 		opacity: 1;
-	} 
+	}
 }

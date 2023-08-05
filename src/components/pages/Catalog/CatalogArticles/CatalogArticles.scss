@@ -1,0 +1,9 @@
+.articles-catalog {
+	background: #F2F5FA;
+	padding: 75px 0 104px;
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 40px;
+	}
+}
