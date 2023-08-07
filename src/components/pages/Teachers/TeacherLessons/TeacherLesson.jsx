@@ -7,11 +7,7 @@ import person from '../../../../assets/icons/person.svg';
 import cap from '../../../../assets/icons/cap.svg';
 
 const TeacherLesson = () => {
-    const x = () =>
-        Date.toLocaleString('default', {
-            month: 'long',
-        });
-    console.log(x);
+    const date = new Date();
     return (
         <div className='teacher__lessons'>
             <div className='teacher__trial'>
@@ -49,7 +45,10 @@ const TeacherLesson = () => {
             <div className='teacher__trial'>
                 <p className='teacher__trial_text'>Групповые уроки</p>
                 <div className='teacher__trial__box'>
-                    <p className='teacher__trial__box_date'>28 июня 2021</p>
+                    <p className='teacher__trial__box_date'>{`${
+                        date.getDate() + 1
+                    } ${date.toLocaleString('default', { month: 'long' })}
+                    ${date.getFullYear()}`}</p>
                     <p className='teacher__trial__box_title'>Базовые навыки испанского языка</p>
                     <div className='teacher__trial__box__attributes '>
                         <div className='teacher__trial__box__attributes__item teacher__trial__box__attributes__item_red'>
@@ -97,7 +96,10 @@ const TeacherLesson = () => {
                     </MainButton>
                 </div>
                 <div className='teacher__trial__box'>
-                    <p className='teacher__trial__box_date'>28 июня 2021</p>
+                    <p className='teacher__trial__box_date'>{`${
+                        date.getDate() + 2
+                    } ${date.toLocaleString('default', { month: 'long' })}
+                    ${date.getFullYear()}`}</p>
                     <p className='teacher__trial__box_title'>Базовые навыки испанского языка</p>
                     <div className='teacher__trial__box__attributes '>
                         <div className='teacher__trial__box__attributes__item teacher__trial__box__attributes__item_red'>
@@ -148,7 +150,10 @@ const TeacherLesson = () => {
             <div className='teacher__trial'>
                 <p className='teacher__trial_text'>Учебные курсы</p>
                 <div className='teacher__trial__box'>
-                    <p className='teacher__trial__box_date'>28 июня 2021</p>
+                    <p className='teacher__trial__box_date'>{`${
+                        date.getDate() + 3
+                    } ${date.toLocaleString('default', { month: 'long' })}
+                    ${date.getFullYear()}`}</p>
                     <p className='teacher__trial__box_title'>Базовые навыки испанского языка</p>
                     <div className='teacher__trial__box__attributes '>
                         <div className='teacher__trial__box__attributes__item teacher__trial__box__attributes__item_purple'>
@@ -193,7 +198,10 @@ const TeacherLesson = () => {
                     </MainButton>
                 </div>
                 <div className='teacher__trial__box'>
-                    <p className='teacher__trial__box_date'>28 июня 2021</p>
+                    <p className='teacher__trial__box_date'>{`${
+                        date.getDate() + 4
+                    } ${date.toLocaleString('default', { month: 'long' })}
+                    ${date.getFullYear()}`}</p>
                     <p className='teacher__trial__box_title'>Уровень разговорного – Бог</p>
                     <div className='teacher__trial__box__attributes '>
                         <div className='teacher__trial__box__attributes__item teacher__trial__box__attributes__item_purple'>
