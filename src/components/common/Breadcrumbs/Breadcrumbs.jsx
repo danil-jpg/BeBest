@@ -44,6 +44,14 @@ const Breadcrumbs = (props) => {
                                 </Link>
                             }
                         />
+                        <Route
+                            path='/article'
+                            element={
+                                <Link to='' className='breadcrumbs__link'>
+                                    Страница текстовая
+                                </Link>
+                            }
+                        />
                     </Routes>
                 </div>
             </ContainerMain>

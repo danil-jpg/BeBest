@@ -8,6 +8,7 @@ import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 const Home = React.lazy(() => import('../../pages/Home/Home'));
 const Catalog = React.lazy(() => import('../../pages/Catalog/Catalog'));
 const Teacher = React.lazy(() => import('../../pages/Teachers/Teacher'));
+const Article = React.lazy(() => import('../../pages/Article/Article'));
 
 const Main = (props) => {
     return (
@@ -18,6 +19,7 @@ const Main = (props) => {
                     <Route index element={<Home />} />
                     <Route path='catalog' element={<Catalog />} />
                     <Route path='teacher' element={<Teacher />} />
+                    <Route path='article' element={<Article />} />
                 </Routes>
             </Suspense>
         </main>
