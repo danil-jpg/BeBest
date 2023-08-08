@@ -1,9 +1,23 @@
 .articles-catalog {
-	background: #F2F5FA;
+	background: #f2f5fa;
 	padding: 75px 0 104px;
+	overflow: hidden;
 	&__list {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		column-gap: 40px;
+		position: relative;
+		z-index: 1;
+	}
+	&__image-bg {
+		position: absolute;
+		&_left {
+			left: -443px;
+			top: -342px;
+		}
+		&_right {
+			right: -453px;
+			top: -581px;
+		}
 	}
 }

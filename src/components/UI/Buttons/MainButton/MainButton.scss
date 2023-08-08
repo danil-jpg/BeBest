@@ -5,7 +5,7 @@
 	position: relative;
 	overflow: hidden;
 	&_middle {
-		padding: 19px 15px 17px;
+		padding: 19px 5px 17px;
 		border-radius: 10px;
 	}
 	&_small {
@@ -36,6 +36,7 @@
 		position: relative;
 		z-index: 2;
 		font-weight: 700;
+		letter-spacing: 0.7px;
 	}
 	&_white span {
 		color: #F04973;
