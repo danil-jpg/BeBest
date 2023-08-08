@@ -3,12 +3,9 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import axios from "axios"
 import HowWorkingCard from './HowWorkingCard/HowWorkingCard';
-
+import ArticleCard from '../../../common/ArticleCard/ArticleCard';
+import Title from '../../../UI/Title/Title';
 const HowWorking = () => {
-    const [icon, setIcon] = useState('');
-    const [image,setImage] = useState('')
-    const [description, setDescription] = useState('');
-    const [title, setTitle] = useState('')
     const [cardsData, setCardsData] = useState([]);
 
     useEffect(() => {
@@ -26,8 +23,11 @@ const HowWorking = () => {
 
         
         <div className="how-working">
-
-             {cardsData.map(card=> (
+          <div className="how-working__title">
+              <Title children='Как мы работаем'/>
+          </div>
+          <div className="how-working__cards">
+          {cardsData.map(card=> (
              <HowWorkingCard key={card.id} image={`http://bebest.pp.ua${card.attributes.image.data.attributes.url}`} 
                                            icon={`http://bebest.pp.ua${card.attributes.icon.data.attributes.url}`}
                                            title={card.attributes.title}
@@ -35,7 +35,8 @@ const HowWorking = () => {
             />
                             
              ))}
-
+          </div>
+    
         </div>  
      );
 }

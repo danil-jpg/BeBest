@@ -15,7 +15,7 @@ const App = () => {
                     <Route path='/*' element={<Header />} />
                 </Routes>
                 <Main />
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </BrowserRouter>
     );

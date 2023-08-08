@@ -5,4 +5,10 @@
 	font-weight: 600;
 	line-height: normal;
 	margin: 0 0 30px;
+	&_align-left {
+		text-align: left;
+	}
+	&_align-center {
+		text-align: center;
+	}
 }

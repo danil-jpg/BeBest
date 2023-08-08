@@ -6,13 +6,14 @@ import { useState,useEffect } from 'react';
 import axios from "axios"
 import MainButton from '../../UI/Buttons/MainButton/MainButton';
 import HowWorking from './HowWorking/HowWorking';
-
+import "./Home.scss"
+import HeroBlock from './HeroBlock/HeroBlock';
 const Home = (props) => {
 
     return (
         <main className='home'>
             <ContainerMain>
-            <HowWorking/>
+                <HeroBlock/>
             </ContainerMain>
             
         </main>

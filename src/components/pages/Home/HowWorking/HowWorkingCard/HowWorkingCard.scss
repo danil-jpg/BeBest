@@ -11,14 +11,15 @@
 
             display: flex;
             align-items: center;
-            max-width: 155px;
+            max-width: 150px;
             justify-content: space-between;
         }
 
         // .how-working__card-information
 
         &-information {
-            padding-top: 21px;
+            padding-top: 12px;
+            padding-left: 87px;
         }
 
         // .how-working__card-title
@@ -37,6 +38,7 @@
             font-size: 14px;
             font-weight: 400;
             line-height: 25px;
+            padding-top: 12px;
         }
     }
 }

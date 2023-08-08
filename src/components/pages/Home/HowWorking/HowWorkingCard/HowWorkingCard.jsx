@@ -5,7 +5,7 @@ const HowWorkingCard = ({image,icon, title,description}) => {
         <div className="how-working__card">
             <div className="how-working__card-images">
                 <img src={icon} alt="icon" />
-                <img src={image} alt="img" />
+                <img className="image" src={image} alt="img" />
             </div>
             <div className="how-working__card-information">
                 <h3 className="how-working__card-title">{title}</h3>

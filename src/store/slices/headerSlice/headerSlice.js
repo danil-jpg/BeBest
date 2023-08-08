@@ -4,6 +4,7 @@ import ua from '../../../assets/icons/ua.svg';
 import eng from '../../../assets/icons/eng.svg';
 import spain from '../../../assets/icons/spain.svg';
 import { v1 } from 'uuid';
+import { updateListSelection } from '../../../utils/updateListSelection';
 
 const initialState = {
     logo,
@@ -71,13 +72,10 @@ export const headerSlice = createSlice({
     initialState,
     reducers: {
         setLang: (state, action) => {
-            state.langList.forEach(el => {
-                if (el.id === action.payload) {
-                    el.selected = true;
-                } else {
-                    el.selected = false;
-                }
-            })
+            state.langList = updateListSelection(
+                state.langList,
+                action.payload
+            );
         },
     },
 });
