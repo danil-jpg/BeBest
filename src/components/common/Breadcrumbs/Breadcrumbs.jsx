@@ -52,6 +52,14 @@ const Breadcrumbs = (props) => {
                                 </Link>
                             }
                         />
+                        <Route
+                            path='/registration1'
+                            element={
+                                <Link to='' className='breadcrumbs__link'>
+                                    Регистрация
+                                </Link>
+                            }
+                        />
                     </Routes>
                 </div>
             </ContainerMain>
