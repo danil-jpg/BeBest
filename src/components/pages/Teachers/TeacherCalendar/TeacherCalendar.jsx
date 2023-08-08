@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './TeacherCalendar.scss';
 import { v1 } from 'uuid';
 import axios from 'axios';
+import MainButton from '../../../UI/Buttons/MainButton/MainButton';
 
 const TeacherCalendar = () => {
+    const ref = useRef();
     const [obj, setObj] = useState('');
     let [weekCounter, setWeekCounter] = useState(0);
 
@@ -77,9 +79,13 @@ const TeacherCalendar = () => {
                                     <div
                                         onClick={() => {
                                             if (el === true) {
-                                                alert(index + 8);
+                                                console.log(ref);
+                                                ref.current.classList.add(
+                                                    'teacher__calendar__wr_item_booking_active'
+                                                );
+                                                console.log(ref);
                                             } else {
-                                                alert(index + 8);
+                                                alert('Время занято');
                                             }
                                         }}
                                         className={
@@ -88,7 +94,25 @@ const TeacherCalendar = () => {
                                                 : 'teacher__calendar__wr_item'
                                         }
                                         key={v1()}>
-                                        {el.time}
+                                        <div
+                                            ref={ref}
+                                            className={'teacher__calendar__wr_item_booking_hidden'}>
+                                            <div className='calendar__row'>
+                                                <p className='row_date_text'>Дата :</p>
+                                                <p className='row_date_date'>{el.date}</p>
+                                            </div>
+                                            <div className='calendar__row'>
+                                                <p className='row_date_text'>Время начала : </p>
+                                                <p className='row_date_date'>{index}</p>
+                                            </div>
+                                            <div className='calendar__row'>
+                                                <p className='row_date_text'>Стоимость :</p>
+                                                <p className='row_date_date'>120$</p>
+                                            </div>
+                                            <MainButton style={{ marginTop: '22px' }}>
+                                                Заборнировать урок
+                                            </MainButton>
+                                        </div>
                                     </div>
                                 ))}
                             </div>

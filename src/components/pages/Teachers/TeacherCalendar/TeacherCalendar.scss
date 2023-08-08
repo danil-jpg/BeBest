@@ -42,8 +42,10 @@
     width: 100%;
     height: 30px;
     flex-shrink: 0;
+    position: relative;
     border: 1px solid #e1eefc;
     &_filled {
+        position: relative;
         background: #e1eefc;
         cursor: pointer;
         width: 100%;
@@ -122,3 +124,35 @@
 .teacher__calendar__wr_day {
     margin-right: 5px;
 }
+
+.teacher__calendar__wr_item_booking {
+    padding: 25px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+    position: absolute;
+    z-index: 1;
+}
+.calendar__row {
+    display: flex;
+    margin-bottom: 11px;
+}
+.row_date_text {
+    color: #292c32;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 150%; /* 22.5px */
+}
+.row_date_date {
+    color: #292c32;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 150%;
+}
+.teacher__calendar__wr_item_booking_hidden {
+    display: none;
+}
+
+// .teacher__calendar__wr_item_booking_active {
+//     display: initial;
+// }
