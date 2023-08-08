@@ -13,56 +13,11 @@ import TeacherPosibility from './TeacherPosibility/TeacherPosibility';
 import TeacherCv from './TeacherCv/TeacherCv';
 import TeacherMarks from './TeacherMarks/TeacherMarks';
 import TeacherLesson from './TeacherLessons/TeacherLesson';
+import TeacherCalendar from './TeacherCalendar/TeacherCalendar';
 
 const Teacher = (props) => {
     const ref = useRef();
-    useEffect(() => {
-        let ec = new Calendar({
-            target: ref.current,
-            props: {
-                plugins: [TimeGrid],
-                options: {
-                    view: 'timeGridWeek',
-                    allDaySlot: false,
-                    dayHeaderFormat: function (date) {
-                        return `${date.getDate()} ${date.toLocaleString('default', {
-                            month: 'long',
-                        })}`;
-                    },
-                    // buttonText: 'xxx',
-                    // без понятия за что оно отвечает
-                    // displayEventEnd: false,
-                    // duration: { weeks: 2 },
-                    // без понятия за что оно отвечает
-                    eventBackgroundColor: 'rgba(225, 238, 252, 1)',
-                    eventClick: function (info) {
-                        alert('Click!');
-                    },
-                    // не работает
-                    height: '100%',
-                    // lazyFetching: ""
-                    // !!!!!!!!!!!!!!!!!!!!!!
-                    // Это нужно для страпи потом
-                    // !!!!!!!!!!!!!!!!!!!!!!
-                    listDayFormat: { weekday: 'long' },
-                    // listDaySideFormat: { year: 'numeric', month: 'short', day: 'numeric' },
-                    // Не работает
-                    loading: function (isLoading) {
-                        console.log('...loading');
-                    },
-                    slotDuration: '01:00:00',
-                    slotMaxTime: '21:00:00',
-                    slotMinTime: '07:00:00',
-                    slotHeight: 30,
-                    titleFormat: { year: 'numeric', month: 'long', day: 'numeric' },
-                    headerToolbar: { start: 'prev', center: 'title', end: 'next' },
-                    events: [
-                        // your list of events
-                    ],
-                },
-            },
-        });
-    }, []);
+    useEffect(() => {}, []);
 
     return (
         <div className='teacher'>
@@ -73,7 +28,67 @@ const Teacher = (props) => {
                     <div className='teacher__body__left'>
                         <TeacherGreet />
                         <TeacherQuotes />
-                        <div className='ec ' ref={ref}></div>
+                        <TeacherCalendar
+                            arr={[
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                true,
+                                false,
+                                false,
+                                false,
+                                true,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                true,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                true,
+                                false,
+                                true,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                false,
+                                true,
+                            ]}
+                        />
+
                         <TeacherPosibility />
                         <TeacherCv />
                         <TeacherMarks />
