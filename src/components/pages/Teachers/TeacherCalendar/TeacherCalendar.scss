@@ -1,8 +1,23 @@
 .teacher__calendar {
+    background: rgba(255, 255, 255, 1);
+    margin-top: 30px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+    padding: 40px 60px 40px 40px;
 }
 .teacher__calendar__wr {
     background-color: #fff;
     color: #444;
+    margin-bottom: 33px;
+    margin-top: 35px;
+}
+
+.teacher__calendar__title {
+    color: #292c32;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.1; /* 110% */
 }
 
 .teacher__calendar__wr-row {
@@ -10,47 +25,100 @@
     // grid-template-rows: repeat(7, auto);
     grid-template-columns: repeat(7, auto);
     grid-auto-flow: dense;
-    grid-gap: 1px;
+    // grid-gap: 1px;
 }
+.teacher__calendar__wr_date {
+    display: flex;
+    color: #292c32;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.69; /* 169.231% */
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
 .teacher__calendar__wr_item {
-    width: 100px;
+    width: 100%;
     height: 30px;
     flex-shrink: 0;
-    background: red;
-    border: 1px solid black;
+    border: 1px solid #e1eefc;
     &_filled {
         background: #e1eefc;
         cursor: pointer;
-        width: 100px;
+        width: 100%;
         height: 30px;
-        border: 1px solid black;
+        border: 1px solid #dce3e8;
     }
 }
 
 .teacher__calendar_date-wr {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .date_cursor_left {
+    background-image: url('../../../../assets/icons/arrowLeftLong.svg');
+    margin-right: 10px;
+}
+.date_cursor_right {
+    background-image: url('../../../../assets/icons/arrowRightLong.svg');
+    margin-left: 10px;
 }
 .date_cursor {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    background-color: black;
+    width: 50px;
+    height: 10px;
+    background-repeat: no-repeat;
     cursor: pointer;
 }
 .date_time-wr {
     display: flex;
+    color: #292c32;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.46; /* 146.667% */
+    flex-basis: 245px;
+    justify-content: space-between;
 }
 .date_time-wr_start {
+    display: flex;
+    justify-content: space-between;
 }
 .date_day {
+    margin: 0 5px;
 }
 .date_month {
+    margin-right: 5px;
 }
 .date_year {
+    margin-right: 5px;
 }
 .date_time-wr_end {
+    display: flex;
+    justify-content: space-between;
 }
 .date_cursor_right {
+}
+
+.teacher__calendar__calendar-wr {
+    display: grid;
+    margin-top: 29px;
+    grid-template-columns: 9.5% 1fr;
+}
+.teacher__calendar__calendar_subtime {
+    padding-top: 22px;
+}
+.teacher__calendar_subtitle-text {
+    color: #454b58;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 182.85%; /* 25.599px */
+    margin-top: 4px;
+}
+
+.teacher__calendar__wr_day {
+    margin-right: 5px;
 }
