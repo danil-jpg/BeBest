@@ -35,13 +35,13 @@ export const getUsers = createAsyncThunk(
             const res = await axios.get(
                 'http://bebest.pp.ua/api/users/?populate=*'
             );
+            dispatch(setUsers(res.data));
             return res.data;
         } catch (error) {
             return rejectWithValue(error.message);
         }
     }
 );
-
 
 export const catalogSlice = createSlice({
     name: 'catalog',
@@ -66,11 +66,10 @@ export const catalogSlice = createSlice({
 
     extraReducers: {
         [getUsers.fulfilled]: (state, action) => {
-            console.log('getUsers >', 'fulfilled');
             state.users = action.payload;
         },
-        [getUsers.pending]: () => console.log('getUsers >', 'pending'),
-        [getUsers.rejected]: () => console.log('getUsers >', 'rejected'),
+        [getUsers.pending]: () => console.log(),
+        [getUsers.rejected]: () => console.log(),
     },
 });
 
