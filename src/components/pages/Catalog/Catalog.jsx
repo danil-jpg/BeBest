@@ -5,9 +5,9 @@ import Title from '../../UI/Title/Title';
 import FilterCatalog from './FilterCatalog/FilterCatalog';
 import UserListCatalog from './UserListCatalog/UserListCatalog';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers } from '../../../store/slices/catalogSlice/catalogSlice';
 import CatalogArticles from './CatalogArticles/CatalogArticles';
-import Loading from '../../common/Loading/Loading';
+import { setUsers } from '../../../store/slices/catalogSlice/catalogSlice';
+import axios from 'axios';
 
 const data = {
     title: 'Список преподавателей',
@@ -15,12 +15,18 @@ const data = {
 };
 
 const Catalog = (props) => {
-    const users = useSelector((state) => state.catalogSlice.users);
     let dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getUsers());
-    }, [dispatch]);
+        const getUsers = async () => {
+            let res = await axios.get(
+                'http://bebest.pp.ua/api/users/?populate=*'
+            );
+            dispatch(setUsers(res.data));
+        };
+
+        getUsers();
+    }, []);
 
     return (
         <>
@@ -32,7 +38,7 @@ const Catalog = (props) => {
                             <FilterCatalog />
                         </div>
                         <div className='catalog__body'>
-                            <UserListCatalog userList={users} />
+                            <UserListCatalog />
                         </div>
                     </div>
                 </ContainerMain>

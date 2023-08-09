@@ -28,20 +28,20 @@ const initialState = {
     ],
 };
 
-export const getUsers = createAsyncThunk(
-    'catalog/getUsers',
-    async (_, { rejectWithValue, dispatch }) => {
-        try {
-            const res = await axios.get(
-                'http://bebest.pp.ua/api/users/?populate=*'
-            );
-            dispatch(setUsers(res.data));
-            return res.data;
-        } catch (error) {
-            return rejectWithValue(error.message);
-        }
-    }
-);
+// export const getUsers = createAsyncThunk(
+//     'catalog/getUsers',
+//     async (_, { rejectWithValue, dispatch }) => {
+//         try {
+//             const res = await axios.get(
+//                 'http://bebest.pp.ua/api/users/?populate=*'
+//             );
+//             dispatch(setUsers(res.data));
+//             return res.data;
+//         } catch (error) {
+//             return rejectWithValue(error.message);
+//         }
+//     }
+// );
 
 export const catalogSlice = createSlice({
     name: 'catalog',
@@ -64,13 +64,13 @@ export const catalogSlice = createSlice({
         },
     },
 
-    extraReducers: {
-        [getUsers.fulfilled]: (state, action) => {
-            state.users = action.payload;
-        },
-        [getUsers.pending]: () => console.log(),
-        [getUsers.rejected]: () => console.log(),
-    },
+    // extraReducers: {
+    //     [getUsers.fulfilled]: (state, action) => {
+    //         state.users = action.payload;
+    //     },
+    //     [getUsers.pending]: () => console.log(),
+    //     [getUsers.rejected]: () => console.log(),
+    // },
 });
 
 export const { setUsers, setStartColor } = catalogSlice.actions;
