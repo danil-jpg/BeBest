@@ -26,5 +26,18 @@
 			color: #fff;
 			font-weight: 800;
 		}
+		&_next {
+			position: relative;
+		}
+		&_next::after {
+			content: "";
+			position: absolute;
+			display: block;
+			width: 10px;
+			height: 10px;
+			border: 2px solid #454B58;
+			border-width: 2px 2px 0 0;
+			transform: translateX(-2px) rotate(45deg);
+		}
 	}
 }

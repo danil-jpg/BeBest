@@ -16,7 +16,7 @@ const UserListCatalog = () => {
 
     const onPageNumClickHandler = (num) => {
         setCurrentPage(num);
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -26,12 +26,17 @@ const UserListCatalog = () => {
                     <UserItemCatalog key={user.id} user={user} />
                 ))}
             </ul>
-            <Pagination
-                totalPages={users.length}
-                itemsPerPage={userPerPage}
-                currentPage={currentPage}
-                onPageNumClickHandler={onPageNumClickHandler}
-            />
+            {users.length === currentUsers.length ? (
+                <></>
+            ) : (
+                <Pagination
+                    totalUsers={users.length}
+                    itemsPerPage={userPerPage}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    onPageNumClickHandler={onPageNumClickHandler}
+                />
+            )}
         </>
     );
 };

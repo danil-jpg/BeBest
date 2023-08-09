@@ -4,15 +4,25 @@ import { isChecked } from '../../../utils/isActive';
 
 const Pagination = ({
     itemsPerPage,
-    totalPages,
+    totalUsers,
     currentPage,
     onPageNumClickHandler,
+    setCurrentPage,
 }) => {
     let pageNumbers = [];
 
-    for (let i = 1; i <= Math.ceil(totalPages / itemsPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(totalUsers / itemsPerPage); i++) {
         pageNumbers.push(i);
     }
+
+    const onNextPageClickHandler = () => {
+        if (currentPage >= pageNumbers.length) {
+            return false;
+        } else {
+            setCurrentPage(++currentPage);
+            window.scrollTo(0, 0);
+        }
+    };
 
     return (
         <div className='pagination'>
@@ -32,6 +42,10 @@ const Pagination = ({
                         {num}
                     </li>
                 ))}
+                <li
+                    className='pagination__item pagination__item_next'
+                    onClick={onNextPageClickHandler}
+                ></li>
             </ul>
         </div>
     );
