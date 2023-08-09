@@ -3,10 +3,11 @@ import './TeacherCalendar.scss';
 import { v1 } from 'uuid';
 import axios from 'axios';
 import MainButton from '../../../UI/Buttons/MainButton/MainButton';
+import CalendarBooking from './CalendarBooking/CalendarBooking';
 
 const TeacherCalendar = () => {
-    const ref = useRef();
     const [obj, setObj] = useState('');
+
     let [weekCounter, setWeekCounter] = useState(0);
 
     const fetchData = async () => {
@@ -76,44 +77,13 @@ const TeacherCalendar = () => {
                         {obj?.data?.data[weekCounter].attributes.data.map((element) => (
                             <div className='teacher__calendar__wr_column' key={v1()}>
                                 {element.time.map((el, index) => (
-                                    <div
-                                        onClick={() => {
-                                            if (el === true) {
-                                                console.log(ref);
-                                                ref.current.classList.add(
-                                                    'teacher__calendar__wr_item_booking_active'
-                                                );
-                                                console.log(ref);
-                                            } else {
-                                                alert('Время занято');
-                                            }
-                                        }}
-                                        className={
-                                            el === true
-                                                ? ' teacher__calendar__wr_item_filled'
-                                                : 'teacher__calendar__wr_item'
-                                        }
-                                        key={v1()}>
-                                        <div
-                                            ref={ref}
-                                            className={'teacher__calendar__wr_item_booking_hidden'}>
-                                            <div className='calendar__row'>
-                                                <p className='row_date_text'>Дата :</p>
-                                                <p className='row_date_date'>{el.date}</p>
-                                            </div>
-                                            <div className='calendar__row'>
-                                                <p className='row_date_text'>Время начала : </p>
-                                                <p className='row_date_date'>{index}</p>
-                                            </div>
-                                            <div className='calendar__row'>
-                                                <p className='row_date_text'>Стоимость :</p>
-                                                <p className='row_date_date'>120$</p>
-                                            </div>
-                                            <MainButton style={{ marginTop: '22px' }}>
-                                                Заборнировать урок
-                                            </MainButton>
-                                        </div>
-                                    </div>
+                                    <CalendarBooking
+                                        el={el}
+                                        date={element.date}
+                                        month={element.month}
+                                        key={v1()}
+                                        index={index + 8}
+                                    />
                                 ))}
                             </div>
                         ))}

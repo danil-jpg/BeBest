@@ -131,11 +131,13 @@
     background: #fff;
     box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
     position: absolute;
-    z-index: 1;
+    z-index: 2;
+    min-width: 270px;
 }
 .calendar__row {
     display: flex;
-    margin-bottom: 11px;
+    margin-bottom: 6px;
+    position: relative;
 }
 .row_date_text {
     color: #292c32;
@@ -148,11 +150,23 @@
     font-size: 15px;
     font-weight: 600;
     line-height: 150%;
+    margin-left: 5px;
 }
 .teacher__calendar__wr_item_booking_hidden {
     display: none;
 }
 
-// .teacher__calendar__wr_item_booking_active {
-//     display: initial;
-// }
+.teacher__calendar__wr_item_booking_active {
+    display: block;
+    position: absolute;
+}
+.calendar__close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    height: 20px;
+    text-align: end;
+}
