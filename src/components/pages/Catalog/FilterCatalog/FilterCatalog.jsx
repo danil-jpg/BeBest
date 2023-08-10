@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './FilterCatalog.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import SelectFormContainer from '../../../UI/Forms/SelectFormContainer/SelectFormContainer';
 import {
-    setLessonSpeak,
-    setLessonTime,
-    setLessonCountry,
-    setLangSpeak,
-    setSex,
-    setPreparingTest,
-    setAspectLearn,
-    setOldLearn,
+    selectLessonSpeak,
+    selectLessonTime,
+    selectLessonCountry,
+    selectLangSpeak,
+    selectSex,
+    selectPreparingTest,
+    selectAspectLearn,
+    clearFilter,
+    selectYearLearn,
 } from '../../../../store/slices/filterSlice/filterSlice';
 import RangeSlider from '../../../UI/Forms/RangeSlider/RangeSlider';
 import MainButton from '../../../UI/Buttons/MainButton/MainButton';
 import { Link } from 'react-router-dom';
+import { sortUsers } from '../../../../store/slices/catalogSlice/catalogSlice';
 
 const titles = {
     filter: 'Фильтры',
@@ -23,9 +25,27 @@ const titles = {
     submit: 'Применить',
 };
 
-const FilterCatalog = (props) => {
+const FilterCatalog = ({ users }) => {
     let data = useSelector((state) => state.filterSlice);
     let dispatch = useDispatch();
+
+    const onClearClickHandler = () => {
+        dispatch(clearFilter());
+    };
+
+    const onSubmitClickHandler = () => {
+        let selectedList = [];
+
+        for (let itemFilter in data) {
+            data[itemFilter].list.forEach((el) => {
+                if (el.selected) {
+                    selectedList.push(data[itemFilter].value);
+                }
+            });
+        }
+
+        dispatch(sortUsers(selectedList));
+    };
 
     return (
         <form className='filter-catalog'>
@@ -35,25 +55,25 @@ const FilterCatalog = (props) => {
                     <SelectFormContainer
                         title={data.lessonSpeak.title}
                         list={data.lessonSpeak.list}
-                        setItem={setLessonSpeak}
+                        setItem={selectLessonSpeak}
                     />
 
                     <SelectFormContainer
                         title={data.lessonTime.title}
                         list={data.lessonTime.list}
-                        setItem={setLessonTime}
+                        setItem={selectLessonTime}
                     />
 
                     <SelectFormContainer
                         title={data.lessonCountry.title}
                         list={data.lessonCountry.list}
-                        setItem={setLessonCountry}
+                        setItem={selectLessonCountry}
                     />
 
                     <SelectFormContainer
                         title={data.langSpeak.title}
                         list={data.langSpeak.list}
-                        setItem={setLangSpeak}
+                        setItem={selectLangSpeak}
                     />
                 </div>
                 <div className='filter-catalog__inner'>
@@ -63,25 +83,25 @@ const FilterCatalog = (props) => {
                     <SelectFormContainer
                         title={data.sex.title}
                         list={data.sex.list}
-                        setItem={setSex}
+                        setItem={selectSex}
                     />
 
                     <SelectFormContainer
                         title={data.preparingTest.title}
                         list={data.preparingTest.list}
-                        setItem={setPreparingTest}
+                        setItem={selectPreparingTest}
                     />
 
                     <SelectFormContainer
                         title={data.aspectLearn.title}
                         list={data.aspectLearn.list}
-                        setItem={setAspectLearn}
+                        setItem={selectAspectLearn}
                     />
 
                     <SelectFormContainer
-                        title={data.oldLearn.title}
-                        list={data.oldLearn.list}
-                        setItem={setOldLearn}
+                        title={data.yearLearn.title}
+                        list={data.yearLearn.list}
+                        setItem={selectYearLearn}
                     />
                 </div>
                 <div className='filter-catalog__footer'>
@@ -90,10 +110,15 @@ const FilterCatalog = (props) => {
                             textTransform: 'uppercase',
                             margin: '0 0 18px',
                         }}
+                        onClick={onSubmitClickHandler}
                     >
                         {titles.submit}
                     </MainButton>
-                    <Link to='' className='filter-catalog__clear-btn'>
+                    <Link
+                        to=''
+                        className='filter-catalog__clear-btn'
+                        onClick={onClearClickHandler}
+                    >
                         {titles.clear}
                     </Link>
                 </div>
