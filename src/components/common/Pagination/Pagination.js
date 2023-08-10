@@ -10,14 +10,14 @@ const Pagination = ({ postsPerPage, totalPosts, currentPage, paginate }) => {
 	for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
 		pageNumbers.push(i);
 	}
-	console.log(currentPage)
 	return (
 		<ul className="pagination-container">
-			<li onClick={() => (currentPage - 1 > 0) ? paginate(currentPage - 1) : ''} className='pagination-item'>
+			<li onClick={() => (currentPage - 1 > 0) ? paginate(currentPage - 1) : alert('No more pages!')} className='pagination-item'>
+				{console.log(currentPage)}
 				<img src={leftArrow} />
 			</li>
 			{pageNumbers.map(el => <li onClick={() => paginate(el)} className='pagination-item' key={v1()}>{el}</li>)}
-			<li onClick={() => paginate(currentPage + 1)} className='pagination-item'>
+			<li onClick={() => paginate(() => (currentPage + 1 > totalPosts.length - 1) ? alert('No more pages!') : paginate(currentPage + 1))} className='pagination-item'>
 				<img src={rightArrow} />
 			</li>
 		</ul>
