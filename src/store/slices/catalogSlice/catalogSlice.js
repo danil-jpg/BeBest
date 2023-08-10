@@ -1,6 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {createSlice } from '@reduxjs/toolkit';
 import { v1 } from 'uuid';
-import axios from 'axios';
 
 const initialState = {
     users: [],
@@ -28,26 +27,11 @@ const initialState = {
     ],
 };
 
-// export const getUsers = createAsyncThunk(
-//     'catalog/getUsers',
-//     async (_, { rejectWithValue, dispatch }) => {
-//         try {
-//             const res = await axios.get(
-//                 'http://bebest.pp.ua/api/users/?populate=*'
-//             );
-//             dispatch(setUsers(res.data));
-//             return res.data;
-//         } catch (error) {
-//             return rejectWithValue(error.message);
-//         }
-//     }
-// );
-
 export const catalogSlice = createSlice({
     name: 'catalog',
     initialState,
     reducers: {
-        setUsers: (state, action) => {
+        setUserList: (state, action) => {
             state.users = action.payload;
         },
         setStartColor: (state, action) => {
@@ -62,16 +46,11 @@ export const catalogSlice = createSlice({
                 }
             }
         },
+        sortUsers: (state, action) => {
+            
+        }
     },
-
-    // extraReducers: {
-    //     [getUsers.fulfilled]: (state, action) => {
-    //         state.users = action.payload;
-    //     },
-    //     [getUsers.pending]: () => console.log(),
-    //     [getUsers.rejected]: () => console.log(),
-    // },
 });
 
-export const { setUsers, setStartColor } = catalogSlice.actions;
+export const { setUserList, setStartColor } = catalogSlice.actions;
 export default catalogSlice.reducer;

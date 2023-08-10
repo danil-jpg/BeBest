@@ -6,8 +6,19 @@ import FilterCatalog from './FilterCatalog/FilterCatalog';
 import UserListCatalog from './UserListCatalog/UserListCatalog';
 import { useDispatch, useSelector } from 'react-redux';
 import CatalogArticles from './CatalogArticles/CatalogArticles';
-import { setUsers } from '../../../store/slices/catalogSlice/catalogSlice';
+import { setUserList } from '../../../store/slices/catalogSlice/catalogSlice';
 import axios from 'axios';
+import {
+    setAspectLearn,
+    setLangSpeak,
+    setLessonCountry,
+    setLessonSpeak,
+    setLessonTime,
+    setPreparingTest,
+    setSex,
+    setYearLearn,
+} from '../../../store/slices/filterSlice/filterSlice';
+import { v1 } from 'uuid';
 
 const data = {
     title: 'Список преподавателей',
@@ -22,7 +33,18 @@ const Catalog = (props) => {
             let res = await axios.get(
                 'http://bebest.pp.ua/api/users/?populate=*'
             );
-            dispatch(setUsers(res.data));
+            dispatch(setUserList(res.data));
+            
+            res.data.forEach((user) => {
+                dispatch(setLessonSpeak(user.lang));
+                dispatch(setLessonTime(user.time));
+                dispatch(setLessonCountry(user.country));
+                dispatch(setLangSpeak(user.CommunicationLang));
+                dispatch(setSex(user.sex));
+                dispatch(setPreparingTest(user.preparingTest));
+                dispatch(setAspectLearn(user.aspectLearn));
+                dispatch(setYearLearn(user.yearLearn));
+            });
         };
 
         getUsers();
