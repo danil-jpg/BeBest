@@ -8,11 +8,17 @@ const MainButton = ({
     style = {},
     size = 'middle',
     type = 'red',
+    onClick,
 }) => {
     // sizes = small, middle, big;
     // types = color,transparent
     return (
-        <Link to={to} className={`main-btn main-btn_${size} main-btn_${type}`} style={style}>
+        <Link
+            to={to}
+            className={`main-btn main-btn_${size} main-btn_${type}`}
+            style={style}
+            onClick={onClick ? onClick : () => { console.log('not callback') }}
+        >
             <span>{children}</span>
         </Link>
     );

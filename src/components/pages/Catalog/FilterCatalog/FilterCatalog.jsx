@@ -16,6 +16,7 @@ import {
 import RangeSlider from '../../../UI/Forms/RangeSlider/RangeSlider';
 import MainButton from '../../../UI/Buttons/MainButton/MainButton';
 import { Link } from 'react-router-dom';
+import { sortUsers } from '../../../../store/slices/catalogSlice/catalogSlice';
 
 const titles = {
     filter: 'Фильтры',
@@ -33,7 +34,17 @@ const FilterCatalog = ({ users }) => {
     };
 
     const onSubmitClickHandler = () => {
+        let selectedList = [];
 
+        for (let itemFilter in data) {
+            data[itemFilter].list.forEach((el) => {
+                if (el.selected) {
+                    selectedList.push(data[itemFilter].value);
+                }
+            });
+        }
+
+        dispatch(sortUsers(selectedList));
     };
 
     return (
@@ -99,7 +110,7 @@ const FilterCatalog = ({ users }) => {
                             textTransform: 'uppercase',
                             margin: '0 0 18px',
                         }}
-                        onCLick={onSubmitClickHandler}
+                        onClick={onSubmitClickHandler}
                     >
                         {titles.submit}
                     </MainButton>

@@ -1,4 +1,4 @@
-import {createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { v1 } from 'uuid';
 
 const initialState = {
@@ -47,10 +47,10 @@ export const catalogSlice = createSlice({
             }
         },
         sortUsers: (state, action) => {
-            
-        }
+            console.log(action.payload)
+        },
     },
 });
 
-export const { setUserList, setStartColor } = catalogSlice.actions;
+export const { setUserList, setStartColor, sortUsers } = catalogSlice.actions;
 export default catalogSlice.reducer;
