@@ -108,7 +108,21 @@
     height: 205px;
     margin-top: 60px;
 }
-.article__tabs2 {
-    margin-top: 60px;
-    height: 125px;
+.article__tabs {
+}
+.tabs_top {
+    display: flex;
+}
+.tabs_top_active {
+    background-color: rgba(255, 255, 255, 1);
+    color: #f04973;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 150%;
+}
+.tabs_top-tab {
+}
+.tab_text {
+}
+.tabs_descr {
 }

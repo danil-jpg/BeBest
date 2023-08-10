@@ -14,6 +14,7 @@ import TeacherCv from './TeacherCv/TeacherCv';
 import TeacherMarks from './TeacherMarks/TeacherMarks';
 import TeacherLesson from './TeacherLessons/TeacherLesson';
 import TeacherCalendar from './TeacherCalendar/TeacherCalendar';
+import TeacherComment from './TeacherComment/TeacherComment';
 
 const Teacher = (props) => {
     const ref = useRef();
@@ -32,6 +33,7 @@ const Teacher = (props) => {
                         <TeacherPosibility />
                         <TeacherCv />
                         <TeacherMarks />
+                        <TeacherComment />
                     </div>
                     <div className='teacher__body__right'>
                         <TeacherLesson />

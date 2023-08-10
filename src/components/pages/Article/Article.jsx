@@ -15,6 +15,7 @@ import working from '../../../assets/images/article/working.png';
 import workingW from '../../../assets/images/article/working.png?as=webp';
 import goal from '../../../assets/images/article/goal.png';
 import goalW from '../../../assets/images/article/goal.png?as=webp';
+import importantSign from '../../../assets/icons/important.svg';
 
 const Article = () => {
     return (
@@ -121,7 +122,38 @@ const Article = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className='article__tabs'></div>
+                        <div className='article__tabs'>
+                            <div className='tabs_top'>
+                                <div className='tabs_top-tab'>
+                                    <img src={importantSign} />
+                                    <p className='tab_text'>Информация</p>
+                                </div>
+                                <div className='tabs_top-tab'>
+                                    <img src={importantSign} />
+                                    <p className='tab_text'>Еще информация</p>
+                                </div>
+                            </div>
+                            <div className='tabs_descr'>
+                                Укрепление и развитие структуры позволяет выполнять важные задания
+                                по разработке системы обучения кадров, соответствует насущным
+                                потребностям. По своей сути рыбатекст является альтернативой
+                                традиционному lorem ipsum, который вызывает у некторых людей
+                                недоумение при попытках прочитать рыбу текст. В отличии от lorem
+                                ipsum, текст рыба на русском языке наполнит любой макет непонятным
+                                смыслом и придаст неповторимый колорит советских времен. По своей
+                                сути рыбатекст является альтернативой традиционному lorem ipsum.
+                            </div>
+                            <div className='tabs_descr'>
+                                Укрепление и развитие структуры позволяет выполнять важные задания
+                                по разработке системы обучения кадров, соответствует насущным
+                                потребностям. По своей сути рыбатекст является альтернативой
+                                традиционному lorem ipsum, который вызывает у некторых людей
+                                недоумение при попытках прочитать рыбу текст. В отличии от lorem
+                                ipsum, текст рыба на русском языке наполнит любой макет непонятным
+                                смыслом и придаст неповторимый колорит советских времен. По своей
+                                сути рыбатекст является альтернативой традиционному lorem ipsum.
+                            </div>
+                        </div>
                         <div className='article__tabs2'></div>
                     </div>
                 </div>

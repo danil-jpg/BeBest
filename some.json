@@ -1,37 +1,44 @@
 [
     {
-        "date": 28,
-        "month": "июнь",
-        "time": [true, true, true, true, true, true, true, true, true, true, false]
+        "name": "Анна Михайлова",
+        "lessonNum": 4,
+        "descr": "Укрепление и развитие структуры позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. ",
+        "date": "15.06.2021",
+        "likes": 15
     },
     {
-        "date": 29,
-        "month": "июнь",
-        "time": [false, false, false, false, false, false, false, true, true, true]
+        "name": "Михайлова Анна ",
+        "lessonNum": 14,
+        "descr": "Xазвитие структуры позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. ",
+        "date": "15.06.2023",
+        "likes": 22
     },
     {
-        "date": 30,
-        "month": "июнь",
-        "time": [false, false, false, false, false, true, true, true, false, false]
+        "name": "Анна Михайлова",
+        "lessonNum": 4,
+        "descr": "Укрепление и развитие структуры позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. ",
+        "date": "15.06.2021",
+        "likes": 33
     },
     {
-        "date": 31,
-        "month": "июнь",
-        "time": [false, false, true, false, false, false, false, true, true, false]
+        "name": "Михайлова Анна ",
+        "lessonNum": 5,
+        "descr": "Xазвитие структуры позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. ",
+        "date": "15.06.2023",
+        "likes": 55
     },
     {
-        "date": 1,
-        "month": "августа",
-        "time": [false, false, false, false, false, false, false, false, false, false]
+        "name": "Анна Михайлова",
+        "lessonNum": 1,
+        "descr": "Укрепление и развитие структуры позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. ",
+        "date": "15.06.2021",
+        "likes": 33
     },
     {
-        "date": 2,
-        "month": "августа",
-        "time": [false, false, false, false, false, false, true, true, true, false]
-    },
-    {
-        "date": 3,
-        "month": "августа",
-        "time": [false, false, true, true, true, false, true, true, true, false]
+        "name": "Михайлова Анна ",
+        "lessonNum": 15,
+        "descr": "Xазвитие структуры позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. ",
+        "date": "15.06.2023",
+        "likes": 33
     }
 ]
