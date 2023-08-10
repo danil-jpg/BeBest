@@ -8,7 +8,7 @@ import { isChecked } from '../../../../utils/isActive';
 const UserListCatalog = () => {
     const users = useSelector((state) => state.catalogSlice.users);
     const [currentPage, setCurrentPage] = useState(1);
-    const [userPerPage] = useState(4);
+    const [userPerPage] = useState(5);
 
     const lastUserIndex = currentPage * userPerPage;
     const firstUserIndex = lastUserIndex - userPerPage;
