@@ -1,0 +1,51 @@
+.teacher__mark {
+    padding: 35px 37px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+}
+.teacher__mark_title {
+    color: #292c32;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+.teacher__mark__items {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 22px;
+    row-gap: 30px;
+}
+.teacher__mark__item {
+    position: relative;
+    width: 110px;
+}
+.teacher__mark__item_num {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.92; /* 192.308% */
+    background-color: rgba(240, 73, 115, 1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.teacher__mark__item_text {
+    color: #454b58;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.41;
+    margin-top: 14px;
+}

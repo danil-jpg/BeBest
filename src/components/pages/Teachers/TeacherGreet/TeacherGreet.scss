@@ -1,0 +1,163 @@
+.teacher {
+    &__vid {
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+
+        &_vid {
+            width: 100%;
+            height: 450px;
+        }
+    }
+    &__descr_star {
+    }
+
+    &__descr {
+        padding: 40px 34px 53px;
+        display: grid;
+        grid-template-columns: 18% 1fr;
+        grid-column-gap: 33px;
+
+        // .teacher__descr_avatar
+        &__left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__right {
+            &_top {
+                display: flex;
+                img {
+                    margin-right: 7px;
+                    width: 20px;
+                    height: 20px;
+                }
+                &_text {
+                    color: #292c32;
+                    font-size: 15px;
+                    font-weight: 600;
+                }
+            }
+            &_time-wr,
+            &_exp-wr {
+                display: flex;
+                padding: 8px 16px;
+                border-radius: 20px;
+                background: #ffdee4;
+                align-items: center;
+                * {
+                    flex-shrink: 0;
+                }
+            }
+            &_exp-wr {
+                background: #fdecc8;
+                margin-left: 16px;
+            }
+            &_main {
+                margin-top: 25px;
+                &_top {
+                    &_name {
+                        color: #292c32;
+                        font-size: 20px;
+                        font-weight: 700;
+                        line-height: 22px; /* 110% */
+                    }
+                    &_country {
+                        color: #454b58;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 182.85%; /* 25.599px */
+                    }
+                }
+
+                &_bottom {
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    column-gap: 68px;
+                    row-gap: 17px;
+                    margin-top: 23px;
+                    &_title {
+                        color: #8b919e;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 164%; /* 164.286% */
+                    }
+                    &_descr {
+                        color: #292c32;
+                        font-size: 16px;
+                        font-weight: 600;
+                        line-height: 1.5; /* 150% */
+                    }
+                }
+            }
+        }
+        &_avatar {
+            width: 130px;
+            height: 130px;
+        }
+
+        // .teacher__descr_stars
+
+        &_stars {
+            margin-top: 17px;
+            width: 83px;
+            justify-content: space-between;
+            display: flex;
+            gap: 4px;
+        }
+
+        // .teacher__descr_star
+
+        &_star {
+            fill: #cccccc;
+            width: 13px;
+            height: 13px;
+
+            &_filled {
+                fill: rgba(255, 196, 82, 1);
+            }
+        }
+
+        // .teacher__descr_recommend
+
+        &_recommend {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 150%;
+            border-radius: 20px;
+            background: #28da9a;
+            width: 100%;
+            padding: 8px 0;
+            text-align: center;
+            margin-top: 17px;
+        }
+
+        // .teacher__descr_chat-wr
+
+        &_chat-wr {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 17px;
+            cursor: pointer;
+        }
+
+        // .teacher__descr_chat-img
+
+        &_chat-img {
+        }
+
+        // .teacher__descr_chat-text
+
+        &_chat-text {
+            color: #f04973;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 16px; /* 133.333% */
+            text-decoration-line: underline;
+            margin-left: 7px;
+            transition: 0.3;
+        }
+    }
+}
