@@ -47,7 +47,7 @@ export const catalogSlice = createSlice({
             }
         },
         sortUsers: (state, action) => {
-            let userList = [];
+            let newUserList = [...state.users];
             let sortItems = action.payload;
 
             if (!sortItems.length) {
@@ -57,13 +57,12 @@ export const catalogSlice = createSlice({
             for (let item of sortItems) {
                 let key = Object.keys(item)[0];
 
-                userList = state.users.filter((user) => {
-                    console.log(user[key], item[key]);
+                newUserList = newUserList.filter((user) => {
                     return user[key].includes(item[key]);
                 });
             }
 
-            state.users = userList;
+            state.users = newUserList;
         },
     },
 });
