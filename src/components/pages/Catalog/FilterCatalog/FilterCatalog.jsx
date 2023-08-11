@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './FilterCatalog.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import SelectFormContainer from '../../../UI/Forms/SelectFormContainer/SelectFormContainer';
@@ -16,7 +16,10 @@ import {
 import RangeSlider from '../../../UI/Forms/RangeSlider/RangeSlider';
 import MainButton from '../../../UI/Buttons/MainButton/MainButton';
 import { Link } from 'react-router-dom';
-import { sortUsers } from '../../../../store/slices/catalogSlice/catalogSlice';
+import {
+    setUserList,
+    sortUsers,
+} from '../../../../store/slices/catalogSlice/catalogSlice';
 
 const titles = {
     filter: 'Фильтры',
@@ -25,12 +28,13 @@ const titles = {
     submit: 'Применить',
 };
 
-const FilterCatalog = ({ users }) => {
+const FilterCatalog = ({ users, setUsers }) => {
     let data = useSelector((state) => state.filterSlice);
     let dispatch = useDispatch();
 
     const onClearClickHandler = () => {
         dispatch(clearFilter());
+        dispatch(setUserList([...users]));
     };
 
     const onSubmitClickHandler = () => {
@@ -39,12 +43,19 @@ const FilterCatalog = ({ users }) => {
         for (let itemFilter in data) {
             data[itemFilter].list.forEach((el) => {
                 if (el.selected) {
-                    selectedList.push(data[itemFilter].value);
+                    selectedList.push({
+                        [data[itemFilter].value]: el.title,
+                    });
                 }
             });
         }
 
-        dispatch(sortUsers(selectedList));
+        if (!selectedList.length) {
+            alert('Фильтры не выбраны');
+        } else {
+            dispatch(setUserList([...users]))
+            dispatch(sortUsers(selectedList));
+        }
     };
 
     return (

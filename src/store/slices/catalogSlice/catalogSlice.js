@@ -47,7 +47,23 @@ export const catalogSlice = createSlice({
             }
         },
         sortUsers: (state, action) => {
-            console.log(action.payload)
+            let userList = [];
+            let sortItems = action.payload;
+
+            if (!sortItems.length) {
+                alert('Фильтры не выбраны');
+            }
+
+            for (let item of sortItems) {
+                let key = Object.keys(item)[0];
+
+                userList = state.users.filter((user) => {
+                    console.log(user[key], item[key]);
+                    return user[key].includes(item[key]);
+                });
+            }
+
+            state.users = userList;
         },
     },
 });
