@@ -30,7 +30,6 @@ const CatalogArticles = (props) => {
                 console.log(error.message);
             });
     }, [setState]);
-    console.log(state);
     return (
         <div className='articles-catalog'>
             <ContainerMain style={{ position: 'relative' }}>
