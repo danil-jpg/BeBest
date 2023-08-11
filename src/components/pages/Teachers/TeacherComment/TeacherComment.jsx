@@ -27,6 +27,18 @@ const TeacherComment = () => {
         setCurrentPage(pageNumber);
     };
 
+    const previousPage = () => {
+        if (currentPage !== 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const nextPage = () => {
+        if (currentPage !== Math.ceil(obj?.data?.data[0].attributes.review.length / postsPerPage)) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
     return (
         <div className='teacher__comments'>
             <div className='comments_wr'>
@@ -58,6 +70,8 @@ const TeacherComment = () => {
                     postsPerPage={postsPerPage}
                     totalPosts={obj?.data?.data[0].attributes.review.length}
                     paginate={paginate}
+                    prevPage={previousPage}
+                    nextPage={nextPage}
                 />
             </div>
         </div>

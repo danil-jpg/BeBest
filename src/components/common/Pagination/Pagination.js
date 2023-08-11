@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Pagination.scss'
 import { v1 } from 'uuid';
 import leftArrow from '../../../assets/icons/ArrowLeft.svg'
 import rightArrow from '../../../assets/icons/arrowRight.svg'
 
-const Pagination = ({ postsPerPage, totalPosts, currentPage, paginate }) => {
+const Pagination = ({ postsPerPage, totalPosts, currentPage, paginate, nextPage, prevPage }) => {
 	const pageNumbers = [];
-
+	// useEffect(() => {
+	// 	alert(currentPage)
+	// }, [currentPage])
 	for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
 		pageNumbers.push(i);
 	}
 	return (
 		<ul className="pagination-container">
-			<li onClick={() => (currentPage - 1 > 0) ? paginate(currentPage - 1) : alert('No more pages!')} className='pagination-item'>
-				{console.log(currentPage)}
+			<li onClick={prevPage} className='pagination-item'>
 				<img src={leftArrow} />
 			</li>
-			{pageNumbers.map(el => <li onClick={() => paginate(el)} className='pagination-item' key={v1()}>{el}</li>)}
-			<li onClick={() => paginate(() => (currentPage + 1 > totalPosts.length - 1) ? alert('No more pages!') : paginate(currentPage + 1))} className='pagination-item'>
+			{pageNumbers.map(el => <li onClick={() => paginate(el)} className={el === currentPage ? 'pagination-item pagination-item_active' : 'pagination-item'} key={v1()}>{el}</li>)}
+			<li onClick={nextPage} className='pagination-item'>
 				<img src={rightArrow} />
 			</li>
 		</ul>
