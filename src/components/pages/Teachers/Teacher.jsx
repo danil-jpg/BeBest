@@ -1,13 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import './Teacher.scss';
 import ContainerMain from '../../common/ContainerMain/ContainerMain';
-import Picture from '../../UI/Picture/Picture';
-import { IconRenderer } from '../../UI/IconRenderer/IconRenderer';
 import TeacherQuotes from './TeacherQuotes/TeacherQuotes';
-import Calendar from '@event-calendar/core';
-import TimeGrid from '@event-calendar/time-grid';
 import TeacherGreet from './TeacherGreet/TeacherGreet';
-import { Link } from 'react-router-dom';
 import '@event-calendar/core/index.css';
 import TeacherPosibility from './TeacherPosibility/TeacherPosibility';
 import TeacherCv from './TeacherCv/TeacherCv';
@@ -17,8 +12,6 @@ import TeacherCalendar from './TeacherCalendar/TeacherCalendar';
 import TeacherComment from './TeacherComment/TeacherComment';
 
 const Teacher = (props) => {
-    const ref = useRef();
-    useEffect(() => {}, []);
 
     return (
         <div className='teacher'>

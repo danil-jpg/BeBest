@@ -51,7 +51,7 @@ const Catalog = (props) => {
         };
 
         getUsers();
-    }, []);
+    }, [dispatch]);
 
     return (
         <>
