@@ -5,8 +5,7 @@ import { useSelector } from 'react-redux';
 import Pagination from '../../../common/Pagination/Pagination';
 import { isChecked } from '../../../../utils/isActive';
 
-const UserListCatalog = () => {
-    const users = useSelector((state) => state.catalogSlice.users);
+const UserListCatalog = ({users}) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [userPerPage] = useState(5);
 
