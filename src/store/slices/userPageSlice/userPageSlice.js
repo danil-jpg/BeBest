@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    users: [],
+    userId: '',
 };
 
 export const userPageSlice = createSlice({
     name: 'userPage',
     initialState,
     reducers: {
-        setUserPageData: (state, action) => {
-            state.users = action.payload;
+        setUserPageId: (state, action) => {
+            state.userId = action.payload;
         },
     },
 });
 
-export const { setUserPageData } = userPageSlice.actions;
+export const { setUserPageId } = userPageSlice.actions;
 export default userPageSlice.reducer;

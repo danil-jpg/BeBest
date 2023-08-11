@@ -19,6 +19,7 @@ const UserItemCatalog = ({ user }) => {
             <TabsUserItem
                 description={user.description}
                 videoSrc={user.video}
+                id={user.id}
             />
         </li>
     );
