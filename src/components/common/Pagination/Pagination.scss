@@ -19,9 +19,18 @@
     display: flex;
     justify-content: center;
     transition: all 0.5s ease;
-    // &:hover {
-    //     background-color: violet;
-    // }
+    &:hover {
+        // font-size: 17px;
+    }
+}
+.pagination-arrow {
+    position: relative;
+    img {
+        transition: 0.3s;
+    }
+    &:hover {
+        background-color: rgba(red, $alpha: 0.1);
+    }
 }
 
 .pagination-item_active {

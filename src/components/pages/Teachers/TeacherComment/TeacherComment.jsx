@@ -6,22 +6,26 @@ import avatar from '../../../../assets/images/teacher/avatarCircle.png';
 import avatarW from '../../../../assets/images/teacher/avatarCircle.png?as=webp';
 import Picture from '../../../UI/Picture/Picture';
 import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer';
-import Pagination from '../../../common/Pagination/pagination';
+import PaginationD from '../../../common/Pagination/PaginationD';
+import SelectForm from '../../../UI/Forms/SelectForm/SelectForm';
 
 const TeacherComment = () => {
     let obj = useFetch('reviews/');
-    // const [blogPosts, setBlogPosts] = useState(obj?.data?.data[0].attributes.review);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(2);
 
+    let filterByLessonNum = obj?.data?.data[0].attributes.review.sort((p1, p2) => {
+        return p1.lessonNum < p2.lessonNum ? 1 : p1.lessonNum > p2.lessonNum ? -1 : 0;
+    });
+
+    let filterByLikes = obj?.data?.data[0].attributes.review.sort((p1, p2) => {
+        return p1.likes < p2.likes ? 1 : p1.likes > p2.likes ? -1 : 0;
+    });
+
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    // obj?.data?.data[0].attributes.review.slice(indexOfFirstPost, indexOfLastPost);
     let currentPosts;
-    console.log(currentPosts);
-
     currentPosts = [obj?.data?.data[0].attributes.review.slice(indexOfFirstPost, indexOfLastPost)];
-    console.log(currentPosts[0]);
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -41,6 +45,17 @@ const TeacherComment = () => {
 
     return (
         <div className='teacher__comments'>
+            <div className='filters_wr'>
+                <SelectForm
+                    list={[
+                        { id: v1(), title: 'text1', clicked: true },
+                        { id: v1(), title: 'text3', clicked: false },
+                        { id: v1(), title: 'text3', clicked: false },
+                    ]}
+                    style={{ color: 'black' }}
+                    setItem={''}
+                />
+            </div>
             <div className='comments_wr'>
                 {obj?.data?.data[0].attributes.review
                     .slice(indexOfFirstPost, indexOfLastPost)
@@ -65,7 +80,7 @@ const TeacherComment = () => {
                             </div>
                         </div>
                     ))}
-                <Pagination
+                <PaginationD
                     currentPage={currentPage}
                     postsPerPage={postsPerPage}
                     totalPosts={obj?.data?.data[0].attributes.review.length}
