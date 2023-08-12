@@ -55,6 +55,24 @@ const TeacherComment = () => {
                     style={{ color: 'black' }}
                     setItem={''}
                 />
+                <SelectForm
+                    list={[
+                        { id: v1(), title: 'text1', clicked: true },
+                        { id: v1(), title: 'text3', clicked: false },
+                        { id: v1(), title: 'text3', clicked: false },
+                    ]}
+                    style={{ color: 'black' }}
+                    setItem={''}
+                />
+                <SelectForm
+                    list={[
+                        { id: v1(), title: 'text1', clicked: true },
+                        { id: v1(), title: 'text3', clicked: false },
+                        { id: v1(), title: 'text3', clicked: false },
+                    ]}
+                    style={{ color: 'black' }}
+                    setItem={''}
+                />
             </div>
             <div className='comments_wr'>
                 {obj?.data?.data[0].attributes.review
