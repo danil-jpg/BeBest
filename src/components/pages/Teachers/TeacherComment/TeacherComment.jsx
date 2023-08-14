@@ -16,6 +16,7 @@ import {
     filteredUsersBySex,
 } from '../../../../store/slices/teachreFilterSlice/teacherFetchUsersSlice';
 import Loading from '../../../common/Loading/Loading';
+import SelectFormContainer from '../../../UI/Forms/SelectFormContainer/SelectFormContainer';
 
 const TeacherComment = () => {
     let obj = useFetch('reviews/');
@@ -57,8 +58,13 @@ const TeacherComment = () => {
     }
     return (
         <div className='teacher__comments'>
+            <div className='teacher__comments_top'>
+                <p className='comments_top_text'>Отзывы</p>
+                <p className='comments_top_text2'>15 отзывов</p>
+            </div>
             <div className='filters_wr'>
-                <SelectForm
+                <SelectFormContainer
+                    title={'Количество занятий'}
                     list={[
                         { id: v1(), title: 'По возростанию', clicked: true },
                         { id: v1(), title: 'По убыванию', clicked: false },
@@ -66,7 +72,8 @@ const TeacherComment = () => {
                     style={{ color: 'black' }}
                     setItem={filteredUsersByLessonNum}
                 />
-                <SelectForm
+                <SelectFormContainer
+                    title={'Пол преподавателя'}
                     list={[
                         { id: v1(), title: 'Мужской', clicked: true },
                         { id: v1(), title: 'Женский', clicked: false },
@@ -74,7 +81,8 @@ const TeacherComment = () => {
                     style={{ color: 'black' }}
                     setItem={filteredUsersBySex}
                 />
-                <SelectForm
+                <SelectFormContainer
+                    title={'Пол преподавателя'}
                     list={[
                         { id: v1(), title: 'text1', clicked: true },
                         { id: v1(), title: 'text3', clicked: false },
