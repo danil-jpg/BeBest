@@ -7,7 +7,6 @@ import avatarW from '../../../../assets/images/teacher/avatarCircle.png?as=webp'
 import Picture from '../../../UI/Picture/Picture';
 import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer';
 import PaginationD from '../../../common/Pagination/PaginationD';
-import SelectForm from '../../../UI/Forms/SelectForm/SelectForm';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllUsers } from '../../../../store/slices/teachreFilterSlice/teacherFetchUsersSlice';
@@ -19,15 +18,11 @@ import Loading from '../../../common/Loading/Loading';
 import SelectFormContainer from '../../../UI/Forms/SelectFormContainer/SelectFormContainer';
 
 const TeacherComment = () => {
-    let obj = useFetch('reviews/');
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(2);
+    const postsPerPage = 2;
 
     const dispatch = useDispatch();
-    const contents = useSelector((state) => state.userContentSlice);
     const users = useSelector((state) => state.userContentSlice.users);
-    const usersByLessonNum = useSelector((state) => state.userContentSlice.usersByLessonNum);
-    const isSuccLoaded = useSelector((state) => state.userContentSlice.isSuccLoaded);
 
     useEffect(() => {
         dispatch(fetchAllUsers());
@@ -35,8 +30,6 @@ const TeacherComment = () => {
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    let currentPosts;
-    currentPosts = [obj?.data?.data[0].attributes.review.slice(indexOfFirstPost, indexOfLastPost)];
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -49,7 +42,7 @@ const TeacherComment = () => {
     };
 
     const nextPage = () => {
-        if (currentPage !== Math.ceil(obj?.data?.data[0].attributes.review.length / postsPerPage)) {
+        if (currentPage !== Math.ceil(users.length / postsPerPage)) {
             setCurrentPage(currentPage + 1);
         }
     };
@@ -60,7 +53,7 @@ const TeacherComment = () => {
         <div className='teacher__comments'>
             <div className='teacher__comments_top'>
                 <p className='comments_top_text'>Отзывы</p>
-                <p className='comments_top_text2'>15 отзывов</p>
+                <p className='comments_top_text2'>{users.length} отзывов</p>
             </div>
             <div className='filters_wr'>
                 <SelectFormContainer

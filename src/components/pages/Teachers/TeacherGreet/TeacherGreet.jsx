@@ -16,7 +16,6 @@ import Loading from '../../../common/Loading/Loading';
 const TeacherGreet = () => {
     const [user, setUser] = useState();
     const arr = new Array(5).fill(0);
-    const [stars, setStars] = useState(3);
     const userId = useSelector((state) => state.userPageSlice.userId);
     const userList = useSelector((state) => state.catalogSlice.users);
 
