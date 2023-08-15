@@ -1,7 +1,8 @@
 .pagination-container {
     display: flex;
     justify-content: flex-end;
-    margin-top: 20px;
+
+    grid-column: 1/3;
 }
 .pagination-item {
     cursor: pointer;

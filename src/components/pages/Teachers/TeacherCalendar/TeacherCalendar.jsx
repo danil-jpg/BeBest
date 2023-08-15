@@ -7,21 +7,10 @@ import CalendarBooking from './CalendarBooking/CalendarBooking';
 import useFetch from '../../../../utils/useFetch';
 
 const TeacherCalendar = () => {
-    // const [obj, setObj] = useState('');
-
     let [weekCounter, setWeekCounter] = useState(0);
 
-    // const fetchData = async () => {
-    //     const res = await axios
-    //         .get('http://bebest.pp.ua/api/calendars/')
-    //         .then((res) => setObj(res));
-    // };
-
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
     const obj = useFetch('calendars/');
-    // console.log(obj?.data?.data[weekCounter].attributes.data);
+
     return (
         <div className='teacher__calendar'>
             <p className='teacher__calendar__title'>Расписание</p>

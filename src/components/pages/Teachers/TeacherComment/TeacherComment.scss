@@ -12,6 +12,7 @@
     border-radius: 10px;
     background: #fff;
     box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+    margin-bottom: 100px;
 }
 .comments_wr {
     display: grid;
@@ -88,4 +89,29 @@
     line-height: normal;
     color: #8b919e;
     font-weight: 500;
+}
+.filters_wr {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    margin-top: 13px;
+}
+
+.teacher__comments_top {
+    display: flex;
+    align-items: center;
+}
+.comments_top_text {
+    color: #292c32;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.1; /* 110% */
+    margin-right: 19px;
+}
+.comments_top_text2 {
+    color: #454b58;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 182.85%; /* 25.599px */
+    opacity: 0.7;
 }
