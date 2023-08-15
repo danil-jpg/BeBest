@@ -2,14 +2,7 @@ import React from 'react';
 import './MainButton.scss';
 import { Link } from 'react-router-dom';
 
-const MainButton = ({
-    children,
-    to = '',
-    style = {},
-    size = 'middle',
-    type = 'red',
-    onClick,
-}) => {
+const MainButton = ({ children, to = '', style = {}, size = 'middle', type = 'red', onClick }) => {
     // sizes = small, middle, big;
     // types = color,transparent
     return (
@@ -17,8 +10,13 @@ const MainButton = ({
             to={to}
             className={`main-btn main-btn_${size} main-btn_${type}`}
             style={style}
-            onClick={onClick ? onClick : () => { console.log('not callback') }}
-        >
+            onClick={
+                onClick
+                    ? onClick
+                    : () => {
+                          console.log('not callback');
+                      }
+            }>
             <span>{children}</span>
         </Link>
     );
