@@ -5,6 +5,8 @@ import axios from 'axios';
 import HeroBlockTitle from './HeroBlockTitle/HeroBlockTitle';
 import MainButton from '../../../../UI/Buttons/MainButton/MainButton';
 import HeroCustomSlider from './HeroCustomSlider/HeroCustomSlider';
+import img from "../../../../../assets/images/main/counter-2.png"
+
 import { IconRenderer } from '../../../../UI/IconRenderer/IconRenderer';
 
 const HeroBlockInfo = () => {
@@ -22,6 +24,7 @@ const HeroBlockInfo = () => {
   }, []);
   return (
     <div className="hero-block">
+      <img className="hero-block__image" src={img} alt="" />
       <div className="hero-block__info">
         <HeroBlockTitle
           key={infoData.id}

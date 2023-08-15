@@ -4,3 +4,36 @@
 .test{
 	height: 1440px;
 }
+
+.home{
+	position: relative;
+	z-index: 10;
+	&__first{
+		position: absolute;
+		left: 0;
+		top: 290px;
+		z-index: -1;
+
+	}
+	&__second{
+		position: absolute;
+		right: 110px;
+		top: 1690px;
+		
+	}
+
+	&__three{
+		position: absolute;
+		left: 110px;
+		top: 1690px;
+	}
+
+	&__four{
+		left: 0;
+		position: absolute;
+		bottom: 230px;
+		z-index: -1;
+
+	}
+}
+

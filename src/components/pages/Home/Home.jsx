@@ -8,14 +8,28 @@ import MainButton from '../../UI/Buttons/MainButton/MainButton';
 import HowWorking from './HowWorking/HowWorking';
 import "./Home.scss"
 import HeroBlock from './HeroBlock/HeroBlock';
+import PopularCourse from './PopularCourse/PopularCourse';
+import Advantages from './Advantages/Advantages';
+import HomeTeachers from './HomeTeachers/HomeTeachers';
+import Partners from './Partners/Partners';
+
 const Home = (props) => {
 
     return (
         <main className='home'>
+
+
             <ContainerMain>
                 <HeroBlock/>
+                <PopularCourse/>
+                <HowWorking/>
+                <Advantages/>
             </ContainerMain>
-            
+            <HomeTeachers/>
+
+            <ContainerMain>
+                <Partners/>
+            </ContainerMain>
         </main>
     );
 };

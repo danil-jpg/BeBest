@@ -10,7 +10,6 @@ const HeroCustomSlider = () => {
   useEffect(() => {
     axios.get('http://bebest.pp.ua/api/teachers-photo-sliders/?populate=*')
       .then((response) => {
-        console.log(response.data.data[0].attributes.image.data.attributes.url)
         setSlidersData(response.data.data);
       })
       .catch((error) => {
