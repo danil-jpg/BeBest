@@ -9,6 +9,8 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx']
   },
+  // cache: false,
+
   output: {
     path: path.resolve(__dirname, '..', 'docs/'),
     filename: 'scripts/bundle[hash].js',

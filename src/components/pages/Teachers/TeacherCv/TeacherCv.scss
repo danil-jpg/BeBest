@@ -1,0 +1,64 @@
+.teacher__cv {
+    margin-top: 35px;
+    padding: 35px 40px 1px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+}
+.teacher__cv_title {
+    color: #292c32;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1; /* 110% */
+}
+.teacher__cv_subtitle-wr {
+    display: flex;
+    gap: 11px;
+    margin-top: 16px;
+    align-items: center;
+}
+.teacher__cv_subtitle-img {
+}
+.teacher__cv_subtitle-text {
+    color: #292c32;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.252; /* 126.667% */
+}
+.teacher__cv__item-wr {
+    display: grid;
+    grid-template-columns: 14% 1fr;
+    gap: 26px;
+    margin-top: 9px;
+    margin-bottom: 35px;
+}
+.teacher__cv__item_date {
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 150%; /* 22.5px */
+    border-radius: 20px;
+    background: #55abfa;
+    padding: 8px 11px;
+    display: inline;
+    align-self: self-start;
+}
+.teacher__cv__item__descr-wr {
+}
+.teacher__cv__item__descr_title {
+    color: #292c32;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.35; /* 137.5% */
+    margin-top: 8px;
+}
+.teacher__cv__item__descr_descr {
+    color: #454b58;
+    font-weight: 500;
+    line-height: 182.85%; /* 25.599px */
+}

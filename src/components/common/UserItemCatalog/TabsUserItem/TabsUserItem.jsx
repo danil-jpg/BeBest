@@ -4,6 +4,8 @@ import { v1 } from 'uuid';
 import { isActive } from '../../../../utils/isActive';
 import MainButton from '../../../UI/Buttons/MainButton/MainButton';
 import Video from '../../Video/Video';
+import { useDispatch } from 'react-redux';
+import { setUserPageId } from '../../../../store/slices/userPageSlice/userPageSlice';
 
 let styleView = {
     display: 'block',
@@ -35,9 +37,10 @@ let titlesBtn = {
     profile: 'Профиль преподавателя',
 };
 
-const TabsUserItem = ({ description, videoSrc }) => {
+const TabsUserItem = ({ description, videoSrc, id }) => {
     let [tabList, setTabList] = useState(tabs);
     let [view, setView] = useState('video');
+    let dispatch = useDispatch();
 
     const onBtnClickHandler = (id, value) => {
         let res = tabList.map((el) => {
@@ -52,6 +55,10 @@ const TabsUserItem = ({ description, videoSrc }) => {
 
         setTabList([...res]);
         setView(value);
+    };
+
+    const onProfileClickHandler = () => {
+        dispatch(setUserPageId(id));
     };
 
     return (
@@ -101,7 +108,9 @@ const TabsUserItem = ({ description, videoSrc }) => {
                 <MainButton style={{ maxWidth: '161px' }}>
                     {titlesBtn.lesson}
                 </MainButton>
-                <MainButton type='white'>{titlesBtn.profile}</MainButton>
+                <MainButton to='/teacher' type='white' onClick={onProfileClickHandler}>
+                    {titlesBtn.profile}
+                </MainButton>
             </div>
         </div>
     );

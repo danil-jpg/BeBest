@@ -5,6 +5,8 @@ import breadcrumbSlice from './slices/breadcrumbSlice/breadcrumbSlice';
 import catalogSlice from './slices/catalogSlice/catalogSlice';
 import filterSlice from './slices/filterSlice/filterSlice';
 import tabsUserSlice from './slices/tabsUserSlice/tabsUserSlice';
+import teachterFetchUsers from './slices/teachreFilterSlice/teacherFetchUsersSlice';
+import userPageSlice from './slices/userPageSlice/userPageSlice';
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +16,8 @@ export const store = configureStore({
         catalogSlice,
         filterSlice,
         tabsUserSlice,
+        userContentSlice: teachterFetchUsers,
+        userPageSlice
     },
     devTools: true,
 });

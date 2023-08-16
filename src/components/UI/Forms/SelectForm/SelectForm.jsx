@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import s from './SelectForm.module.scss';
 import { isActive } from '../../../../utils/isActive';
 import { useDispatch } from 'react-redux';
-import { setLangSpeak } from '../../../../store/slices/catalogSlice/catalogSlice';
 
 const SelectForm = ({ style, list, setItem }) => {
     const [active, setActive] = useState(false);
@@ -52,14 +51,19 @@ const SelectForm = ({ style, list, setItem }) => {
                 onClick={onHeaderClickHandler}
                 ref={selectHeader}
             >
-                {selectedItem.title}
+                {selectedItem.title ? selectedItem.title : 'Выбрать'}
             </p>
             <ul className={`${s.select__list} ${isActive(active, s.active)}`}>
-                {list.map(el => (
+                {list.map((el) => (
                     <li
                         key={el.id}
-                        className={`${s.select__item} ${isActive(el.selected, s.selected)}`}
-                        onClick={()=>{onItemClickHandler(el.id)}}
+                        className={`${s.select__item} ${isActive(
+                            el.selected,
+                            s.selected
+                        )}`}
+                        onClick={() => {
+                            onItemClickHandler(el.id);
+                        }}
                     >
                         {el.title}
                     </li>

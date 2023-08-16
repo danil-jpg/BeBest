@@ -5,41 +5,52 @@ import Title from '../../UI/Title/Title';
 import FilterCatalog from './FilterCatalog/FilterCatalog';
 import UserListCatalog from './UserListCatalog/UserListCatalog';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers } from '../../../store/slices/catalogSlice/catalogSlice';
 import CatalogArticles from './CatalogArticles/CatalogArticles';
-import RadioForm from '../../UI/Forms/RadioForm/RadioForm';
-import { v1 } from 'uuid';
+import { setUserList } from '../../../store/slices/catalogSlice/catalogSlice';
+import axios from 'axios';
+import {
+    setAspectLearn,
+    setLangSpeak,
+    setLessonCountry,
+    setLessonSpeak,
+    setLessonTime,
+    setPreparingTest,
+    setSex,
+    setYearLearn,
+} from '../../../store/slices/filterSlice/filterSlice';
 
 const data = {
     title: 'Список преподавателей',
     titleArticles: 'Полезные статьи',
 };
 
-const testRadio = [
-    {
-        id: v1(),
-        title: '1',
-        value: 'first',
-    },
-    {
-        id: v1(),
-        title: '2',
-        value: 'second',
-    },
-    {
-        id: v1(),
-        title: '3',
-        value: 'third',
-    },
-];
-
 const Catalog = (props) => {
-    const [checked, setChecked] = useState('first');
-    
-    let dispatch = useDispatch();
+    const dispatch = useDispatch();
+    const users = useSelector((state) => state.catalogSlice.users);
+    let [userData, setUserData] = useState([]);
 
     useEffect(() => {
-        dispatch(getUsers());
+        const getUsers = async () => {
+            let res = await axios.get(
+                'http://bebest.pp.ua/api/users/?populate=*'
+            );
+            dispatch(setUserList(res.data));
+
+            res.data.forEach((user) => {
+                dispatch(setLessonSpeak(user.lang));
+                dispatch(setLessonTime(user.time));
+                dispatch(setLessonCountry(user.country));
+                dispatch(setLangSpeak(user.CommunicationLang));
+                dispatch(setSex(user.sex));
+                dispatch(setPreparingTest(user.preparingTest));
+                dispatch(setAspectLearn(user.aspectLearn));
+                dispatch(setYearLearn(user.yearLearn));
+            });
+
+            setUserData(res.data);
+        };
+
+        getUsers();
     }, [dispatch]);
 
     return (
@@ -49,23 +60,14 @@ const Catalog = (props) => {
                     <Title>{data.title}</Title>
                     <div className='catalog__row'>
                         <div className='catalog__filter'>
-                            <FilterCatalog />
+                            <FilterCatalog
+                                users={userData}
+                                setUsers={setUserData}
+                            />
                         </div>
                         <div className='catalog__body'>
-                            <UserListCatalog />
+                            <UserListCatalog users={users} />
                         </div>
-                    </div>
-                    <div className='catalog__radio'>
-                        {testRadio.map((el) => (
-                            <RadioForm
-                                key={el.id}
-                                title={el.title}
-                                value={el.value}
-                                name='testRadio'
-                                checked={checked}
-                                setChecked={setChecked}
-                            />
-                        ))}
                     </div>
                 </ContainerMain>
             </div>

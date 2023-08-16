@@ -2,8 +2,33 @@ import React from 'react';
 import './Breadcrumbs.scss';
 import ContainerMain from '../ContainerMain/ContainerMain';
 import { Link, Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Loading from '../Loading/Loading';
 
 const Breadcrumbs = (props) => {
+    const [user, setUser] = useState();
+    const userId = useSelector((state) => state.userPageSlice.userId);
+    const userList = useSelector((state) => state.catalogSlice.users);
+
+    useEffect(() => {
+        if (userId) {
+            setUser({ ...userList.filter((el) => el.id === userId) }[0]);
+        } else {
+            const fetchData = async () => {
+                const res = await axios.get('http://bebest.pp.ua/api/users/?populate=*');
+
+                setUser({ ...res.data[0] });
+            };
+
+            fetchData();
+        }
+    }, [userId]);
+
+    if (!user) {
+        return <Loading />;
+    }
     return (
         <div className='breadcrumbs'>
             <ContainerMain>
@@ -40,7 +65,23 @@ const Breadcrumbs = (props) => {
                             path='/teacher'
                             element={
                                 <Link to='' className='breadcrumbs__link'>
-                                    имя фамилия
+                                    {user.username}
+                                </Link>
+                            }
+                        />
+                        <Route
+                            path='/article'
+                            element={
+                                <Link to='' className='breadcrumbs__link'>
+                                    Страница текстовая
+                                </Link>
+                            }
+                        />
+                        <Route
+                            path='/registration1'
+                            element={
+                                <Link to='' className='breadcrumbs__link'>
+                                    Регистрация
                                 </Link>
                             }
                         />

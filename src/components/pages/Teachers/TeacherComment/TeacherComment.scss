@@ -1,0 +1,117 @@
+.thumbUp {
+    width: 18px;
+    height: 18px;
+    fill: #454b58;
+    &:active {
+        fill: black;
+    }
+}
+.teacher__comments {
+    margin-top: 30px;
+    padding: 34px 43px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+    margin-bottom: 100px;
+}
+.comments_wr {
+    display: grid;
+    grid-template-columns: 390px 390px;
+    gap: 25px;
+}
+.comment_item {
+    border: 1px solid #dce3e8;
+    background: rgba(242, 245, 250, 0.6);
+    padding: 20px 25px 15px;
+}
+// .{'comment_avatar'} {
+// }
+.comment_avatar {
+    margin-right: 10px;
+}
+.comment_top {
+    display: flex;
+}
+.comment_name-wr {
+    margin-top: 11px;
+    margin-left: 3px;
+}
+.comment_name {
+    color: #292c32;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px; /* 137.5% */
+}
+.comment_lessonNum {
+    color: #8b919e;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 182.85%; /* 25.599px */
+    span {
+        color: #292c32;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        margin-left: 5px;
+    }
+}
+.comment_descr {
+    color: #454b58;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.57; /* 157.143% */
+    margin-top: 15px;
+}
+.comment_bottom-wr {
+    display: flex;
+    margin-top: 16px;
+    justify-content: space-between;
+}
+.comment_likes-wr {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.comment_like {
+    color: #292c32;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 10px;
+}
+.like {
+    margin-right: 10px;
+}
+.comment_date {
+    color: #292c32;
+    font-size: 14px;
+    line-height: normal;
+    color: #8b919e;
+    font-weight: 500;
+}
+.filters_wr {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    margin-top: 13px;
+}
+
+.teacher__comments_top {
+    display: flex;
+    align-items: center;
+}
+.comments_top_text {
+    color: #292c32;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.1; /* 110% */
+    margin-right: 19px;
+}
+.comments_top_text2 {
+    color: #454b58;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 182.85%; /* 25.599px */
+    opacity: 0.7;
+}
