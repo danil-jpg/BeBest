@@ -7,6 +7,7 @@ import filterSlice from './slices/filterSlice/filterSlice';
 import tabsUserSlice from './slices/tabsUserSlice/tabsUserSlice';
 import teachterFetchUsers from './slices/teachreFilterSlice/teacherFetchUsersSlice';
 import userPageSlice from './slices/userPageSlice/userPageSlice';
+import registrationSlice from './slices/registrationSlice/registrationSlice';
 
 export const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
         catalogSlice,
         filterSlice,
         tabsUserSlice,
+        studentRegData: registrationSlice,
         userContentSlice: teachterFetchUsers,
         userPageSlice
     },
