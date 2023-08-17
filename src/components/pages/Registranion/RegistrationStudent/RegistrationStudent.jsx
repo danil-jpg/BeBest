@@ -3,17 +3,34 @@ import React, { useState } from 'react';
 import InputFormContainer from '../../../UI/Forms/InputFormContainer/InputFormContainer';
 import './RegistrationStudent.scss';
 import InputCheckbox from '../../../UI/Forms/InputCheckbox/InputCheckbox';
+import { setRegDataStudent } from '../../../../store/slices/registrationSlice/registrationSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const RegistrationStudent = () => {
-    const [login, setLogin] = useState();
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
-    const [email, setEmail] = useState();
+    const [login, setLogin] = useState('login123');
+    const [password, setPassword] = useState('login123');
+    const [confirmPassword, setConfirmPassword] = useState('login123');
+    const [email, setEmail] = useState('login123@');
     const [buttonType, setButtonType] = useState('text');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     const [checkboxState, setCheckBoxState] = useState(true);
 
     const onCheckboxHandler = () => setCheckBoxState(!checkboxState);
+
+    const dispatch = useDispatch();
+    const navigation = useNavigate();
+
+    const studentData = useSelector((state) => state.studentRegData);
+
+    const formData = {
+        data: {
+            json: {
+                ...studentData,
+            },
+        },
+    };
 
     return (
         <div className='registration-student'>
@@ -83,24 +100,41 @@ const RegistrationStudent = () => {
                             className={'registration-student__input'}></InputFormContainer>
                     </li>
                 </ul>
-                <InputCheckbox
-                    checkboxState={checkboxState}
-                    setCheckboxState={setCheckBoxState}
-                    onClickHandler={onCheckboxHandler}></InputCheckbox>
+                <div className='registration-student__terms_block'>
+                    <InputCheckbox
+                        checkboxState={checkboxState}
+                        setCheckboxState={setCheckBoxState}
+                        onClickHandler={onCheckboxHandler}></InputCheckbox>
+                    <p className='registration-student__terms_text'>
+                        Я принимаю условия пользовательского соглашения и
+                        <span>правила обработки персональных данных</span>
+                    </p>
+                </div>
                 <button
+                    className='registration-student__terms_registration-btn'
                     type={buttonType}
                     onClick={(e) => {
                         e.preventDefault();
                         setIsButtonClicked(true);
-                        login &&
-                        password &&
-                        confirmPassword &&
-                        email &&
-                        password === confirmPassword
-                            ? setButtonType('onSubmit')
+                        login && password && confirmPassword && email && password
+                            ? dispatch(
+                                  setRegDataStudent({
+                                      ...studentData,
+                                      login: login,
+                                      password: password,
+                                      email: email,
+                                  })
+                              )
                             : '';
+
+                        axios
+                            .post('http://bebest.pp.ua/api/tests/', formData)
+                            .then((res) => {
+                                console.log(res);
+                            })
+                            .catch((e) => console.log(e));
                     }}>
-                    Click!
+                    Зарегистрироваться
                 </button>
             </form>
         </div>

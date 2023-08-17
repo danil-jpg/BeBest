@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	'type': '',
-	'login': '',
-	'password': '',
-	'email': ''
+	type: '',
+	login: '',
+	password: '',
+	email: ''
 }
 
 export const registrationSlice = createSlice({
@@ -12,8 +12,10 @@ export const registrationSlice = createSlice({
 	initialState,
 	reducers: {
 		setRegDataStudent: (state, action) => {
-			// console.log(action)
 			state.type = action.payload.type
+			state.login = action.payload.login
+			state.password = action.payload.password
+			state.email = action.payload.email
 		}
 	}
 })

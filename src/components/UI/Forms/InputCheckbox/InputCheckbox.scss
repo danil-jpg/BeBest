@@ -5,6 +5,7 @@
     border-radius: 3px;
     border: 1px solid #f04973;
     background: #f04973;
+    cursor: pointer;
     &.active {
         background-image: url('../../../../assets/icons/check.svg');
         background-repeat: no-repeat;

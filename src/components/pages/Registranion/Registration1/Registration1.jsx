@@ -81,6 +81,7 @@ const Registration1 = () => {
                         button
                             ? dispatch(
                                   setRegDataStudent({
+                                      ...studentData,
                                       type: choosen[0]
                                           ? 'Ученик'
                                           : choosen[1]
