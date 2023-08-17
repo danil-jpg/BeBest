@@ -1,0 +1,13 @@
+.checkbox {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    border: 1px solid #f04973;
+    background: #f04973;
+    &.active {
+        background-image: url('../../../../assets/icons/check.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}

@@ -12,7 +12,7 @@ export const registrationSlice = createSlice({
 	initialState,
 	reducers: {
 		setRegDataStudent: (state, action) => {
-			console.log(action)
+			// console.log(action)
 			state.type = action.payload.type
 		}
 	}

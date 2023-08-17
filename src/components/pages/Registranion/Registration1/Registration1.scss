@@ -84,3 +84,24 @@
     line-height: 1.22; /* 122.222% */
     margin-top: 50px;
 }
+
+.registration__next-btn {
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.22; /* 122.222% */
+    border-radius: 7px;
+    background: transparent;
+    border: 1px solid black;
+    padding: 10px 20px;
+    margin: 25px auto;
+    display: block;
+    transition: 0.3;
+
+    &.active {
+        color: #fff;
+        background: linear-gradient(90deg, #f04973 0%, #fa6655 100%);
+        box-shadow: 0px 15px 25px 0px rgba(193, 42, 61, 0.2);
+    }
+}
