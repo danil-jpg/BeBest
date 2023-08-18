@@ -18,8 +18,7 @@ const Registration1 = () => {
     const dispatch = useDispatch();
     const navigation = useNavigate();
 
-    const studentData = useSelector((state) => state.studentRegData);
-    console.log(studentData);
+    const studentData = useSelector((state) => state.regData);
     const onClickHandler = (par1, par2, par3) => setChoosen([par1, par2, par3]);
 
     const onSubmitHandler = (e) => {
@@ -82,6 +81,7 @@ const Registration1 = () => {
                                   })
                               )
                             : '';
+                        console.log(studentData);
                         choosen[0]
                             ? navigation('../RegistrationStudent1')
                             : choosen[1]

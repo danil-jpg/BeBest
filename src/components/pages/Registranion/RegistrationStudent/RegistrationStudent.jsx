@@ -9,11 +9,11 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const RegistrationStudent = () => {
-    const [login, setLogin] = useState('111111');
-    const [password, setPassword] = useState('111111');
-    const [confirmPassword, setConfirmPassword] = useState('111111');
-    const [email, setEmail] = useState('111111@');
-    const [buttonType, setButtonType] = useState('text');
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [buttonType, setButtonType] = useState('');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     const [checkboxState, setCheckBoxState] = useState(true);
 
@@ -23,14 +23,6 @@ const RegistrationStudent = () => {
     const navigation = useNavigate();
 
     const studentData = useSelector((state) => state.regData);
-
-    const formData = {
-        data: {
-            json: {
-                ...studentData,
-            },
-        },
-    };
     console.log(studentData);
 
     return (
@@ -148,6 +140,13 @@ const RegistrationStudent = () => {
                         e.preventDefault();
                         setIsButtonClicked(true);
                         if (login && password && confirmPassword && email && password) {
+                            const formData = {
+                                data: {
+                                    json: {
+                                        ...studentData,
+                                    },
+                                },
+                            };
                             dispatch(
                                 setRegDataStudent({
                                     ...studentData,
@@ -156,12 +155,15 @@ const RegistrationStudent = () => {
                                     email: email,
                                 })
                             );
-                            axios
-                                .post('http://bebest.pp.ua/api/tests/', formData)
-                                .then((res) => {
-                                    console.log(res);
-                                })
-                                .catch((e) => console.log(e));
+
+                            setTimeout(() => {
+                                axios
+                                    .post('http://bebest.pp.ua/api/tests/', formData)
+                                    .then((res) => {
+                                        console.log(res);
+                                    })
+                                    .catch((e) => console.log(e));
+                            }, 0);
 
                             console.log(studentData);
 

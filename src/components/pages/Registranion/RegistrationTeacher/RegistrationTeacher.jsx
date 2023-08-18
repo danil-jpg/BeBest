@@ -39,8 +39,8 @@ const RegistrationTeacher = () => {
     const dispatch = useDispatch();
     const navigation = useNavigate();
 
-    const teacherData = useSelector((state) => state.RegData);
-
+    const teacherData = useSelector((state) => state.regData);
+    console.log(teacherData);
     const formData = {
         data: {
             json: {
@@ -358,23 +358,23 @@ const RegistrationTeacher = () => {
                     onClick={(e) => {
                         e.preventDefault();
                         setIsButtonClicked(true);
-                        // if (exp && edu) {
-                        dispatch(
-                            setRegDataTeacher({
-                                ...teacherData,
-                                login: login,
-                                password: password,
-                                email: email,
-                                phone: phoneNum,
-                                passport: passport,
-                                country: country,
-                                city: city,
-                                adress: adress,
-                                edu: edu,
-                                exp: exp,
-                            })
-                        );
-                        // }
+                        if (exp && edu) {
+                            dispatch(
+                                setRegDataTeacher({
+                                    ...teacherData,
+                                    login: login,
+                                    password: password,
+                                    email: email,
+                                    phone: phoneNum,
+                                    passport: passport,
+                                    country: country,
+                                    city: city,
+                                    adress: adress,
+                                    edu: edu,
+                                    exp: exp,
+                                })
+                            );
+                        }
                         console.log(teacherData);
                     }}>
                     Завершить регистрацию
