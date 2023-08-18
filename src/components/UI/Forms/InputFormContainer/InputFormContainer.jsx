@@ -14,17 +14,16 @@ const InputFormContainer = ({
     value,
     setValue,
     error,
+    errorMessage = 'xxx',
 }) => {
     return (
         <div
             className={`${s.inputContainer} ${className} 
             ${inputClassname === 'input_empty' ? 'inputContainerEmpty' : ''}
-            ${inputClassname === 'input_differ' ? 'inputContainerPassDiffer' : ''}
             }`}
             style={style ? style : {}}>
             <h2 className={`${s.inputContainer__title}`}>{title}</h2>
             <InputForm
-                // classname={className}
                 className={inputClassname}
                 name={name}
                 ph={ph}
@@ -32,6 +31,7 @@ const InputFormContainer = ({
                 value={value}
                 setValue={setValue}
             />
+            <p className='input_error-message'>{errorMessage}</p>
         </div>
     );
 };

@@ -46,6 +46,13 @@ const RegistrationStudent = () => {
                                         : 'input_empty'
                                     : ''
                             }
+                            errorMessage={
+                                isButtonClicked
+                                    ? login && login.length > 5
+                                        ? ''
+                                        : 'Заполните поле!'
+                                    : ''
+                            }
                             value={login}
                             setValue={setLogin}
                             title={'Ваш логин'}
@@ -58,6 +65,13 @@ const RegistrationStudent = () => {
                                     ? password && password.length > 5
                                         ? ''
                                         : 'input_empty'
+                                    : ''
+                            }
+                            errorMessage={
+                                isButtonClicked
+                                    ? password && password.length > 5
+                                        ? ''
+                                        : 'Заполните поле!'
                                     : ''
                             }
                             value={password}
@@ -77,6 +91,15 @@ const RegistrationStudent = () => {
                                         : 'input_empty'
                                     : ''
                             }
+                            errorMessage={
+                                isButtonClicked
+                                    ? confirmPassword && confirmPassword.length
+                                        ? confirmPassword === password
+                                            ? ''
+                                            : 'Пароли не совпадают'
+                                        : 'Заполните поле!'
+                                    : ''
+                            }
                             value={confirmPassword}
                             type={'password'}
                             setValue={setConfirmPassword}
@@ -92,6 +115,13 @@ const RegistrationStudent = () => {
                                     ? email && email.length > 5 && email.includes('@')
                                         ? ''
                                         : 'input_empty'
+                                    : ''
+                            }
+                            errorMessage={
+                                isButtonClicked
+                                    ? email && email.length > 5 && email.includes('@')
+                                        ? ''
+                                        : 'Заполните поле!'
                                     : ''
                             }
                             value={email}
@@ -116,25 +146,23 @@ const RegistrationStudent = () => {
                     onClick={(e) => {
                         e.preventDefault();
                         setIsButtonClicked(true);
-                        login && password && confirmPassword && email && password
-                            ? dispatch(
-                                  setRegDataStudent({
-                                      ...studentData,
-                                      login: login,
-                                      password: password,
-                                      email: email,
-                                  })
-                              )
-                            : '';
-
-                        axios
-                            .post('http://bebest.pp.ua/api/tests/', formData)
-                            .then((res) => {
-                                console.log(res);
-                            })
-                            .catch((e) => console.log(e));
-
-                        navigation('../registrationStudentSucc');
+                        if (login && password && confirmPassword && email && password) {
+                            dispatch(
+                                setRegDataStudent({
+                                    ...studentData,
+                                    login: login,
+                                    password: password,
+                                    email: email,
+                                })
+                            );
+                            axios
+                                .post('http://bebest.pp.ua/api/tests/', formData)
+                                .then((res) => {
+                                    console.log(res);
+                                })
+                                .catch((e) => console.log(e));
+                            // navigation('../registrationStudentSucc');
+                        }
                     }}>
                     Зарегистрироваться
                 </button>

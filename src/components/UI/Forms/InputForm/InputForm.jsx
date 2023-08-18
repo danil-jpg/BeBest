@@ -21,7 +21,6 @@ const InputForm = ({ type = 'text', ph, name, value, setValue, style, className,
                 name={name ? name : ''}
                 aria-label={name ? name : ''}
                 value={value}
-                onClick={(e) => setPasswordShown('text')}
                 onChange={(e) => {
                     onInputChangeHandler(e);
                 }}
