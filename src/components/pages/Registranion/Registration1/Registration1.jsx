@@ -87,7 +87,7 @@ const Registration1 = () => {
                             : choosen[1]
                             ? navigation('../RegistrationTeacher')
                             : choosen[2]
-                            ? navigation('../RegistrationStudent1')
+                            ? navigation('../RegistrationComp')
                             : '';
                     }}
                     className={button ? 'registration__next-btn active' : 'registration__next-btn'}>

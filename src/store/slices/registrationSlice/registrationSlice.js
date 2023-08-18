@@ -11,13 +11,26 @@ export const registrationSlice = createSlice({
 	name: 'registration',
 	initialState,
 	reducers: {
-		// setRegDataStudent: (state, action) => {
-		// 	state.type = action.payload.type
-		// 	state.login = action.payload.login
-		// 	state.password = action.payload.password
-		// 	state.email = action.payload.email
-		// },
+		setRegDataStudent: (state, action) => {
+			state.type = action.payload.type
+			state.login = action.payload.login
+			state.password = action.payload.password
+			state.email = action.payload.email
+		},
 		setRegDataTeacher: (state, action) => {
+			state.type = action.payload.type
+			state.login = action.payload.login
+			state.password = action.payload.password
+			state.email = action.payload.email
+			state.phone = action.payload.phone
+			state.passport = action.payload.passport
+			state.county = action.payload.country
+			state.city = action.payload.city
+			state.adress = action.payload.adress
+			state.edu = action.payload.edu
+			state.exp = action.payload.exp
+		},
+		setRegDataComp: (state, action) => {
 			state.type = action.payload.type
 			state.login = action.payload.login
 			state.password = action.payload.password
