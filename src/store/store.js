@@ -7,6 +7,7 @@ import filterSlice from './slices/filterSlice/filterSlice';
 import tabsUserSlice from './slices/tabsUserSlice/tabsUserSlice';
 import teachterFetchUsers from './slices/teachreFilterSlice/teacherFetchUsersSlice';
 import userPageSlice from './slices/userPageSlice/userPageSlice';
+import createLessonSlise from './slices/createLessonSlice/createLessonSlise';
 
 export const store = configureStore({
     reducer: {
@@ -17,7 +18,8 @@ export const store = configureStore({
         filterSlice,
         tabsUserSlice,
         userContentSlice: teachterFetchUsers,
-        userPageSlice
+        userPageSlice,
+        lesson:createLessonSlise
     },
     devTools: true,
 });
