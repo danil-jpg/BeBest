@@ -3,15 +3,7 @@ import './MainButton.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const MainButton = ({
-    children,
-    to = '',
-    style = {},
-    size = 'middle',
-    type = 'red',
-    width = 'full',
-    onClick,
-}) => {
+const MainButton = ({ children, to = '', style = {}, size = 'middle', type = 'red', onClick }) => {
     // sizes = small, middle, big;
     // types = color,transparent
     // width = full, content
@@ -24,10 +16,9 @@ const MainButton = ({
                 onClick
                     ? onClick
                     : () => {
-                            console.log('not callback');
-                        }
-            }
-        >
+                          console.log('not callback');
+                      }
+            }>
             <span>{children}</span>
         </Link>
     );

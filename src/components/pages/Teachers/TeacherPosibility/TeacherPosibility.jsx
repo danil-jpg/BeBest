@@ -1,10 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { async } from 'q';
 import './TeacherPosibility.scss';
-import { useEffect } from 'react';
-import { useState } from 'react';
 
 const TeacherPosibility = () => {
     return (
