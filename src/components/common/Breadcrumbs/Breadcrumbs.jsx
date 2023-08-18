@@ -7,48 +7,61 @@ const Breadcrumbs = (props) => {
     return (
         <div className='breadcrumbs'>
             <ContainerMain>
-                <Routes>
-                    <Route index element={<></>} />
-                    <Route
-                        path='/catalog'
-                        element={
-                            <div className='breadcrumbs__body'>
-                                <Link to='' className='breadcrumbs__link'>
-                                    Главная
-                                </Link>
+                <div className='breadcrumbs__body'>
+                    <Link to='' className='breadcrumbs__link'>
+                        Главная
+                    </Link>
+                    <Routes>
+                        <Route
+                            path='/catalog'
+                            element={
                                 <Link to='' className='breadcrumbs__link'>
                                     Список преподавателей
                                 </Link>
-                            </div>
-                        }
-                    />
-                    <Route
-                        path='/reg'
-                        element={
-                            <div className='breadcrumbs__body'>
-                                <Link to='' className='breadcrumbs__link'>
-                                    Главная
-                                </Link>
+                            }
+                        />
+                        <Route
+                            path='/reg'
+                            element={
                                 <Link to='' className='breadcrumbs__link'>
                                     Регистрация
                                 </Link>
-                            </div>
-                        }
-                    />
-                    <Route
-                        path='/auth'
-                        element={
-                            <div className='breadcrumbs__body'>
-                                <Link to='' className='breadcrumbs__link'>
-                                    Главная
-                                </Link>
+                            }
+                        />
+                        <Route
+                            path='/auth'
+                            element={
                                 <Link to='' className='breadcrumbs__link'>
                                     Авторизация
                                 </Link>
-                            </div>
-                        }
-                    />
-                </Routes>
+                            }
+                        />
+                        <Route
+                            path='/teacher'
+                            element={
+                                <Link to='' className='breadcrumbs__link'>
+                                    имя фамилия
+                                </Link>
+                            }
+                        />
+                        <Route
+                            path='/article'
+                            element={
+                                <Link to='' className='breadcrumbs__link'>
+                                    Страница текстовая
+                                </Link>
+                            }
+                        />
+                        <Route
+                            path='/registration1'
+                            element={
+                                <Link to='' className='breadcrumbs__link'>
+                                    Регистрация
+                                </Link>
+                            }
+                        />
+                    </Routes>
+                </div>
             </ContainerMain>
         </div>
     );
