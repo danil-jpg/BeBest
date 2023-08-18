@@ -13,7 +13,6 @@
     &__image{
         position: absolute;
         left: 1075px;
-        z-index: 3;
         top: 128px;
     }
 
@@ -41,13 +40,13 @@
         }
 
         &-bg{
-            z-index: -1;
             width: 500px;
             height: 480px;
             position: absolute;
             background: #F2F5FA;
             top: 90px;
             left: 0;
+            z-index: -1;
         }
 
         &-main{

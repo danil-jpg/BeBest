@@ -1,29 +1,16 @@
-.home-teachers{
-    padding-top: 145px;
+.home-teachers{ 
+    overflow: hidden;
     position: relative;
-    &__title{
-        padding-left: 227px;
-        h3{
-            color: #292C32;
-            font-family: EB Garamond;
-            font-size: 50px;
-            font-style: normal;
-            font-weight: 600;
-        }
-    }
-    &__photo{
+    margin-top: 130px;
+    padding-left: 205px;
+    &__image{
         position: absolute;
-        top: 130px;
+        top: 0;
         right: 0;
         z-index: -1;
-        background: linear-gradient(180deg, rgba(72, 62, 61, 0.25) 0%, rgba(72, 62, 61, 0.60) 100%);
     }
 
-    &__count{
-        position: absolute;
-        right: 50px;
-        bottom:80px;
+    &__title{
+        padding-top: 5px;
     }
-    
-  
 }

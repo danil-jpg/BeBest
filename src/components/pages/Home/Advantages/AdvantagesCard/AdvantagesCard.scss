@@ -1,3 +1,4 @@
+@import "../../../../../styles/media-breakpoints.scss";
 .advantages-card{
 
     max-width: 350px;
@@ -11,7 +12,11 @@
     padding-top: 40px;
     padding-left: 28px;
     padding-right: 28px;
-    z-index: 10;
+
+    @include media-breakpoint-down(lg){
+        max-width: 280px;
+        padding: 20px;
+    }
 
     &__image{
         width: 104px;

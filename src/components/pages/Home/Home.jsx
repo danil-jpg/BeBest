@@ -11,7 +11,6 @@ import HeroBlock from './HeroBlock/HeroBlock';
 import PopularCourse from './PopularCourse/PopularCourse';
 import Advantages from './Advantages/Advantages';
 import HomeTeachers from './HomeTeachers/HomeTeachers';
-import Partners from './Partners/Partners';
 
 const Home = (props) => {
 
@@ -25,11 +24,8 @@ const Home = (props) => {
                 <HowWorking/>
                 <Advantages/>
             </ContainerMain>
-            <HomeTeachers/>
 
-            <ContainerMain>
-                <Partners/>
-            </ContainerMain>
+            <HomeTeachers/>
         </main>
     );
 };
