@@ -15,7 +15,6 @@ import { useNavigate } from 'react-router-dom';
 const Registration1 = () => {
     const [choosen, setChoosen] = useState([false, false, false]);
     const [button, setButton] = useState(false);
-    // const [response, setResponse] = useState([]);
     const dispatch = useDispatch();
     const navigation = useNavigate();
 
@@ -25,13 +24,6 @@ const Registration1 = () => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        // axios
-        //     .post('http://bebest.pp.ua/api/tests/', data)
-        //     .then((res) => {
-        //         setResponse(res.data);
-        //         console.log(res);
-        //     })
-        //     .catch((e) => console.log(e));
     };
 
     return (
@@ -93,7 +85,7 @@ const Registration1 = () => {
                         choosen[0]
                             ? navigation('../RegistrationStudent1')
                             : choosen[1]
-                            ? navigation('../RegistrationStudent1')
+                            ? navigation('../RegistrationTeacher')
                             : choosen[2]
                             ? navigation('../RegistrationStudent1')
                             : '';

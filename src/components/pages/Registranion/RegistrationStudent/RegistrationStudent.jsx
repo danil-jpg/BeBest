@@ -9,10 +9,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const RegistrationStudent = () => {
-    const [login, setLogin] = useState('login123');
-    const [password, setPassword] = useState('login123');
-    const [confirmPassword, setConfirmPassword] = useState('login123');
-    const [email, setEmail] = useState('login123@');
+    const [login, setLogin] = useState('111111');
+    const [password, setPassword] = useState('111111');
+    const [confirmPassword, setConfirmPassword] = useState('111111');
+    const [email, setEmail] = useState('111111@');
     const [buttonType, setButtonType] = useState('text');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     const [checkboxState, setCheckBoxState] = useState(true);
@@ -22,7 +22,7 @@ const RegistrationStudent = () => {
     const dispatch = useDispatch();
     const navigation = useNavigate();
 
-    const studentData = useSelector((state) => state.studentRegData);
+    const studentData = useSelector((state) => state.regData);
 
     const formData = {
         data: {
@@ -31,6 +31,7 @@ const RegistrationStudent = () => {
             },
         },
     };
+    console.log(studentData);
 
     return (
         <div className='registration-student'>
@@ -161,7 +162,10 @@ const RegistrationStudent = () => {
                                     console.log(res);
                                 })
                                 .catch((e) => console.log(e));
-                            // navigation('../registrationStudentSucc');
+
+                            console.log(studentData);
+
+                            navigation('../registrationStudentSucc');
                         }
                     }}>
                     Зарегистрироваться

@@ -16,7 +16,7 @@ const InputForm = ({ type = 'text', ph, name, value, setValue, style, className,
             <input
                 style={style ? style : {}}
                 className={`input ${className} `}
-                type={passwordShown ? 'password' : 'text'}
+                type={type === 'password' ? (passwordShown ? 'password' : 'text') : type}
                 placeholder={ph ? ph : ''}
                 name={name ? name : ''}
                 aria-label={name ? name : ''}
