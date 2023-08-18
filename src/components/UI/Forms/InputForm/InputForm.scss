@@ -35,3 +35,25 @@
         line-height: 1.1; /* 111.111% */
     }
 }
+.input_password-icon_none {
+    display: none;
+}
+.input_password-icon {
+    display: block;
+    background-image: url('../../../../assets/icons/Eye.svg');
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    cursor: pointer;
+    width: 20px;
+    height: 12.747px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.input_password {
+}
+.input__wr {
+    position: relative;
+}
