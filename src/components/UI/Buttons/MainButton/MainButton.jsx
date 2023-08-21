@@ -12,6 +12,7 @@ const MainButton = ({
     width = 'full',
     onClick,
 }) => {
+
     // sizes = small, middle, big;
     // types = color,transparent
     // width = full, content

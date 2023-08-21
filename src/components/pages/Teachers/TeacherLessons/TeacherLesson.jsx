@@ -26,10 +26,26 @@ const TeacherLesson = () => {
             </div>
             <div className='teacher__trial teacher__trial_forLate'>
                 <p className='teacher__trial_text'>Индивидуальный урок</p>
-                <div className='teacher__trial__row'>
-                    <RadioForm />
+                <p className='teacher__trial_text_2'>Количество уроков</p>
+                <div className='teacher__trial__row teacher__trial__row-spec'>
+                    <div className='trial__row_wr'>
+                        <RadioForm checked={true} />
+                        <p className='trial__row_text'>1</p>
+                    </div>
+                    <div className='trial__row_wr'>
+                        <RadioForm checked={false} />
+                        <p className='trial__row_text'>2</p>
+                    </div>
+                    <div className='trial__row_wr'>
+                        <RadioForm checked={false} />
+                        <p className='trial__row_text'>3</p>
+                    </div>
+                    <div className='trial__row_wr'>
+                        <RadioForm checked={false} />
+                        <p className='trial__row_text'>4</p>
+                    </div>
                 </div>
-                <div className='teacher__trial__row'>
+                <div className='teacher__trial__row teacher__trial_row_nonStandart'>
                     <p className='teacher__trial__row_text'>Стоисмость курса</p>
                     <p className='teacher__trial__row_num'>1000 $ </p>
                 </div>

@@ -8,16 +8,16 @@ import Breadcrumbs from './common/Breadcrumbs/Breadcrumbs';
 
 const App = () => {
     return (
-        <BrowserRouter>
-            <div className='wrapper'>
-                <Routes>
-                    <Route index element={<Header home={true} />} />
-                    <Route path='/*' element={<Header />} />
-                </Routes>
-                <Main />
-                <Footer />
-            </div>
-        </BrowserRouter>
+        // <BrowserRouter>
+        <div className='wrapper'>
+            <Routes>
+                <Route index element={<Header home={true} />} />
+                <Route path='/*' element={<Header />} />
+            </Routes>
+            <Main />
+            <Footer />
+        </div>
+        // </BrowserRouter>
     );
 };
 

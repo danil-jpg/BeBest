@@ -114,3 +114,34 @@
 .teacher__trial__row_text_sm {
     font-size: 14px;
 }
+.teacher__trial_text_2 {
+    color: #8b919e;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.64; /* 164.286% */
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.trial__row_wr {
+    display: flex;
+    justify-content: flex-start;
+}
+.trial__row_wr {
+    margin-right: 20px;
+}
+.trial__row_text {
+    color: #454b58;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 13px;
+}
+.teacher__trial__row-spec {
+    margin-right: 20px;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+.teacher__trial_row_nonStandart {
+    margin-top: 33px;
+}

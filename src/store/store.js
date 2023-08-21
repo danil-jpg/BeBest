@@ -5,7 +5,7 @@ import breadcrumbSlice from './slices/breadcrumbSlice/breadcrumbSlice';
 import catalogSlice from './slices/catalogSlice/catalogSlice';
 import filterSlice from './slices/filterSlice/filterSlice';
 import tabsUserSlice from './slices/tabsUserSlice/tabsUserSlice';
-import teacherFilterSlice from './slices/teachreFilterSlice/teacherFilterSlice';
+import teachterFetchUsers from './slices/teachreFilterSlice/teacherFetchUsersSlice';
 import userPageSlice from './slices/userPageSlice/userPageSlice';
 import forumSlice from './slices/forumSlice/forumSlice';
 
@@ -19,7 +19,9 @@ export const store = configureStore({
         tabsUserSlice,
         teacherFilterSlice,
         userPageSlice,
-        forumSlice
+        forumSlice,
+        userContentSlice: teachterFetchUsers,
+
     },
     devTools: true,
 });

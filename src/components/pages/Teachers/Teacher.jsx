@@ -12,7 +12,6 @@ import TeacherCalendar from './TeacherCalendar/TeacherCalendar';
 import TeacherComment from './TeacherComment/TeacherComment';
 
 const Teacher = (props) => {
-
     return (
         <div className='teacher'>
             <div className='teacher__background'></div>
