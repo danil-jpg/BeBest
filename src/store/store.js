@@ -8,18 +8,22 @@ import tabsUserSlice from './slices/tabsUserSlice/tabsUserSlice';
 import teachterFetchUsers from './slices/teachreFilterSlice/teacherFetchUsersSlice';
 import userPageSlice from './slices/userPageSlice/userPageSlice';
 import registrationSlice from './slices/registrationSlice/registrationSlice';
+import forumSlice from './slices/forumSlice/forumSlice';
 
 export const store = configureStore({
-    reducer: {
-        headerSlice,
-        footerSlice,
-        breadcrumbSlice,
-        catalogSlice,
-        filterSlice,
-        tabsUserSlice,
-        regData: registrationSlice,
-        userContentSlice: teachterFetchUsers,
-        userPageSlice
-    },
-    devTools: true,
+        reducer: {
+                headerSlice,
+                footerSlice,
+                breadcrumbSlice,
+                catalogSlice,
+                filterSlice,
+                tabsUserSlice,
+                regData: registrationSlice,
+                // teacherFilterSlice,
+                userPageSlice,
+                forumSlice,
+                userContentSlice: teachterFetchUsers,
+
+        },
+        devTools: true,
 });

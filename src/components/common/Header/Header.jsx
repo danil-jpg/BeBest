@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import UserMenuHeader from './UserMenuHeader/UserMenuHeader';
 import { useSelector } from 'react-redux';
 import ContainerMain from '../ContainerMain/ContainerMain';
+import PropTypes from 'prop-types';
 
 const Header = ({ home = false }) => {
     let data = useSelector((state) => state.headerSlice);
-
 
     return (
         <header className={home ? 'header header_home' : 'header'}>
@@ -36,5 +36,9 @@ const Header = ({ home = false }) => {
         </header>
     );
 };
+
+Header.propTypes = {
+    home: PropTypes.bool
+}
 
 export default Header;
