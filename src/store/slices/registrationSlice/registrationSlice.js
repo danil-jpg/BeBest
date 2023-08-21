@@ -36,15 +36,13 @@ export const registrationSlice = createSlice({
 			state.password = action.payload.password
 			state.email = action.payload.email
 			state.phone = action.payload.phone
-			state.passport = action.payload.passport
-			state.county = action.payload.country
+			state.country = action.payload.country
 			state.city = action.payload.city
 			state.adress = action.payload.adress
-			state.edu = action.payload.edu
-			state.exp = action.payload.exp
-		}
+		},
+
 	}
 })
 
-export const { setRegDataStudent, setRegDataTeacher } = registrationSlice.actions;
+export const { setRegDataStudent, setRegDataTeacher, setRegDataComp } = registrationSlice.actions;
 export default registrationSlice.reducer

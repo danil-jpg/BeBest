@@ -380,12 +380,11 @@ const RegistrationTeacher = () => {
                                     .then((res) => {
                                         console.log(res);
                                     })
+                                    .then((res) => navigation('../registrationStudentSucc'))
                                     .catch((e) => console.log(e));
                             }, 0);
 
                             console.log(teacherData);
-
-                            navigation('../registrationStudentSucc');
                         }
                     }}>
                     Завершить регистрацию

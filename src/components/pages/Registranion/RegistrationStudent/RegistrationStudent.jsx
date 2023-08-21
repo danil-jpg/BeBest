@@ -156,18 +156,15 @@ const RegistrationStudent = () => {
                                 })
                             );
 
-                            setTimeout(() => {
-                                axios
-                                    .post('http://bebest.pp.ua/api/tests/', formData)
-                                    .then((res) => {
-                                        console.log(res);
-                                    })
-                                    .catch((e) => console.log(e));
-                            }, 0);
+                            axios
+                                .post('http://bebest.pp.ua/api/tests/', formData)
+                                .then((res) => {
+                                    console.log(res);
+                                })
+                                .then(() => navigation('../registrationStudentSucc'))
+                                .catch((e) => console.log(e));
 
                             console.log(studentData);
-
-                            navigation('../registrationStudentSucc');
                         }
                     }}>
                     Зарегистрироваться

@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
-import { setRegDataTeacher } from '../../../../store/slices/registrationSlice/registrationSlice';
+import { setRegDataComp } from '../../../../store/slices/registrationSlice/registrationSlice';
 
 const RegistarionComp = () => {
     const [formState, setFormState] = useState(1);
@@ -18,13 +18,15 @@ const RegistarionComp = () => {
     const [email, setEmail] = useState('fdfafdasfd@');
     const [phoneNum, setPhoneNum] = useState('43242423423423423');
     //
-    const [compName, setCompName] = useState('aasdasdsx');
-    const [inn, setInn] = useState('asasddasdd');
-    const [city, setCity] = useState('dasdasd');
-    const [adress, setAdress] = useState('adsasdasd');
+    const [compName, setCompName] = useState('xxxxxxx');
+    const [inn, setInn] = useState('xxxxxxx');
+    const [city, setCity] = useState('xxxxxxx');
+    const [country, setCountry] = useState('xxxxxxx');
+    const [adress, setAdress] = useState('xxxxxxx');
     //
-    const [urAdress, setUrAdress] = useState('sdasad');
-    const [postIndex, setPostIndex] = useState('asddas');
+
+    const [urAdress, setUrAdress] = useState('xxxxxxx');
+    const [postIndex, setPostIndex] = useState('xxxxxxx');
     //
     const [buttonType, setButtonType] = useState('text');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
@@ -35,15 +37,7 @@ const RegistarionComp = () => {
     const dispatch = useDispatch();
     const navigation = useNavigate();
 
-    const teacherData = useSelector((state) => state.regData);
-    console.log(teacherData);
-    const formData = {
-        data: {
-            json: {
-                ...teacherData,
-            },
-        },
-    };
+    const compData = useSelector((state) => state.regData);
 
     return (
         <div className='registration-student registration-teacher'>
@@ -207,17 +201,13 @@ const RegistarionComp = () => {
                             value={compName}
                             type={'text'}
                             setValue={setCompName}
-                            title={'Паспорт'}
+                            title={'Наименование компании'}
                             className={'registration-student__input'}></InputFormContainer>
                     </li>
                     <li className='registration-student__li'>
                         <InputFormContainer
                             inputClassname={
-                                isButtonClicked
-                                    ? confirmPassword && confirmPassword.length > 3
-                                        ? ''
-                                        : 'input_empty'
-                                    : ''
+                                isButtonClicked ? (inn && inn.length > 3 ? '' : 'input_empty') : ''
                             }
                             errorMessage={
                                 isButtonClicked ? (inn && inn.length ? '' : 'Заполните поле!') : ''
@@ -225,9 +215,28 @@ const RegistarionComp = () => {
                             value={inn}
                             type={'text'}
                             setValue={setInn}
+                            title={'ИНН'}
+                            className={'registration-student__input'}></InputFormContainer>
+                    </li>
+                    <li className='registration-student__li'>
+                        <InputFormContainer
+                            inputClassname={
+                                isButtonClicked
+                                    ? country && country.length > 3
+                                        ? ''
+                                        : 'input_empty'
+                                    : ''
+                            }
+                            errorMessage={
+                                isButtonClicked ? (inn && inn.length ? '' : 'Заполните поле!') : ''
+                            }
+                            value={country}
+                            type={'text'}
+                            setValue={setCountry}
                             title={'Страна'}
                             className={'registration-student__input'}></InputFormContainer>
                     </li>
+
                     <li className='registration-student__li'>
                         <InputFormContainer
                             inputClassname={
@@ -253,21 +262,42 @@ const RegistarionComp = () => {
                         <InputFormContainer
                             inputClassname={
                                 isButtonClicked
-                                    ? adress && adress.length > 8
+                                    ? adress && adress.length > 3
                                         ? ''
                                         : 'input_empty'
                                     : ''
                             }
                             errorMessage={
                                 isButtonClicked
-                                    ? adress && adress.length > 8
+                                    ? adress && adress.length > 3
                                         ? ''
                                         : 'Заполните поле!'
                                     : ''
                             }
                             value={adress}
                             setValue={setAdress}
-                            title={'Адрес'}
+                            title={'Почтовый адрес'}
+                            className={'registration-student__input'}></InputFormContainer>
+                    </li>
+                    <li className='registration-student__li'>
+                        <InputFormContainer
+                            inputClassname={
+                                isButtonClicked
+                                    ? urAdress && urAdress.length > 4
+                                        ? ''
+                                        : 'input_empty'
+                                    : ''
+                            }
+                            errorMessage={
+                                isButtonClicked
+                                    ? urAdress && urAdress.length > 4
+                                        ? ''
+                                        : 'Заполните поле!'
+                                    : ''
+                            }
+                            value={urAdress}
+                            setValue={setUrAdress}
+                            title={'Юридический адрес'}
                             className={'registration-student__input'}></InputFormContainer>
                     </li>
                 </ul>
@@ -276,10 +306,29 @@ const RegistarionComp = () => {
                     onClick={(e) => {
                         e.preventDefault();
                         setIsButtonClicked(true);
-                        if (urAdress && urAdress) {
+                        if (
+                            login &&
+                            password === confirmPassword &&
+                            email &&
+                            phoneNum &&
+                            compName &&
+                            inn &&
+                            country &&
+                            city &&
+                            urAdress &&
+                            postIndex
+                        ) {
+                            const formData = {
+                                data: {
+                                    json: {
+                                        ...compData,
+                                    },
+                                },
+                            };
+
                             dispatch(
-                                setRegDataTeacher({
-                                    ...teacherData,
+                                setRegDataComp({
+                                    ...compData,
                                     login: login,
                                     password: password,
                                     email: email,
@@ -288,6 +337,7 @@ const RegistarionComp = () => {
                                     inn: inn,
                                     city: city,
                                     adress: adress,
+                                    country: country,
                                     urAdress: urAdress,
                                     postIndex: postIndex,
                                 })
@@ -297,13 +347,10 @@ const RegistarionComp = () => {
                                     .post('http://bebest.pp.ua/api/tests/', formData)
                                     .then((res) => {
                                         console.log(res);
+                                        navigation('../registrationStudentSucc');
                                     })
                                     .catch((e) => console.log(e));
                             }, 0);
-
-                            console.log(teacherData);
-
-                            navigation('../registrationStudentSucc');
                         }
                     }}>
                     Завершить регистрацию
