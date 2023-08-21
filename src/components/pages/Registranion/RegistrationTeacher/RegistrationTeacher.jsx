@@ -40,16 +40,6 @@ const RegistrationTeacher = () => {
     const navigation = useNavigate();
 
     const teacherData = useSelector((state) => state.regData);
-    console.log(teacherData);
-    const formData = {
-        data: {
-            json: {
-                ...teacherData,
-            },
-        },
-    };
-
-    // console.log(photo);
 
     return (
         <div className='registration-student registration-teacher'>
