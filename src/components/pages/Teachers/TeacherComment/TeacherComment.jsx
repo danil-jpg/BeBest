@@ -16,6 +16,7 @@ import {
 } from '../../../../store/slices/teachreFilterSlice/teacherFetchUsersSlice';
 import Loading from '../../../common/Loading/Loading';
 import SelectFormContainer from '../../../UI/Forms/SelectFormContainer/SelectFormContainer';
+import { selectSort } from '../../../../store/slices/teachreFilterSlice/teacherFetchUsersSlice';
 
 const TeacherComment = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -23,7 +24,9 @@ const TeacherComment = () => {
 
     const dispatch = useDispatch();
     const users = useSelector((state) => state.userContentSlice.users);
-
+    const selectsData = useSelector((state) => state.userContentSlice.selects);
+    // const selectsDataSex = useSelector((state) => state.userContentSlice.selectsSex);
+    console.log(selectsData);
     useEffect(() => {
         dispatch(fetchAllUsers());
     }, [dispatch]);
@@ -58,31 +61,15 @@ const TeacherComment = () => {
             <div className='filters_wr'>
                 <SelectFormContainer
                     title={'Количество занятий'}
-                    list={[
-                        { id: v1(), title: 'По возростанию', clicked: true },
-                        { id: v1(), title: 'По убыванию', clicked: false },
-                    ]}
+                    list={selectsData[0]}
                     style={{ color: 'black' }}
-                    setItem={filteredUsersByLessonNum}
+                    setItem={selectSort}
                 />
                 <SelectFormContainer
                     title={'Пол преподавателя'}
-                    list={[
-                        { id: v1(), title: 'Мужской', clicked: true },
-                        { id: v1(), title: 'Женский', clicked: false },
-                    ]}
+                    list={selectsData[1]}
                     style={{ color: 'black' }}
-                    setItem={filteredUsersBySex}
-                />
-                <SelectFormContainer
-                    title={'Пол преподавателя'}
-                    list={[
-                        { id: v1(), title: 'text1', clicked: true },
-                        { id: v1(), title: 'text3', clicked: false },
-                        { id: v1(), title: 'text3', clicked: false },
-                    ]}
-                    style={{ color: 'black' }}
-                    setItem={filteredUsersBySex}
+                    setItem={selectSort}
                 />
             </div>
             <div className='comments_wr'>

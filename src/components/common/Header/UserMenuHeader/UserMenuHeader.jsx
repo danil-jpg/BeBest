@@ -16,29 +16,22 @@ const UserMenuHeader = (props) => {
         iconUser,
     };
 
-    const onEnterClickHandler = () => {setLogin(!login)}
+    const onEnterClickHandler = () => {
+        setLogin(!login);
+    };
 
     return (
         <div className='user-header'>
             {login ? (
                 <div className='user-header__link-list'>
                     <Link to='' className='user-header__link user-header__link_entered'>
-                        <IconRenderer
-                            id='student'
-                            className='user-header__icon  icon-student'
-                        />
+                        <IconRenderer id='student' className='user-header__icon  icon-student' />
                     </Link>
                     <Link to='' className='user-header__link user-header__link_entered'>
-                        <IconRenderer
-                            id='notify'
-                            className='user-header__icon  icon-notify'
-                        />
+                        <IconRenderer id='notify' className='user-header__icon  icon-notify' />
                     </Link>
                     <Link to='' className='user-header__link user-header__link_entered'>
-                        <IconRenderer
-                            id='mess'
-                            className='user-header__icon  icon-mess'
-                        />
+                        <IconRenderer id='mess' className='user-header__icon  icon-mess' />
                     </Link>
                 </div>
             ) : (
@@ -51,7 +44,7 @@ const UserMenuHeader = (props) => {
                         />
                         <span>{data.auth}</span>
                     </Link>
-                    <Link to='' className='user-header__link'>
+                    <Link to='registration/registrationProposal' className='user-header__link'>
                         <span>{data.reg}</span>
                     </Link>
                 </div>

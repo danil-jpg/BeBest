@@ -3,14 +3,12 @@ import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer';
 import { Link } from 'react-router-dom';
 import chatSvg from '../../../../assets/icons/chat.svg';
 import axios from 'axios';
-import { async } from 'q';
 import './TeacherGreet.scss';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import time from '../../../../assets/icons/time.svg';
 import star from '../../../../assets/icons/star.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { setUserList } from '../../../../store/slices/catalogSlice/catalogSlice';
+import { useSelector } from 'react-redux';
 import Loading from '../../../common/Loading/Loading';
 
 const TeacherGreet = () => {

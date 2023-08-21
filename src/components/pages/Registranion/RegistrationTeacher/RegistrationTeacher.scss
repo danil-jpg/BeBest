@@ -1,0 +1,36 @@
+.registration-teacher {
+    gap: 40px;
+}
+.registration-student__form_hidden {
+    display: none;
+}
+.registration-teacher_btn-next {
+    width: 130px;
+    justify-content: flex-start;
+}
+.registration-teacher__form_opacity {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.registration-input-image_wr {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    width: 82%;
+    margin-bottom: 20px;
+}
+.registration-input__input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.regisration-input__text {
+    color: #8b919e;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1; /* 100% */
+    text-decoration-line: underline;
+}

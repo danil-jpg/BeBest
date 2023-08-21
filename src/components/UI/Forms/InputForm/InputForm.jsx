@@ -1,27 +1,35 @@
-import React from 'react';
-import s from './InputForm.module.scss';
+import React, { useState } from 'react';
+import s from './InputForm.scss';
 
-const InputForm = ({ type, ph, name, value, setValue, style, className, error }) => {
-  const onInputChangeHandler = (e) => {
-    setValue(e.currentTarget.value);
-  };
+const InputForm = ({ type = 'text', ph, name, value, setValue, style, className, error }) => {
+    const [passwordShown, setPasswordShown] = useState(false);
 
-  return (
-    <>
-      <input
-        style={style ? style : {}}
-        className={`${s.input} ${className}`}
-        type={type ? type : 'text'}
-        placeholder={ph ? ph : ''}
-        name={name ? name : ''}
-        aria-label={name ? name : ''}
-        value={value}
-        onChange={(e) => {
-          onInputChangeHandler(e);
-        }}
-      />
-    </>
-  );
+    const onInputChangeHandler = (e) => {
+        setValue(e.currentTarget.value);
+    };
+    const onEyeClickHandler = () => {
+        setPasswordShown(!passwordShown);
+    };
+
+    return (
+        <div className='input__wr'>
+            <input
+                style={style ? style : {}}
+                className={`input ${className} `}
+                type={type === 'password' ? (passwordShown ? 'password' : 'text') : type}
+                placeholder={ph ? ph : ''}
+                name={name ? name : ''}
+                aria-label={name ? name : ''}
+                value={value}
+                onChange={(e) => {
+                    onInputChangeHandler(e);
+                }}
+            />
+            <span
+                onClick={onEyeClickHandler}
+                className={type === 'password' ? 'input_password-icon' : ''}></span>
+        </div>
+    );
 };
 
 export default InputForm;
