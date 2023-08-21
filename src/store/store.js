@@ -17,7 +17,7 @@ export const store = configureStore({
         catalogSlice,
         filterSlice,
         tabsUserSlice,
-        teacherFilterSlice,
+        // teacherFilterSlice,
         userPageSlice,
         forumSlice,
         userContentSlice: teachterFetchUsers,
