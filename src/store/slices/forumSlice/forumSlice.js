@@ -4,27 +4,46 @@ import axios from 'axios';
 
 const initialState = {
     forums: [],
+    status: null,
+    error: null,
 };
 
-const fetchForums = createAsyncThunk('forum/fetchForums', async () => {
-    const response = await fetch('http://bebest.pp.ua/api/forum?populate=*');
-    const data = await response.json();
-    return data;
-});
+export const fetchForums = createAsyncThunk(
+    'forum/fetchForums',
+    async () => {
+        let res = await axios.get('http://bebest.pp.ua/api/forums?populate=*');
+        return res.data.data;
+    });
 
 export const forumSlice = createSlice({
     name: 'catalog',
     initialState,
     reducers: {
-        test: (state, action) => {},
+        setForum: (state, action) => {
+            state.forums = action.payload;
+        },
+        sortForum: (state, action) => {
+            state.forums = [...state.forums].sort((a,b) => {a - b})
+        }
     },
     extraReducers: {
-        [fetchForums.fulfilled]: (state) => {
-            
-            fetchForums();
+        [fetchForums.pending]: (state) => {
+            state.status = 'loading';
+            state.error = null;
+
+            console.log('pending')
+        },
+        [fetchForums.fulfilled]: (state, action) => {
+            state.status = 'resolved';
+            state.forums = action.payload;
+        },
+        [fetchForums.rejected]: (state) => {
+
+
+            console.log('reject');
         },
     },
 });
 
-export const { test } = forumSlice.actions;
+export const { setForum } = forumSlice.actions;
 export default forumSlice.reducer;
