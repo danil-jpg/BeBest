@@ -15,20 +15,20 @@ import { setRegDataTeacher } from '../../../../store/slices/registrationSlice/re
 const RegistrationTeacher = () => {
     const [formState, setFormState] = useState(1);
 
-    const [username, setLogin] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [phoneNum, setPhoneNum] = useState('');
+    const [username, setLogin] = useState('user111111');
+    const [password, setPassword] = useState('user111111');
+    const [confirmPassword, setConfirmPassword] = useState('user111111');
+    const [email, setEmail] = useState('user1111112@gmail.com');
+    const [phoneNum, setPhoneNum] = useState('111111111111');
     //
     const [photo, setPhoto] = useState('');
-    const [passport, setPassport] = useState('');
-    const [country, setCountry] = useState('');
-    const [city, setCity] = useState('');
-    const [adress, setAdress] = useState('');
+    const [passport, setPassport] = useState('2222222222');
+    const [country, setCountry] = useState('3333333333');
+    const [city, setCity] = useState('4444444');
+    const [adress, setAdress] = useState('55555555');
     //
-    const [edu, setEdu] = useState('');
-    const [exp, setExp] = useState('');
+    const [edu, setEdu] = useState('1111111111');
+    const [exp, setExp] = useState('22222222');
     //
     const [buttonType, setButtonType] = useState('text');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
@@ -374,17 +374,26 @@ const RegistrationTeacher = () => {
                                     exp: exp,
                                 })
                             );
-                            setTimeout(() => {
-                                axios
-                                    .post('http://bebest.pp.ua/api/tests/', formData)
-                                    .then((res) => {
-                                        console.log(res);
-                                    })
-                                    .then((res) => navigation('../registrationStudentSucc'))
-                                    .catch((e) => console.log(e));
-                            }, 0);
 
-                            console.log(teacherData);
+                            axios
+                                .post('http://bebest.pp.ua/api/auth/local/register', {
+                                    ...teacherData,
+                                    username: username,
+                                    password: password,
+                                    email: email,
+                                    phone: phoneNum,
+                                    passport: passport,
+                                    country: country,
+                                    city: city,
+                                    adress: adress,
+                                    edu: edu,
+                                    exp: exp,
+                                })
+                                .then((res) => {
+                                    console.log(res);
+                                })
+                                .then(() => navigation('../registrationStudentSucc'))
+                                .catch((e) => console.log(e));
                         }
                     }}>
                     Завершить регистрацию

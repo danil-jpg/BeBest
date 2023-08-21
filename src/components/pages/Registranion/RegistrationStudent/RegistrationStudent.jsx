@@ -162,15 +162,12 @@ const RegistrationStudent = () => {
                             axios
                                 .post('http://bebest.pp.ua/api/auth/local/register', {
                                     ...studentData,
-                                    username: username,
-                                    password: password,
-                                    email: email,
                                 })
                                 .then((res) => {
                                     console.log(res);
                                 })
                                 .then(() => navigation('../registrationStudentSucc'))
-                                .catch((e) => alert(e.response.data.error.message));
+                                .catch((e) => console.log(e.response.data.error.message));
                         }
                     }}>
                     Зарегистрироваться

@@ -15,7 +15,7 @@ const RegistarionComp = () => {
     const [username, setLogin] = useState('123123123213');
     const [password, setPassword] = useState('32123131231312');
     const [confirmPassword, setConfirmPassword] = useState('32123131231312');
-    const [email, setEmail] = useState('fdfafdasfd@');
+    const [email, setEmail] = useState('fdfafdasfd@mail.com');
     const [phoneNum, setPhoneNum] = useState('43242423423423423');
     //
     const [compName, setCompName] = useState('xxxxxxx');
@@ -28,11 +28,7 @@ const RegistarionComp = () => {
     const [urAdress, setUrAdress] = useState('xxxxxxx');
     const [postIndex, setPostIndex] = useState('xxxxxxx');
     //
-    const [buttonType, setButtonType] = useState('text');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
-    const [checkboxState, setCheckBoxState] = useState(true);
-
-    const onCheckboxHandler = () => setCheckBoxState(!checkboxState);
 
     const dispatch = useDispatch();
     const navigation = useNavigate();
@@ -171,6 +167,15 @@ const RegistarionComp = () => {
                         setIsButtonClicked(true);
                         if (username && password && confirmPassword && email && password) {
                             setFormState(2);
+                            dispatch(
+                                setRegDataComp({
+                                    ...compData,
+                                    username: username,
+                                    password: password,
+                                    email: email,
+                                    phone: phoneNum,
+                                })
+                            );
                         }
                     }}>
                     Далее
@@ -318,21 +323,9 @@ const RegistarionComp = () => {
                             urAdress &&
                             postIndex
                         ) {
-                            const formData = {
-                                data: {
-                                    json: {
-                                        ...compData,
-                                    },
-                                },
-                            };
-
                             dispatch(
                                 setRegDataComp({
                                     ...compData,
-                                    username: username,
-                                    password: password,
-                                    email: email,
-                                    phone: phoneNum,
                                     compName: compName,
                                     inn: inn,
                                     city: city,
@@ -342,15 +335,15 @@ const RegistarionComp = () => {
                                     postIndex: postIndex,
                                 })
                             );
-                            setTimeout(() => {
-                                axios
-                                    .post('http://bebest.pp.ua/api/tests/', formData)
-                                    .then((res) => {
-                                        console.log(res);
-                                        navigation('../registrationStudentSucc');
-                                    })
-                                    .catch((e) => console.log(e));
-                            }, 0);
+                            axios
+                                .post('http://bebest.pp.ua/api/auth/local/register', {
+                                    ...compData,
+                                })
+                                .then((res) => {
+                                    console.log(res);
+                                })
+                                .then(() => navigation('../registrationStudentSucc'))
+                                .catch((e) => console.log(e));
                         }
                     }}>
                     Завершить регистрацию
