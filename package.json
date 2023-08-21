@@ -23,7 +23,6 @@
     "@event-calendar/time-grid": "^1.5.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
     "@squoosh/lib": "^0.5.3",
-<<<<<<< HEAD
     "@storybook/addon-essentials": "^7.3.1",
     "@storybook/addon-interactions": "^7.3.1",
     "@storybook/addon-links": "^7.3.1",
@@ -33,7 +32,6 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^7.3.1",
     "@storybook/react-webpack5": "^7.3.1",
-=======
     "@storybook/addon-essentials": "^7.2.3",
     "@storybook/addon-interactions": "^7.2.3",
     "@storybook/addon-links": "^7.2.3",
@@ -42,7 +40,6 @@
     "@storybook/blocks": "^7.2.3",
     "@storybook/react": "^7.2.3",
     "@storybook/react-webpack5": "^7.2.3",
->>>>>>> master
     "@storybook/testing-library": "^0.2.0",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",

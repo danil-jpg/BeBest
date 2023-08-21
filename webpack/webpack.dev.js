@@ -8,7 +8,6 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/index.jsx'),
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
-
     },
     // cache: false,
     output: {
