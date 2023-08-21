@@ -6,6 +6,7 @@ import RegistrationStudent from './RegistrationStudent/RegistrationStudent';
 import RegistratoinSucc from './RegistrationSucc/RegistratoinSucc';
 import RegistrationTeacher from './RegistrationTeacher/RegistrationTeacher';
 import RegistarionComp from './RegistrationComp/RegistarionComp';
+import Authorize from './Authorize/Authorize';
 
 const Registration = () => {
     return (
@@ -15,6 +16,7 @@ const Registration = () => {
             <Route path='registrationTeacher' element={<RegistrationTeacher />}></Route>
             <Route path='registrationComp' element={<RegistarionComp />}></Route>
             <Route path='registrationStudentSucc' element={<RegistratoinSucc />}></Route>
+            <Route path='Authorize' element={<Authorize />}></Route>
         </Routes>
     );
 };

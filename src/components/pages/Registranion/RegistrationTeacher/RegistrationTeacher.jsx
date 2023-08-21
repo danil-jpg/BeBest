@@ -15,20 +15,20 @@ import { setRegDataTeacher } from '../../../../store/slices/registrationSlice/re
 const RegistrationTeacher = () => {
     const [formState, setFormState] = useState(1);
 
-    const [login, setLogin] = useState('123123123213');
-    const [password, setPassword] = useState('32123131231312');
-    const [confirmPassword, setConfirmPassword] = useState('32123131231312');
-    const [email, setEmail] = useState('fdfafdasfd@');
-    const [phoneNum, setPhoneNum] = useState('43242423423423423');
+    const [username, setLogin] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNum, setPhoneNum] = useState('');
     //
     const [photo, setPhoto] = useState('');
-    const [passport, setPassport] = useState('aasdasdsx');
-    const [country, setCountry] = useState('asasddasdd');
-    const [city, setCity] = useState('dasdasd');
-    const [adress, setAdress] = useState('adsasdasd');
+    const [passport, setPassport] = useState('');
+    const [country, setCountry] = useState('');
+    const [city, setCity] = useState('');
+    const [adress, setAdress] = useState('');
     //
-    const [edu, setEdu] = useState('sdasad');
-    const [exp, setExp] = useState('asddas');
+    const [edu, setEdu] = useState('');
+    const [exp, setExp] = useState('');
     //
     const [buttonType, setButtonType] = useState('text');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
@@ -65,19 +65,19 @@ const RegistrationTeacher = () => {
                         <InputFormContainer
                             inputClassname={
                                 isButtonClicked
-                                    ? login && login.length > 5
+                                    ? username && username.length > 5
                                         ? ''
                                         : 'input_empty'
                                     : ''
                             }
                             errorMessage={
                                 isButtonClicked
-                                    ? login && login.length > 5
+                                    ? username && username.length > 5
                                         ? ''
                                         : 'Заполните поле!'
                                     : ''
                             }
-                            value={login}
+                            value={username}
                             setValue={setLogin}
                             title={'Ваш логин'}
                             className={'registration-student__input'}></InputFormContainer>
@@ -181,7 +181,7 @@ const RegistrationTeacher = () => {
                     onClick={(e) => {
                         e.preventDefault();
                         setIsButtonClicked(true);
-                        if (login && password && confirmPassword && email && password) {
+                        if (username && password && confirmPassword && email && password) {
                             setFormState(2);
                         }
                     }}>
@@ -362,7 +362,7 @@ const RegistrationTeacher = () => {
                             dispatch(
                                 setRegDataTeacher({
                                     ...teacherData,
-                                    login: login,
+                                    username: username,
                                     password: password,
                                     email: email,
                                     phone: phoneNum,

@@ -12,7 +12,7 @@ import { setRegDataComp } from '../../../../store/slices/registrationSlice/regis
 const RegistarionComp = () => {
     const [formState, setFormState] = useState(1);
 
-    const [login, setLogin] = useState('123123123213');
+    const [username, setLogin] = useState('123123123213');
     const [password, setPassword] = useState('32123131231312');
     const [confirmPassword, setConfirmPassword] = useState('32123131231312');
     const [email, setEmail] = useState('fdfafdasfd@');
@@ -53,19 +53,19 @@ const RegistarionComp = () => {
                         <InputFormContainer
                             inputClassname={
                                 isButtonClicked
-                                    ? login && login.length > 5
+                                    ? username && username.length > 5
                                         ? ''
                                         : 'input_empty'
                                     : ''
                             }
                             errorMessage={
                                 isButtonClicked
-                                    ? login && login.length > 5
+                                    ? username && username.length > 5
                                         ? ''
                                         : 'Заполните поле!'
                                     : ''
                             }
-                            value={login}
+                            value={username}
                             setValue={setLogin}
                             title={'Ваш логин'}
                             className={'registration-student__input'}></InputFormContainer>
@@ -169,7 +169,7 @@ const RegistarionComp = () => {
                     onClick={(e) => {
                         e.preventDefault();
                         setIsButtonClicked(true);
-                        if (login && password && confirmPassword && email && password) {
+                        if (username && password && confirmPassword && email && password) {
                             setFormState(2);
                         }
                     }}>
@@ -307,7 +307,7 @@ const RegistarionComp = () => {
                         e.preventDefault();
                         setIsButtonClicked(true);
                         if (
-                            login &&
+                            username &&
                             password === confirmPassword &&
                             email &&
                             phoneNum &&
@@ -329,7 +329,7 @@ const RegistarionComp = () => {
                             dispatch(
                                 setRegDataComp({
                                     ...compData,
-                                    login: login,
+                                    username: username,
                                     password: password,
                                     email: email,
                                     phone: phoneNum,
