@@ -7,6 +7,7 @@ import filterSlice from './slices/filterSlice/filterSlice';
 import tabsUserSlice from './slices/tabsUserSlice/tabsUserSlice';
 import teacherFilterSlice from './slices/teachreFilterSlice/teacherFilterSlice';
 import userPageSlice from './slices/userPageSlice/userPageSlice';
+import forumSlice from './slices/forumSlice/forumSlice';
 
 export const store = configureStore({
     reducer: {
@@ -17,7 +18,8 @@ export const store = configureStore({
         filterSlice,
         tabsUserSlice,
         teacherFilterSlice,
-        userPageSlice
+        userPageSlice,
+        forumSlice
     },
     devTools: true,
 });
