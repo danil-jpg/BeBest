@@ -3,19 +3,23 @@ import React, { useState } from 'react';
 import InputFormContainer from '../../../UI/Forms/InputFormContainer/InputFormContainer';
 import './RegistrationStudent.scss';
 import InputCheckbox from '../../../UI/Forms/InputCheckbox/InputCheckbox';
-import { setRegDataStudent } from '../../../../store/slices/registrationSlice/registrationSlice';
+import {
+    setRegDataStudent,
+    postData,
+} from '../../../../store/slices/registrationSlice/registrationSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const RegistrationStudent = () => {
-    const [login, setLogin] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [email, setEmail] = useState('');
+    const [username, setLogin] = useState('studentTest111');
+    const [password, setPassword] = useState('studentTest111');
+    const [confirmPassword, setConfirmPassword] = useState('studentTest111');
+    const [email, setEmail] = useState('studentTest111@');
     const [buttonType, setButtonType] = useState('');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     const [checkboxState, setCheckBoxState] = useState(true);
+    const [studentDataState, setStudentDataState] = useState();
 
     const onCheckboxHandler = () => setCheckBoxState(!checkboxState);
 
@@ -23,7 +27,6 @@ const RegistrationStudent = () => {
     const navigation = useNavigate();
 
     const studentData = useSelector((state) => state.regData);
-    console.log(studentData);
 
     return (
         <div className='registration-student'>
@@ -34,19 +37,19 @@ const RegistrationStudent = () => {
                         <InputFormContainer
                             inputClassname={
                                 isButtonClicked
-                                    ? login && login.length > 5
+                                    ? username && username.length > 5
                                         ? ''
                                         : 'input_empty'
                                     : ''
                             }
                             errorMessage={
                                 isButtonClicked
-                                    ? login && login.length > 5
+                                    ? username && username.length > 5
                                         ? ''
                                         : 'Заполните поле!'
                                     : ''
                             }
-                            value={login}
+                            value={username}
                             setValue={setLogin}
                             title={'Ваш логин'}
                             className={'registration-student__input'}></InputFormContainer>
@@ -139,32 +142,35 @@ const RegistrationStudent = () => {
                     onClick={(e) => {
                         e.preventDefault();
                         setIsButtonClicked(true);
-                        if (login && password && confirmPassword && email && password) {
-                            const formData = {
-                                data: {
-                                    json: {
-                                        ...studentData,
-                                    },
-                                },
-                            };
+                        if (
+                            username &&
+                            password &&
+                            confirmPassword &&
+                            password &&
+                            email &&
+                            email.includes('@')
+                        ) {
                             dispatch(
                                 setRegDataStudent({
                                     ...studentData,
-                                    login: login,
+                                    username: username,
                                     password: password,
                                     email: email,
                                 })
                             );
 
                             axios
-                                .post('http://bebest.pp.ua/api/tests/', formData)
+                                .post('http://bebest.pp.ua/api/auth/local/register', {
+                                    ...studentData,
+                                    username: username,
+                                    password: password,
+                                    email: email,
+                                })
                                 .then((res) => {
                                     console.log(res);
                                 })
                                 .then(() => navigation('../registrationStudentSucc'))
-                                .catch((e) => console.log(e));
-
-                            console.log(studentData);
+                                .catch((e) => alert(e.response.data.error.message));
                         }
                     }}>
                     Зарегистрироваться
