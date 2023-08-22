@@ -13,12 +13,13 @@ const ItemForum = ({
     head = false,
     topic = false,
     id,
+    style = {}
 }) => {
 
     const getLink = topic ? `/forum/view/${id}` : `/forum/topic/${id}`;
 
     return (
-        <div
+        <div style={style}
             className={`item-forum ${head ? 'item-forum_head' : ''} ${topic ? 'item-forum_topic' : ''
                 }`}
         >

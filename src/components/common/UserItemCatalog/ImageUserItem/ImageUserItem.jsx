@@ -1,46 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ImageUserItem.scss';
 import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer';
-import { v1 } from 'uuid';
-
-let defaultStarList = [
-    {
-        id: v1(),
-        selected: false,
-    },
-    {
-        id: v1(),
-        selected: false,
-    },
-    {
-        id: v1(),
-        selected: false,
-    },
-    {
-        id: v1(),
-        selected: false,
-    },
-    {
-        id: v1(),
-        selected: false,
-    },
-];
+import RatingStars from '../../RatingStars/RatingStars';
 
 const ImageUserItem = ({ photo, amountStars }) => {
-    let [starList, setStarList] = useState([]);
-
-    useEffect(() => {
-        let resList = [...defaultStarList];
-
-        resList.forEach((el, index) => {
-            if (++index < amountStars) {
-                el.selected = true;
-            }
-        });
-
-        setStarList([...resList]);
-    }, []);
-
     const imgSrc = `http://bebest.pp.ua${photo}`;
 
     return (
@@ -58,17 +21,9 @@ const ImageUserItem = ({ photo, amountStars }) => {
                     />
                 </button>
             </div>
-            <div className='image-item-catalog__rating'>
-                {starList?.map((el, index) => (
-                    <IconRenderer
-                        id='yellowStar'
-                        key={el.id}
-                        className={`image-item-catalog__star ${
-                            amountStars > index ? 'selected' : ''
-                        }`}
-                    />
-                ))}
-            </div>
+
+            <RatingStars amountStars={amountStars} />
+
             <p className='image-item-catalog__recommend'>Рекомендуем</p>
         </div>
     );

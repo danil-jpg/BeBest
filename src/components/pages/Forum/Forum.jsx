@@ -6,9 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import ListForum from './ListForum/ListForum';
 import ViewForum from './ViewForum/ViewForum';
 import TopicListForum from './TopicListForum/TopicListForum';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchForums, setForum } from '../../../store/slices/forumSlice/forumSlice';
+import { useDispatch} from 'react-redux';
+import { fetchForums} from '../../../store/slices/forumSlice/forumSlice';
 
 const titles = {
     main: 'Форум',
