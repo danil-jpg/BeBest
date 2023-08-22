@@ -107,6 +107,19 @@ const Breadcrumbs = (props) => {
                             }
                         />
                         <Route
+                            path='/forum/view/*'
+                            element={
+                                <>
+                                    <Link to='/forum' className='breadcrumbs__link'>
+                                        Список разделов форума
+                                    </Link>
+                                    <Link to='' className='breadcrumbs__link'>
+                                        Список тем форума
+                                    </Link>
+                                </>
+                            }
+                        />
+                        <Route
                             path='/registration/registrationProposal?'
                             element=<Link to='' className='breadcrumbs__link'>
                                 Регистрация

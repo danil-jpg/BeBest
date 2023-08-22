@@ -35,7 +35,7 @@ const Forum = (props) => {
                         <Route index element={<ListForum />} />
                         {/* <Route path='topic' element={<TopicListForum />} /> */}
                         <Route path='topic/:id' element={<TopicListForum />} />
-                        <Route path='view' element={<ViewForum />} />
+                        <Route path='view/:id' element={<ViewForum />} />
                     </Routes>
                 </div>
             </ContainerMain>

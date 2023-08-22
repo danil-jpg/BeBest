@@ -23,23 +23,31 @@ const TopicListForum = (props) => {
     useEffect(() => {
         const getTopics = async () => {
             try {
-                let res = await axios.get(`http://bebest.pp.ua/api/forums/${id}`, {
-                    params: {
-                        populate: 'topics'
-                    }
-                });
+                let res = await axios.get(`http://bebest.pp.ua/api/forums/${id}?populate[topics][populate][0]=author&populate[topics][populate][1]=messages&populate[topics][populate][3]=messages.author`);
 
                 setData(res.data.data.attributes);
             } catch (error) {
                 console.log(error)
             }
+
+
         }
         getTopics();
     }, [id])
 
     const topics = data?.topics.data;
 
-    console.log(topics)
+    const getAmountMess = el => el.attributes.messages.data.length;
+    const getAuthorTopic = el => el.attributes.author.data.attributes.username;
+    const getLastMessAuthor = el => {
+        const lastMessageLength = el.attributes.messages.data.length;
+
+        if (lastMessageLength - 1 >= 0) {
+            return el.attributes.messages.data[lastMessageLength - 1].attributes.author.data.attributes.username;
+        }
+        
+        return el.attributes.author.data.attributes.username;
+    }
 
     if (!data) return <Loading />
 
@@ -56,15 +64,15 @@ const TopicListForum = (props) => {
                     topic={true}
                 />
                 {
-                    data?.topics.data.map(el => (
+                    topics?.map(el => (
                         <ItemForum
                             key={el.id}
                             id={el.id}
                             topic={true}
                             title={el.attributes.title}
-                            author={el.attributes.author}
-                            lastAuthor={'Иван Болдырев'}
-                            amount={200}
+                            author={getAuthorTopic(el)}
+                            lastAuthor={getLastMessAuthor(el)}
+                            amount={getAmountMess(el)}
                             update={formattedDate(el.attributes.updatedAt)}
                             create={formattedDate(el.attributes.createdAt)}
                         />

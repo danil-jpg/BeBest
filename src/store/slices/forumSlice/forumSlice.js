@@ -11,7 +11,7 @@ const initialState = {
 export const fetchForums = createAsyncThunk(
     'forum/fetchForums',
     async () => {
-        let res = await axios.get('http://bebest.pp.ua/api/forums?populate=topics&sort=updatedAt:desc');
+        let res = await axios.get('http://bebest.pp.ua/api/forums?populate=*&sort=updatedAt:desc');
         return res.data.data;
     });
 
