@@ -1,0 +1,14 @@
+.lk {
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    position: relative;
+    padding-top: 88px;
+    .title {
+        position: absolute;
+    }
+}
+
+.lk__left {
+}
+.lk__right {
+}
