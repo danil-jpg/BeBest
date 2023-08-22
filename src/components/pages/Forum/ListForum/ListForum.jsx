@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ListForum.scss';
 import ItemForum from '../ItemForum/ItemForum';
 import Title from '../../../UI/Title/Title';
+import { useDispatch, useSelector } from 'react-redux';
+import Loading from '../../../common/Loading/Loading';
+import { formattedDate } from '../../../../utils/formattedDate';
+import { sortDate } from '../../../../store/slices/forumSlice/forumSlice';
 
 const titles = {
     sub: 'Разделы форума',
@@ -11,7 +15,16 @@ const titles = {
     create: 'Создана',
 };
 
-const ListForum = (props) => {
+const ListForum = ({ list }) => {
+    let forums = useSelector(state => state.forumSlice.forums);
+    let status = useSelector(state => state.forumSlice.status);
+
+    // useEffect(() => {
+    // }, [dispatch])
+
+    if (status === 'loading') return <Loading />;
+
+
     return (
         <>
             <Title type='subtitle'>{titles.sub}</Title>
@@ -22,43 +35,17 @@ const ListForum = (props) => {
                     update={titles.update}
                     head={true}
                 />
-                <ItemForum
-                    title='Простой метод запоминания иностранных слов'
-                    amount={200}
-                    update='Сегодня, 10:03'
-                />
-                <ItemForum
-                    title='Простой метод запоминания иностранных слов'
-                    amount={200}
-                    update='Сегодня, 10:03'
-                />
-                <ItemForum
-                    title='Простой метод запоминания иностранных слов'
-                    amount={200}
-                    update='Сегодня, 10:03'
-                />
-                <ItemForum
-                    title='Простой метод запоминания иностранных слов'
-                    amount={200}
-                    update='Сегодня, 10:03'
-                />
-                <ItemForum
-                    title={titles.name}
-                    amount={titles.theme}
-                    update={titles.update}
-                    create={titles.create}
-                    head={true}
-                    topic={true}
-                />
-                <ItemForum
-                    topic={true}
-                    title='Простой метод запоминания иностранных слов'
-                    author={'Иван Болдырев'}
-                    lastAuthor={'Иван Болдырев'}
-                    amount={200}
-                    update='Сегодня, 10:03'
-                    create={'16.07.2021'}
-                />
+                {
+                    forums?.map(el => (
+                        <ItemForum
+                            key={el.id}
+                            id={el.id}
+                            title={el.attributes.title}
+                            amount={el.attributes.topics.data.length}
+                            update={formattedDate(el.attributes.updatedAt)}
+                        />
+                    ))
+                }
             </div>
         </>
     );
