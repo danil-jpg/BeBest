@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Account from './Student/Account';
+import Account from './Student/Account/Account';
 
 const Lk = () => {
     return (

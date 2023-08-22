@@ -1,0 +1,27 @@
+.account {
+}
+.account__student {
+    max-width: 330px;
+}
+.account__title {
+    color: #292c32;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.1; /* 110% */
+    margin-bottom: 26px;
+}
+.account__delete-wr {
+    position: relative;
+    p {
+        color: #8b919e;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 182.85%;
+        margin-left: 20px;
+        text-decoration-line: underline;
+        right: -145px;
+        top: 30px;
+        position: absolute;
+    }
+}
