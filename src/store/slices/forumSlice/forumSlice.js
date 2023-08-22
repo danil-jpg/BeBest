@@ -11,7 +11,7 @@ const initialState = {
 export const fetchForums = createAsyncThunk(
     'forum/fetchForums',
     async () => {
-        let res = await axios.get('http://bebest.pp.ua/api/forums?populate=*');
+        let res = await axios.get('http://bebest.pp.ua/api/forums?populate=topics&sort=updatedAt:desc');
         return res.data.data;
     });
 
@@ -22,8 +22,15 @@ export const forumSlice = createSlice({
         setForum: (state, action) => {
             state.forums = action.payload;
         },
-        sortForum: (state, action) => {
-            state.forums = [...state.forums].sort((a,b) => {a - b})
+        sortDate: (state) => {
+            let tmp = [...state.forums];
+
+            tmp.sort((a, b) => {
+                let first = new Date(a.attributes.updateAt);
+                let second = new Date(b.attributes.updateAt);
+
+                console.log(first - second);
+            })
         }
     },
     extraReducers: {
@@ -45,5 +52,5 @@ export const forumSlice = createSlice({
     },
 });
 
-export const { setForum } = forumSlice.actions;
+export const { setForum, sortDate } = forumSlice.actions;
 export default forumSlice.reducer;

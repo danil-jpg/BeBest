@@ -2,7 +2,6 @@ import React from 'react';
 import './ItemForum.scss';
 import icon from '../../../../assets/icons/forum-item.svg';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 const ItemForum = ({
     title,
@@ -14,7 +13,6 @@ const ItemForum = ({
     head = false,
     topic = false,
     id,
-    onTitleClickHandler
 }) => {
 
     const getLink = topic ? `/forum/view/${id}` : `/forum/topic/${id}`;

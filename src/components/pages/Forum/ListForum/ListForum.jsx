@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ListForum.scss';
 import ItemForum from '../ItemForum/ItemForum';
 import Title from '../../../UI/Title/Title';
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from '../../../common/Loading/Loading';
 import { formattedDate } from '../../../../utils/formattedDate';
+import { sortDate } from '../../../../store/slices/forumSlice/forumSlice';
 
 const titles = {
     sub: 'Разделы форума',
@@ -17,19 +18,11 @@ const titles = {
 const ListForum = ({ list }) => {
     let forums = useSelector(state => state.forumSlice.forums);
     let status = useSelector(state => state.forumSlice.status);
-    let dispatch = useDispatch();
 
-    useEffect(() => {
-    }, [dispatch])
+    // useEffect(() => {
+    // }, [dispatch])
 
     if (status === 'loading') return <Loading />;
-
-    let test = [...forums];
-
-    test.sort((a, b) => a.attributes.title - b.attributes.title);
-
-    console.log(test)
-
 
 
     return (
@@ -53,19 +46,6 @@ const ListForum = ({ list }) => {
                         />
                     ))
                 }
-
-
-                {/* <ItemForum
-                    title='Простой метод запоминания иностранных слов'
-                    amount={200}
-                    update='Сегодня, 10:03'
-                />
-                <ItemForum
-                    title='Простой метод запоминания иностранных слов'
-                    amount={200}
-                    update='Сегодня, 10:03'
-                /> */}
-
             </div>
         </>
     );
