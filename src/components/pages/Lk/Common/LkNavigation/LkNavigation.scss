@@ -1,0 +1,32 @@
+.lk__nav {
+    border-top: 1px solid rgba(220, 227, 232, 1);
+    border-bottom: 1px solid rgba(220, 227, 232, 1);
+    margin-top: 10px;
+}
+.lk__nav_student {
+}
+.lk__nav_li {
+    display: flex;
+    cursor: pointer;
+    color: #454b58;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 11px;
+    border-bottom: 1px solid #dce3e8;
+    padding-bottom: 9px;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+    &.active {
+        color: #f04973;
+        fill: #f04973;
+    }
+}
+.lk__nav_text {
+    margin-left: 12px;
+}

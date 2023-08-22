@@ -5,7 +5,17 @@ import LkNavigation from '../Common/LkNavigation/LkNavigation';
 import Constructor from '../Common/LkConstructor/Constructor';
 
 const Student = () => {
-    return <Constructor leftContent={<LkStatus />} rightContent={<div>hey</div>} />;
+    return (
+        <Constructor
+            leftContent={
+                <>
+                    <LkStatus />
+                    <LkNavigation />
+                </>
+            }
+            rightContent={<div>hey</div>}
+        />
+    );
 };
 
 export default Student;
