@@ -76,21 +76,22 @@ const Authorize = () => {
                         e.preventDefault();
                         setIsButtonClicked(true);
                         if (username && password) {
-                            dispatch(
-                                setAuthorize({
-                                    password: 'adress111111',
-                                    identifier: 'adress111',
-                                })
-                            );
-
                             axios
                                 .post('http://bebest.pp.ua/api/auth/local', {
                                     password: password,
                                     identifier: username,
                                 })
                                 .then((res) => {
-                                    console.log(personData);
+                                    dispatch(
+                                        setAuthorize({
+                                            password: password,
+                                            identifier: username,
+                                            id: res.data.user.id,
+                                        })
+                                    );
+                                    window.sessionStorage.setItem('id', res.data.user.id);
                                     console.log(res);
+                                    // navigation('../../Lk/studentAccount');
                                 })
                                 .catch((e) => console.log(e));
                         }
