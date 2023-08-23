@@ -8,8 +8,11 @@ const Pagination = ({
     currentPage,
     onPageNumClickHandler,
     setCurrentPage,
+    style,
+    mb = '60px'
 }) => {
     let pageNumbers = [];
+    let styles = {...style, margin:`0 0 ${mb}`}
 
     for (let i = 1; i <= Math.ceil(totalUsers / itemsPerPage); i++) {
         pageNumbers.push(i);
@@ -25,7 +28,7 @@ const Pagination = ({
     };
 
     return (
-        <div className='pagination'>
+        <div className='pagination' style={styles}>
             <ul className='pagination__list'>
                 {pageNumbers.map((num) => (
                     <li

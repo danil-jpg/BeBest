@@ -10,7 +10,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import Loading from '../../../../common/Loading/Loading';
 import SelectFormContainer from '../../../../UI/Forms/SelectFormContainer/SelectFormContainer';
-import TextareaFormContainer from '../../../../UI/Forms/TextareaFormContainer/TextareaFormContainer';
+import TextareaForm from '../../../../UI/Forms/TextareaForm/TextareaForm';
 
 const PersonData = () => {
     const [userData, setUserData] = useState(false);
@@ -100,12 +100,12 @@ const PersonData = () => {
                             Сохранить изменения
                         </MainButton>
                     </div>
-                    <TextareaFormContainer
+                    <TextareaForm
                         style={{ marginTop: '45px', flexBasis: '330px' }}
                         title={'О себе'}
                         ph={description || ''}
                         setValue={setDescription}
-                        value={description}></TextareaFormContainer>
+                        value={description}></TextareaForm>
                 </div>
             }
         />

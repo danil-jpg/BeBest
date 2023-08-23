@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ListForum.scss';
 import ItemForum from '../ItemForum/ItemForum';
 import Title from '../../../UI/Title/Title';
 import { useSelector } from 'react-redux';
 import Loading from '../../../common/Loading/Loading';
 import { formattedDate } from '../../../../utils/formattedDate';
+import Pagination from '../../../common/Pagination/Pagination';
 
 const titles = {
     sub: 'Разделы форума',
@@ -18,6 +19,17 @@ const ListForum = ({ list }) => {
     let forums = useSelector(state => state.forumSlice.forums);
     let status = useSelector(state => state.forumSlice.status);
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [userPerPage] = useState(10);
+
+    const lastUserIndex = currentPage * userPerPage;
+    const firstUserIndex = lastUserIndex - userPerPage;
+    const currentUsers = forums?.slice(firstUserIndex, lastUserIndex);
+
+    const onPageNumClickHandler = (num) => {
+        setCurrentPage(num);
+        window.scrollTo(0, 0);
+    };
     if (status === 'loading') return <Loading />;
 
     return (
@@ -31,7 +43,7 @@ const ListForum = ({ list }) => {
                     head={true}
                 />
                 {
-                    forums?.map(el => (
+                    currentUsers?.map(el => (
                         <ItemForum
                             key={el.id}
                             id={el.id}
@@ -42,6 +54,17 @@ const ListForum = ({ list }) => {
                     ))
                 }
             </div>
+            {
+                forums.length === currentUsers.length
+                        ? <></>
+                        : <Pagination
+                            totalUsers={forums.length}
+                            itemsPerPage={userPerPage}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                            onPageNumClickHandler={onPageNumClickHandler}
+                        />
+                }
         </>
     );
 };

@@ -6,6 +6,7 @@ import axios from 'axios';
 import { formattedDate } from '../../../../utils/formattedDate';
 import Loading from '../../../common/Loading/Loading';
 import Title from '../../../UI/Title/Title';
+import Pagination from '../../../common/Pagination/Pagination';
 
 const titles = {
     main: 'Форум',
@@ -37,6 +38,18 @@ const TopicListForum = (props) => {
 
     const topics = data?.topics.data;
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [userPerPage] = useState(10);
+
+    const lastUserIndex = currentPage * userPerPage;
+    const firstUserIndex = lastUserIndex - userPerPage;
+    const currentUsers = topics?.slice(firstUserIndex, lastUserIndex);
+
+    const onPageNumClickHandler = (num) => {
+        setCurrentPage(num);
+        window.scrollTo(0, 0);
+    };
+
     const getAmountMess = el => el.attributes.messages.data.length;
     const getAuthorTopic = el => el.attributes.author.data.attributes.username;
     const getLastMessAuthor = el => {
@@ -64,7 +77,7 @@ const TopicListForum = (props) => {
                     topic={true}
                 />
                 {
-                    topics?.map(el => (
+                    currentUsers?.map(el => (
                         <ItemForum
                             key={el.id}
                             id={el.id}
@@ -79,6 +92,17 @@ const TopicListForum = (props) => {
                     ))
                 }
             </div>
+            {
+                topics.length === currentUsers.length
+                        ? <></>
+                        : <Pagination
+                            totalUsers={topics.length}
+                            itemsPerPage={userPerPage}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                            onPageNumClickHandler={onPageNumClickHandler}
+                        />
+                }
         </>
     )
 };
