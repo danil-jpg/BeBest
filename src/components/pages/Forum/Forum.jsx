@@ -7,6 +7,8 @@ import ListForum from './ListForum/ListForum';
 import ViewForum from './ViewForum/ViewForum';
 import TopicListForum from './TopicListForum/TopicListForum';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchForums, setForum } from '../../../store/slices/forumSlice/forumSlice';
 
 const titles = {
     main: 'Форум',
@@ -17,29 +19,25 @@ const titles = {
 };
 
 const Forum = (props) => {
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        // const fetch = async () => {
-        //     let res = await axios.get('http://bebest.pp.ua/api/forums? populate =* ');
+        dispatch(fetchForums());
+    }, [dispatch]);
 
-        //     let data = res.json();
 
-        //     console.log(data);
-        //     return data;
-        // }
-        // fetch();
-    }, [])
     return (
         <div className='forum'>
             <ContainerMain>
                 <Title>{titles.main}</Title>
-				<div className='forum__body'>
-					<Routes>
-						<Route index element={<ListForum/>}/>
-						<Route path='topic' element={<TopicListForum/>}/>
-						<Route path='view' element={<ViewForum/>}/>
-					</Routes>
-				</div>
+                <div className='forum__body'>
+                    <Routes>
+                        <Route index element={<ListForum />} />
+                        {/* <Route path='topic' element={<TopicListForum />} /> */}
+                        <Route path='topic/:id' element={<TopicListForum />} />
+                        <Route path='view/:id' element={<ViewForum />} />
+                    </Routes>
+                </div>
             </ContainerMain>
         </div>
     );
