@@ -29,7 +29,7 @@ const LkNavigation = ({ type = 'student', active = 1 }) => {
                 </li>
                 <li
                     className={active === 4 ? 'lk__nav_li active' : 'lk__nav_li'}
-                    onClick={() => navigate('')}>
+                    onClick={() => navigate('../studentFavourite')}>
                     <IconRenderer id={'heart'} />
                     <p className='lk__nav_text'>Мои преподаватели</p>
                 </li>
