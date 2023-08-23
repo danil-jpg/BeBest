@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ListForum.scss';
 import ItemForum from '../ItemForum/ItemForum';
 import Title from '../../../UI/Title/Title';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Loading from '../../../common/Loading/Loading';
 import { formattedDate } from '../../../../utils/formattedDate';
-import { sortDate } from '../../../../store/slices/forumSlice/forumSlice';
 
 const titles = {
     sub: 'Разделы форума',
@@ -19,11 +18,7 @@ const ListForum = ({ list }) => {
     let forums = useSelector(state => state.forumSlice.forums);
     let status = useSelector(state => state.forumSlice.status);
 
-    // useEffect(() => {
-    // }, [dispatch])
-
     if (status === 'loading') return <Loading />;
-
 
     return (
         <>

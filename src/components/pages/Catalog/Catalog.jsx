@@ -32,7 +32,7 @@ const Catalog = (props) => {
     useEffect(() => {
         const getUsers = async () => {
             let res = await axios.get(
-                'http://bebest.pp.ua/api/users/?populate=*'
+                'http://bebest.pp.ua/api/users/?populate=*&filters[role][type][$eq]=teacher'
             );
             dispatch(setUserList(res.data));
 
