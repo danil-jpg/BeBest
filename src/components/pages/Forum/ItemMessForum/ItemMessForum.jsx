@@ -2,6 +2,7 @@ import React from 'react';
 import './ItemMessForum.scss';
 import RatingStars from '../../../common/RatingStars/RatingStars';
 import { Link } from 'react-router-dom';
+import { formattedDate } from '../../../../utils/formattedDate';
 
 const titles = {
 	mess: 'Сообщений:',
@@ -11,10 +12,11 @@ const titles = {
 }
 
 const ItemMessForum = ({ num, el }) => {
-	console.log(el)
 	const getAuthorName = () => el.author.data.attributes.username;
+	const getAuthorRate = () => el.author.data.attributes.stars;
 	const getImageSrc = () => `http://bebest.pp.ua${el.author.data.attributes.avatar.data.attributes.url}`;
-	console.log(getImageSrc());
+	const getCreateDate = () => el.author.data.attributes.createdAt;
+	const getAmountMess = () => el.author.data.attributes.messages.data.length;
 
 	return (
 		<div className='mess-forum'>
@@ -27,14 +29,14 @@ const ItemMessForum = ({ num, el }) => {
 					{getAuthorName()}
 				</p>
 
-				<RatingStars amountStars={4} />
+				<RatingStars amountStars={getAuthorRate()} />
 
 				<div className="mess-forum__amount-mess">
 					<span className="mess-forum__amount-mess-title">
 						{titles.mess}
 					</span>
 					<span className="mess-forum__amount-mess-value">
-						6
+						{getAmountMess()}
 					</span>
 				</div>
 				<div className="mess-forum__date-reg">
@@ -42,7 +44,7 @@ const ItemMessForum = ({ num, el }) => {
 						{titles.reg}
 					</span>
 					<span className="mess-forum__date-reg-value">
-						15.06.2021
+						{formattedDate(getCreateDate())}
 					</span>
 				</div>
 			</div>
@@ -50,16 +52,14 @@ const ItemMessForum = ({ num, el }) => {
 			<div className="mess-forum__body">
 				<div className="mess-forum__head">
 					<p className="mess-forum__head-date">
-						15.06.2021
+						{formattedDate(el.createdAt)}
 					</p>
 					<p className="mess-forum__head-num">
 						{`#${num}`}
 					</p>
 				</div>
 				<div className="mess-forum__text-wrap">
-					<p className="mess-forum__text">
-						Укрепление и развитие структуры позволяет выполнять важные задания по разработке системы обучения кадров, соответствует потребностям. Таким образом реализация намеченных плановых заданий способствует подготовки и реализации модели развития. Идейные соображения высшего порядка, а также консультация с широким активом способствует подготовки и реализации модели развития.
-					</p>
+					<p className="mess-forum__text">{el.text}</p>
 				</div>
 				<div className="mess-forum__footer">
 					<Link className='mess-forum__footer-link'>{titles.reply}</Link>

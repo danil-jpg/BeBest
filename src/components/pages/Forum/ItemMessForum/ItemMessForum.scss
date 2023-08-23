@@ -12,6 +12,7 @@
 		flex-direction: column;
 		padding: 22px 20px;
 		border-right: 1px solid #DCE3E8;
+		flex: 0 0 210px;
 	}
 	&__image-wrap {
 		width: 100px;
@@ -31,6 +32,28 @@
 		line-height: 1.1;
 		text-align: center;
 		margin: 0 0 15px;
+	}
+	&__amount-mess {
+		margin: 0 0 4px;
+	}
+	&__amount-mess,
+	&__date-reg {
+		color: #8B919E;
+		font-size: 12px;
+		font-weight: 500;
+	}
+	&__amount-mess-value {
+		color: #000;
+		font-weight: 600;
+	}
+	&__amount-mess-title,
+	&__date-reg-title {
+		margin: 0 5px 0 0;
+	}
+	&__body {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 	&__head,
 	&__text-wrap {
@@ -53,7 +76,7 @@
 
 	&__text-wrap {
 		padding: 26px 25px 28px;
-		min-height: 245px;
+		flex: 1 1 auto;
 	}
 	&__text {
 		color: #454B58;
