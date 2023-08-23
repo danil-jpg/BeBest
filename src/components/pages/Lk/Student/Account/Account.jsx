@@ -18,7 +18,7 @@ const Student = () => {
     const [phone, setPhone] = useState('');
 
     const id = window.sessionStorage.getItem('id');
-
+    console.log(id);
     useEffect(() => {
         const fetchData = async () => {
             await axios

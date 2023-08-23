@@ -11,29 +11,31 @@ const LkNavigation = ({ type = 'student', active = 1 }) => {
             <ul className='lk__nav lk__nav_student'>
                 <li
                     className={active === 1 ? 'lk__nav_li active' : 'lk__nav_li'}
-                    onClick={() => navigate('../studentAccount')}>
+                    onClick={() => navigate('../Account')}>
                     <IconRenderer id={'person'} />
                     <p className='lk__nav_text'>Аккаунт</p>
                 </li>
                 <li
                     className={active === 2 ? 'lk__nav_li active' : 'lk__nav_li'}
-                    onClick={() => navigate('../studentPersonData')}>
+                    onClick={() => navigate('../PersonData')}>
                     <IconRenderer id={'key'} />
                     <p className='lk__nav_text'>Личные данные</p>
                 </li>
                 <li
                     className={active === 3 ? 'lk__nav_li active' : 'lk__nav_li'}
-                    onClick={() => navigate('../studentMyLessons')}>
+                    onClick={() => navigate('../MyLessons')}>
                     <IconRenderer id={'book'} />
                     <p className='lk__nav_text'>Мои уроки</p>
                 </li>
                 <li
                     className={active === 4 ? 'lk__nav_li active' : 'lk__nav_li'}
-                    onClick={() => navigate('../studentFavourite')}>
+                    onClick={() => navigate('../Favourite')}>
                     <IconRenderer id={'heart'} />
                     <p className='lk__nav_text'>Мои преподаватели</p>
                 </li>
-                <li className={active === 5 ? 'lk__nav_li active' : 'lk__nav_li'}>
+                <li
+                    className={active === 5 ? 'lk__nav_li active' : 'lk__nav_li'}
+                    onClick={() => navigate('../PaymentInfo')}>
                     <IconRenderer id={'payment'} />
                     <p className='lk__nav_text'>Платежная информация</p>
                 </li>
