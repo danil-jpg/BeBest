@@ -14,7 +14,7 @@ const InputFormContainer = ({
     value,
     setValue,
     error,
-    errorMessage = 'xxx',
+    errorMessage = '',
 }) => {
     return (
         <div

@@ -55,6 +55,7 @@ export const registrationSlice = createSlice({
 		setAuthorize: (state, action) => {
 			state.identifier = action.payload.identifier
 			state.email = action.payload.email
+			state.id = action.payload.id
 		}
 
 	},

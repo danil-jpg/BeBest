@@ -155,6 +155,12 @@ const Breadcrumbs = (props) => {
                                 Авторизация
                             </Link>
                         />
+                        <Route
+                            path='/Lk/*'
+                            element=<Link to='' className='breadcrumbs__link'>
+                                Личный кабинет
+                            </Link>
+                        />
                     </Routes>
                 </div>
             </ContainerMain>
