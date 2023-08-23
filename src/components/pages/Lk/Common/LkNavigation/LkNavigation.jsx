@@ -11,13 +11,13 @@ const LkNavigation = ({ type = 'student', active = 1 }) => {
             <ul className='lk__nav lk__nav_student'>
                 <li
                     className={active === 1 ? 'lk__nav_li active' : 'lk__nav_li'}
-                    onClick={() => navigate('')}>
+                    onClick={() => navigate('../studentAccount')}>
                     <IconRenderer id={'person'} />
                     <p className='lk__nav_text'>Аккаунт</p>
                 </li>
                 <li
                     className={active === 2 ? 'lk__nav_li active' : 'lk__nav_li'}
-                    onClick={() => navigate('')}>
+                    onClick={() => navigate('../studentPersonData')}>
                     <IconRenderer id={'key'} />
                     <p className='lk__nav_text'>Личные данные</p>
                 </li>

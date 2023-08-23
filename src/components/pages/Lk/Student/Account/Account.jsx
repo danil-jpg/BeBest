@@ -13,9 +13,9 @@ import Loading from '../../../../common/Loading/Loading';
 const Student = () => {
     const [userData, setUserData] = useState(false);
 
-    const [username, setUsername] = useState('not set');
-    const [email, setEmail] = useState('not set');
-    const [phone, setPhone] = useState('not set');
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
     const id = window.sessionStorage.getItem('id');
 
@@ -61,7 +61,7 @@ const Student = () => {
         <Constructor
             leftContent={
                 <>
-                    <LkStatus />
+                    <LkStatus name={username} />
                     <LkNavigation />
                 </>
             }
@@ -84,7 +84,9 @@ const Student = () => {
                         title={'Телефон'}
                         ph={phone || ''}
                         setValue={setPhone}></InputFormContainer>
-                    <MainButton onClick={(e) => onButtonClickHandler(e)}>
+                    <MainButton
+                        style={{ marginTop: '30px', width: '240px' }}
+                        onClick={(e) => onButtonClickHandler(e)}>
                         Сохранить изменения
                     </MainButton>
                 </div>

@@ -1,9 +1,8 @@
 import React from 'react';
 import './LkStatus.scss';
-import Picture from '../../../../UI/Picture/Picture';
 import { useNavigate } from 'react-router-dom';
 
-const LkStatus = ({ active = 1, name = 'Алексей Англичанинов', img }) => {
+const LkStatus = ({ active = 1, name = 'John Doe', img }) => {
     const navigation = useNavigate();
 
     return (
