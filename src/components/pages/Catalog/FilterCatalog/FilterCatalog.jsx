@@ -41,12 +41,13 @@ const FilterCatalog = ({ users, setUsers }) => {
         let selectedList = [];
 
         for (let itemFilter in data) {
+            let list = data[itemFilter];
             data[itemFilter].list.forEach((el) => {
-                if (el.selected) {
-                    selectedList.push({
-                        [data[itemFilter].value]: el.title,
-                    });
-                }
+            if (el.selected) {
+                selectedList.push({
+                    [data[itemFilter].value]: el.title,
+                });
+            }
             });
         }
 
@@ -119,8 +120,8 @@ const FilterCatalog = ({ users, setUsers }) => {
                     <MainButton
                         style={{
                             textTransform: 'uppercase',
-                            margin: '0 0 18px',
                         }}
+                        mb='18px'
                         onClick={onSubmitClickHandler}
                     >
                         {titles.submit}

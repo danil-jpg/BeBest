@@ -44,18 +44,6 @@ const initialState = {
         value: 'yearLearn',
         list: [],
     },
-    sb: [
-        {
-            id: v1(),
-            title: 'first',
-            selected: false,
-        },
-        {
-            id: v1(),
-            title: 'second',
-            selected: false,
-        },
-    ],
 };
 
 export const filterSlice = createSlice({
