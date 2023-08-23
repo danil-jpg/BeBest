@@ -60,10 +60,7 @@ const Catalog = (props) => {
                     <Title>{data.title}</Title>
                     <div className='catalog__row'>
                         <div className='catalog__filter'>
-                            <FilterCatalog
-                                users={userData}
-                                setUsers={setUserData}
-                            />
+                            <FilterCatalog users={userData} setUsers={setUserData} />
                         </div>
                         <div className='catalog__body'>
                             <UserListCatalog users={users} />

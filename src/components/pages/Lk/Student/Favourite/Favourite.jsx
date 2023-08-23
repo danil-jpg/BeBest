@@ -31,7 +31,9 @@ const Favourite = () => {
 
     useEffect(() => {
         const getUsers = async () => {
-            let res = await axios.get('http://bebest.pp.ua/api/users/11?populate=*');
+            let res = await axios.get(
+                'http://bebest.pp.ua/api/users/?populate=*&filters[role][type][$eq]=teacher&limit=2'
+            );
             dispatch(setUserList(res.data));
 
             res.data.forEach((user) => {
