@@ -32,7 +32,7 @@ export default {
 }
 
 export const Default = () => {
-    const list = useSelector(state => state.filterSlice.sb);
+    const list = useSelector(state => state.filterSlice.sb.list);
 
     return <SelectFormContainer list={list} setItem={selectSb} />
 

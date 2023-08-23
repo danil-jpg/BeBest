@@ -3,6 +3,7 @@ import s from './LangSelectFrom.module.scss';
 import { isActive } from '../../../../utils/isActive';
 import { useDispatch } from 'react-redux';
 import { setLang } from '../../../../store/slices/headerSlice/headerSlice';
+import PropTypes from 'prop-types';
 
 const LangSelectFrom = ({ style, list }) => {
     const [active, setActive] = useState(false);
@@ -69,6 +70,12 @@ const LangSelectFrom = ({ style, list }) => {
             </ul>
         </div>
     );
+};
+
+LangSelectFrom.propTypes = {
+    style: PropTypes.object,
+    list: PropTypes.array
+
 };
 
 export default LangSelectFrom;

@@ -41,13 +41,13 @@ const FilterCatalog = ({ users, setUsers }) => {
         let selectedList = [];
 
         for (let itemFilter in data) {
-            let list = data[itemFilter];
             data[itemFilter].list.forEach((el) => {
-            if (el.selected) {
-                selectedList.push({
-                    [data[itemFilter].value]: el.title,
-                });
-            }
+                if (itemFilter === 'sb') return;
+                if (el.selected) {
+                    selectedList.push({
+                        [data[itemFilter].value]: el.title,
+                    });
+                }
             });
         }
 

@@ -44,6 +44,14 @@ const initialState = {
         value: 'yearLearn',
         list: [],
     },
+    sb: {
+        title: 'Возраст обучения',
+        value: 'yearLearn',
+        list: [
+            { id: v1(), title: 'first', selected: false },
+            { id: v1(), title: 'second', selected: false }
+        ],
+    },
 };
 
 export const filterSlice = createSlice({
@@ -123,8 +131,8 @@ export const filterSlice = createSlice({
             );
         },
         selectSb: (state, action) => {
-            state.sb = updateListSelection(
-                state.sb,
+            state.sb.list = updateListSelection(
+                state.sb.list,
                 action.payload
             );
         },

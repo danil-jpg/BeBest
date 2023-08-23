@@ -46,8 +46,10 @@ MainButton.propTypes = {
     style: PropTypes.object,
     size: PropTypes.oneOf(['small', 'middle']),
     type: PropTypes.oneOf(['red', 'white']),
-    width: PropTypes.oneOf(['full', 'content']),
+    maxWidth: PropTypes.string,
     onClick: PropTypes.func,
+    mb: PropTypes.string
+
 };
 
 

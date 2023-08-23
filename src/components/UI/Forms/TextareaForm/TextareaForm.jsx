@@ -1,15 +1,15 @@
 import React from 'react';
 import './TextareaForm.scss';
+import PropTypes from 'prop-types';
 
 const TextareaForm = ({
-	type = 'text',
 	title,
 	ph = '',
 	name = '',
 	value,
 	setValue,
 	style = {},
-	mb = 29,
+	mb = '29px',
 	maxWidth = '100%'
 }) => {
 
@@ -20,7 +20,7 @@ const TextareaForm = ({
 	const styles = {
 		...style,
 		maxWidth,
-		margin: `0 0 ${mb}px`,
+		margin: `0 0 ${mb}`,
 	}
 
 	return (
@@ -34,7 +34,7 @@ const TextareaForm = ({
 
 			<textarea
 				className='textarea__input'
-				type={type}
+				type='text'
 				placeholder={ph}
 				name={name}
 				aria-label={name}
@@ -44,5 +44,16 @@ const TextareaForm = ({
 		</div>
 	)
 }
+
+TextareaForm.propTypes = {
+    style: PropTypes.object,
+    maxWidth: PropTypes.string,
+    ph: PropTypes.string,
+	name: PropTypes.string,
+    value: PropTypes.string,
+    setValue: PropTypes.func,
+    mb: PropTypes.string
+
+};
 
 export default TextareaForm;
