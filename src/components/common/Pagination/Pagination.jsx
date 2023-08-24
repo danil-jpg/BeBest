@@ -1,6 +1,7 @@
 import React from 'react';
 import './Pagination.scss';
 import { isChecked } from '../../../utils/isActive';
+import PropTypes from 'prop-types';
 
 const Pagination = ({
     itemsPerPage,
@@ -52,6 +53,13 @@ const Pagination = ({
             </ul>
         </div>
     );
+};
+
+Pagination.propTypes = {
+    itemsPerPage: PropTypes.number,
+    totalUsers: PropTypes.number,
+    currentPage: PropTypes.number,
+    mb: PropTypes.string,
 };
 
 export default Pagination;

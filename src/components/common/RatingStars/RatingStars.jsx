@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './RatingStars.scss';
 import { v1 } from 'uuid';
 import { IconRenderer } from '../../UI/IconRenderer/IconRenderer';
+import PropTypes from 'prop-types';
 
 let defaultStarList = [
 	{
@@ -55,5 +56,10 @@ const RatingStars = ({ amountStars, mb = 23 }) => {
 			}
 		</div>)
 }
+
+RatingStars.propTypes = {
+    argTypes: PropTypes.number,
+    mb: PropTypes.number,
+};
 
 export default RatingStars;
