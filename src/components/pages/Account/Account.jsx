@@ -1,8 +1,71 @@
-import React from 'react';
-import './Account.scss';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+// import Account from './Student/Account/Account';
+import PersonData from './PersonData/PersonData';
+import MyLessons from './MyLessons/MyLessons';
+import Payment from './Payment/Payment';
+import Statistics from './Statistics/Statistics';
+import ContainerMain from '../../common/ContainerMain/ContainerMain';
+import Constructor from './Common/LkConstructor/Constructor';
+import LkStatus from './Common/LkStatus/LkStatus';
+import LkNavigation from './Common/LkNavigation/LkNavigation';
+import Profile from './Profile/Profile';
+import axios from 'axios';
+import Loading from '../../common/Loading/Loading';
+import Favorite from './Favorite/Favorite';
 
-const Account = (props) => {
-    return <></>;
+const Account = () => {
+    const [user, setUser] = useState('');
+    const id = window.sessionStorage.getItem('id');
+
+    useEffect(() => {
+        sessionStorage.setItem('id', 20);
+
+        const fetchData = async () => {
+            try {
+                let res =
+                    await axios.get(`http://bebest.pp.ua/api/users/${id}`);
+
+                setUser(res.data);
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
+
+        fetchData();
+
+    }, [id]);
+
+    if (!user) return <Loading />
+
+    return (
+        <>
+            <Constructor
+                leftContent={
+                    <>
+                        <LkStatus name={'Test'} />
+                        <LkNavigation />
+                    </>
+                }
+                rightContent={
+                    <Routes>
+                        <Route index element={<Profile user={user} />} />
+                        <Route path="/profile" element={<PersonData user={user} />} />
+                        <Route path='/lessons' element={<MyLessons user={user} />} />
+                        <Route path='/favorite' element={<Favorite />} />
+                        <Route path='/payment' element={<Payment />} />
+                        <Route path='/stat' element={<Statistics user={user} />} />
+                        <Route path='/chat' element={<>Chat</>} />
+                        {/* <Route path='profile' element={<PersonData />} />
+                        <Route path='lessons' element={<MyLessons />} />
+                        <Route path='favorite' element={<Favourite />} />
+                        <Route path='payment' element={<Payment />} />
+                        <Route path='stat' element={<Statistics />} /> */}
+                    </Routes>
+                }
+
+            />
+        </>)
 };
 
 export default Account;

@@ -10,7 +10,8 @@ const TextareaForm = ({
 	setValue,
 	style = {},
 	mb = '29px',
-	maxWidth = '100%'
+	maxWidth = '100%',
+	variant = ''
 }) => {
 
 	const onInputChangeHandler = e => {
@@ -33,7 +34,7 @@ const TextareaForm = ({
 			}
 
 			<textarea
-				className='textarea__input'
+				className={`textarea__input textarea__input_variant-${variant}`}
 				type='text'
 				placeholder={ph}
 				name={name}
@@ -46,13 +47,13 @@ const TextareaForm = ({
 }
 
 TextareaForm.propTypes = {
-    style: PropTypes.object,
-    maxWidth: PropTypes.string,
-    ph: PropTypes.string,
+	style: PropTypes.object,
+	maxWidth: PropTypes.string,
+	ph: PropTypes.string,
 	name: PropTypes.string,
-    value: PropTypes.string,
-    setValue: PropTypes.func,
-    mb: PropTypes.string
+	value: PropTypes.string,
+	setValue: PropTypes.func,
+	mb: PropTypes.string
 
 };
 

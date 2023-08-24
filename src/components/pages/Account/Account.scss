@@ -1,0 +1,10 @@
+.account {
+    display: grid;
+    grid-template-columns: 17% 1fr;
+    position: relative;
+    column-gap: 115px;
+    margin-bottom: 100px;
+    .title {
+        position: absolute;
+    }
+}

@@ -56,7 +56,7 @@ Picture.propTypes = {
   height: PropTypes.string,
   lazy: PropTypes.oneOf(['lazy', 'auto']),
   alt: PropTypes.string,
-  webp: PropTypes.func,
+  webp: PropTypes.string,
   img: PropTypes.string,
   className: PropTypes.string,
 };

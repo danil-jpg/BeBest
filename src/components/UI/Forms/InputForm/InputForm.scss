@@ -9,7 +9,6 @@
     font-size: 13px;
     font-style: normal;
     font-weight: 500;
-    // line-height: 1.84; /* 184.615% */
     border: 1px solid transparent;
 
     &::placeholder {
@@ -20,6 +19,13 @@
     }
     &:focus {
         border-color: rgb(42, 51, 66);
+    }
+    &__title {
+        color: #8b919e;
+        font-weight: 500;
+        line-height: 1.76; /* 176.923% */
+        font-size: 13px;
+        margin: 0 0 1px;
     }
 }
 .input_empty {
@@ -35,9 +41,7 @@
         line-height: 1.1; /* 111.111% */
     }
 }
-.input_password-icon_none {
-    display: none;
-}
+
 .input_password-icon {
     display: block;
     background-image: url('../../../../assets/icons/Eye.svg');
@@ -50,10 +54,12 @@
     right: 15px;
     top: 50%;
     transform: translate(0, -50%);
+    transition: all .2s;
+    &.check {
+        opacity: .6;
+    }
 }
 
-.input_password {
-}
 .input__wr {
     position: relative;
 }
