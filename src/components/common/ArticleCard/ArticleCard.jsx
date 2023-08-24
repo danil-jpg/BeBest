@@ -2,16 +2,17 @@ import React from 'react';
 import './ArticleCard.scss';
 import Picture from '../../UI/Picture/Picture';
 import MainButton from '../../UI/Buttons/MainButton/MainButton';
+import PropTypes from 'prop-types';
 
 const data = {
     titleBtn: 'Детальнее',
 };
 
-const ArticleCard = ({ image, title, text }) => {
+const ArticleCard = ({ image, title, text, style, maxWidth }) => {
     let imageSrc = `http://bebest.pp.ua${image}`;
 
     return (
-        <li className='article-card'>
+        <li className='article-card' style={{...style, maxWidth: maxWidth}}>
             <div className='article-card__image-wrap'>
                 <Picture
                     img={imageSrc}
@@ -29,6 +30,14 @@ const ArticleCard = ({ image, title, text }) => {
             </div>
         </li>
     );
+};
+
+ArticleCard.propTypes = {
+    image: PropTypes.string,
+    title: PropTypes.string,
+    text: PropTypes.string,
+    maxWidth: PropTypes.string,
+    style: PropTypes.object
 };
 
 export default ArticleCard;

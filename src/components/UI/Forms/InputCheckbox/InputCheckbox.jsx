@@ -1,7 +1,11 @@
 import React from 'react';
 import './InputCheckbox.scss';
 
-const InputCheckbox = ({ checkboxState, setCheckboxState, onClickHandler }) => {
+const InputCheckbox = ({
+    checkboxState,
+    setCheckboxState,
+    onClickHandler
+}) => {
     return (
         <div
             onClick={onClickHandler}

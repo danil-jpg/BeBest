@@ -26,18 +26,20 @@ export default {
             description: 'Путь перехода при клике',
             defaultValue: ' ',
         },
-        width: {
-            description: 'Ширина кнопки',
-            defaultValue: 'full',
-            options: ['full', 'content'],
-            control: {type:'radio'}
-            
-        },
         style: {
             description: 'Обьект стилей css',
         },
         onClick: {
             description: 'callback',
+        },
+        maxWidth: {
+            description: 'Установить максимальную ширину кнопки',
+            defaultValue: '100%',
+            control: {type: 'text'}
+        },
+        mb: {
+            description: 'Установить нижний отступ',
+            defaultValue: '0px'
         }
     },
 };
@@ -47,14 +49,17 @@ const Template = (arg) => <MainButton {...arg}></MainButton>;
 export const Default = Template.bind();
 Default.args = {
     children: 'Click me',
+    maxWidth: '161px',
 };
 export const Small = Template.bind();
 Small.args = {
     children: 'Click me',
+    maxWidth: '161px',
     size: 'small'
 };
 export const Transparent = Template.bind();
 Transparent.args = {
     children: 'Click me',
+    maxWidth: '161px',
     type: 'white'
 };

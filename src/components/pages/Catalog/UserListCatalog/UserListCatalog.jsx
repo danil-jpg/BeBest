@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import './UserListCatalog.scss';
 import UserItemCatalog from '../../../common/UserItemCatalog/UserItemCatalog';
-import { useSelector } from 'react-redux';
 import Pagination from '../../../common/Pagination/Pagination';
-import { isChecked } from '../../../../utils/isActive';
 
-const UserListCatalog = ({users}) => {
+const UserListCatalog = ({ users }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [userPerPage] = useState(5);
 
@@ -25,17 +23,17 @@ const UserListCatalog = ({users}) => {
                     <UserItemCatalog key={user.id} user={user} />
                 ))}
             </ul>
-            {users.length === currentUsers.length ? (
-                <></>
-            ) : (
-                <Pagination
-                    totalUsers={users.length}
-                    itemsPerPage={userPerPage}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    onPageNumClickHandler={onPageNumClickHandler}
-                />
-            )}
+            {
+                users.length === currentUsers.length
+                    ? <></>
+                    : <Pagination
+                        totalUsers={users.length}
+                        itemsPerPage={userPerPage}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                        onPageNumClickHandler={onPageNumClickHandler}
+                    />
+            }
         </>
     );
 };

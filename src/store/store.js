@@ -7,6 +7,7 @@ import filterSlice from './slices/filterSlice/filterSlice';
 import tabsUserSlice from './slices/tabsUserSlice/tabsUserSlice';
 import teachterFetchUsers from './slices/teachreFilterSlice/teacherFetchUsersSlice';
 import userPageSlice from './slices/userPageSlice/userPageSlice';
+import createLessonSlise from './slices/createLessonSlice/createLessonSlise';
 import registrationSlice from './slices/registrationSlice/registrationSlice';
 import forumSlice from './slices/forumSlice/forumSlice';
 
@@ -22,7 +23,8 @@ export const store = configureStore({
                 userPageSlice,
                 forumSlice,
                 userContentSlice: teachterFetchUsers,
-
+,
+        lesson:createLessonSlise
         },
         devTools: true,
 });

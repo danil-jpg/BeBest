@@ -42,6 +42,7 @@ const FilterCatalog = ({ users, setUsers }) => {
 
         for (let itemFilter in data) {
             data[itemFilter].list.forEach((el) => {
+                if (itemFilter === 'sb') return;
                 if (el.selected) {
                     selectedList.push({
                         [data[itemFilter].value]: el.title,
@@ -119,8 +120,8 @@ const FilterCatalog = ({ users, setUsers }) => {
                     <MainButton
                         style={{
                             textTransform: 'uppercase',
-                            margin: '0 0 18px',
                         }}
+                        mb='18px'
                         onClick={onSubmitClickHandler}
                     >
                         {titles.submit}

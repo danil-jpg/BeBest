@@ -1,0 +1,17 @@
+.popular-course{
+
+    padding-top: 48px;
+    padding-bottom: 48px;
+    &__cards{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 17px;
+    }
+
+    &__title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Picture({ className, img, webp, style, ...rest }) {
   let imageExt = img.slice(-7).split('.')[1].trim();
@@ -40,7 +41,7 @@ function Picture({ className, img, webp, style, ...rest }) {
       <img
         className={className ? className : ''}
         src={img}
-        alt={alt ? alt : ''}
+        alt={alt}
         style={style}
         loading={rest.lazy ? 'lazy' : 'auto'}
         width={rest.width ? rest.width : ''}
@@ -49,5 +50,15 @@ function Picture({ className, img, webp, style, ...rest }) {
     </picture>
   );
 }
+Picture.propTypes = {
+  style: PropTypes.object,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  lazy: PropTypes.oneOf(['lazy', 'auto']),
+  alt: PropTypes.string,
+  webp: PropTypes.func,
+  img: PropTypes.string,
+  className: PropTypes.string,
+};
 
 export default Picture;

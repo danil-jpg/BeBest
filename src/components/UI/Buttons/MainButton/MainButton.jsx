@@ -9,24 +9,30 @@ const MainButton = ({
     style = {},
     size = 'middle',
     type = 'red',
-    width = 'full',
+    maxWidth = '100%',
     onClick,
+    mb = '0px'
 }) => {
 
     // sizes = small, middle, big;
     // types = color,transparent
-    // width = full, content
+
+    const styles = {
+        ...style,
+        maxWidth: `${maxWidth}`,
+        margin: `0 0 ${mb}`
+    }
     return (
         <Link
             to={to}
-            className={`main-btn main-btn_${size} main-btn_${type} main-btn_width-${width}`}
-            style={style}
+            className={`main-btn main-btn_${size} main-btn_${type}`}
+            style={styles}
             onClick={
                 onClick
                     ? onClick
                     : () => {
-                            console.log('not callback');
-                        }
+                        console.log('not callback');
+                    }
             }
         >
             <span>{children}</span>
@@ -40,8 +46,10 @@ MainButton.propTypes = {
     style: PropTypes.object,
     size: PropTypes.oneOf(['small', 'middle']),
     type: PropTypes.oneOf(['red', 'white']),
-    width: PropTypes.oneOf(['full', 'content']),
+    maxWidth: PropTypes.string,
     onClick: PropTypes.func,
+    mb: PropTypes.string
+
 };
 
 
