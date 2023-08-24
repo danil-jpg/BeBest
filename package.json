@@ -103,11 +103,13 @@
     "react-dev-utils": "^12.0.1",
     "react-dom": "^18.2.0",
     "react-jitsi": "^1.0.4",
+    "react-modal": "^3.16.1",
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.11.1",
     "react-select": "^5.7.3",
     "react-twitch-embed": "^3.0.1",
     "react-twitch-embed-video": "^3.0.3",
+    "reactjs-popup": "^2.0.5",
     "redux-thunk": "^2.4.2",
     "swiper": "^9.4.1",
     "uuid": "^9.0.0"

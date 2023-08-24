@@ -1,10 +1,11 @@
 import React from "react";
-import JitsiIntegration from "./OnlineLessonMeet/OnlineLessonMeet";
+import OnlineLessonMeet from "./OnlineLessonMeet/OnlineLessonMeet";
+import ContainerMain from "../../common/ContainerMain/ContainerMain";
 const OnlineLesson = () => {
     return ( 
-        <div>
-            <JitsiIntegration  />
-        </div>
+        <ContainerMain>
+             <OnlineLessonMeet  />
+        </ContainerMain>
      );
 }
  

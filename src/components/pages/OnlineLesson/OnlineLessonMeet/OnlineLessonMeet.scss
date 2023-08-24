@@ -1,0 +1,232 @@
+@import "./../../../../styles/media-breakpoints.scss";
+
+.online-lesson {
+    padding: 0 30px 60px 0;
+
+    &__main-iframe{
+        position: relative;
+
+        img{
+            position: absolute;
+            top: 29px;
+            left: 20px;
+
+        }
+    }
+    
+    &__btn {
+        max-width: 262px;
+
+        &-form {
+            margin-top: 60px;
+        }
+    }
+
+    &__title {
+        color: #292C32;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        padding-top: 30px;
+    }
+
+    &__input {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__label {
+        color: #292C32;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        display: flex;
+
+        &-time {
+
+            input {
+                max-width: 90px;
+
+            }
+        }
+
+        input {
+            border: 1px solid #f04973;
+            height: 30px;
+            border-radius: 10px;
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+
+        textarea {
+            border: 1px solid #f04973;
+            border-radius: 10px;
+            margin-left: 20px;
+            padding: 20px;
+            min-height: 150px;
+        }
+    }
+
+    &__main-content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+
+
+    }
+
+    &__information {
+        border-radius: 10px;
+        background: #FFF;
+        box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+        padding: 25px;
+        width: 330px;
+
+        &-title {
+            color: #292C32;
+            font-family: Montserrat;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 19px;
+            padding-bottom: 15px;
+
+            span {
+                color: #f04973;
+                font-family: Montserrat;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 19px;
+            }
+        }
+
+        &-descr {
+            color: #292C32;
+            font-family: Montserrat;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 19px;
+            padding-bottom: 10px;
+
+            p{
+                color: #f04973;
+            }
+        }
+
+        &-timer {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 15px;
+
+            &-time{
+                color: #8B919E;
+                font-family: Montserrat;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 23px; 
+            }
+
+            &-hour{
+                color: #292C32;
+                font-family: Montserrat;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 22px; 
+            }
+        }
+
+        &-link{
+
+            p{
+                color: #292C32;
+                font-family: Montserrat;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 19px; /* 135.714% */
+            }
+
+            a{
+                color: #f04973;
+            }
+        }
+
+        &-btn{
+            margin-top: 120px;
+        }
+
+    }
+
+    &__banner{
+        width: 100%;
+        height: 300px;
+        background-color: #f04973;
+        position: absolute;
+        top: 70px;
+        z-index: 10;
+        left: 0;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+        transition: all 0.5s ease;
+        
+        p{
+            color: #292C32;
+            text-align: center;
+            font-family: EB Garamond;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        &-btn{
+            width: 300px;
+            margin-top: 50px;
+        }
+
+    }
+}
+
+@include media-breakpoint-down(lg) {
+
+    iframe {
+        max-width: 800px;
+        border-radius: 30px;
+        border: 5px solid #f04973;
+        max-height: 500px;
+    }
+}
+.watermark{
+    opacity: 0;
+}
+.leftwatermark{
+    opacity: 0;
+}
+iframe .leftwatermark{
+    a{
+        opacity: 0;
+    }
+}
+iframe .watermark{
+   a{
+    opacity: 0;
+   }
+}
