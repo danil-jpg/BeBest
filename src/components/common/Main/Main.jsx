@@ -13,7 +13,7 @@ const Registration = React.lazy(() => import('../../pages/Registranion/Registrat
 // const OnlineLesson = React.lazy(() => import('../../pages/OnlineLesson/OnlineLesson'));
 
 const Forum = React.lazy(() => import('../../pages/Forum/Forum'));
-const Lk = React.lazy(() => import('../../pages/Lk/Lk.jsx'));
+const Account = React.lazy(() => import('../../pages/Account/Account.jsx'));
 
 const Main = () => {
     return (
@@ -26,9 +26,9 @@ const Main = () => {
                     <Route path='teacher' element={<Teacher />} />
                     <Route path='article' element={<Article />} />
                     <Route path='registration/*' element={<Registration />} />
-                    {/* <Route path='lesson' element={<OnlineLesson />} /> */}
-                    <Route path='lk/*' element={<Lk />} />
+                    <Route path='account/*' element={<Account />} />
                     <Route path='forum/*' element={<Forum />} />
+                    {/* <Route path='lesson' element={<OnlineLesson />} /> */}
                 </Routes>
             </Suspense>
         </main>

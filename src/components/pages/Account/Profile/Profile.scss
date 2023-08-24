@@ -1,17 +1,15 @@
-.account {
-}
-.account__student {
+.profile {
     max-width: 330px;
 }
-.account__title {
-    color: #292c32;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.1; /* 110% */
-    margin-bottom: 26px;
-}
-.account__delete-wr {
+// .profile__title {
+//     color: #292c32;
+//     font-family: Montserrat;
+//     font-size: 20px;
+//     font-weight: 700;
+//     line-height: 1.1; /* 110% */
+//     margin-bottom: 26px;
+// }
+.profile__delete-wr {
     position: relative;
     p {
         color: #8b919e;

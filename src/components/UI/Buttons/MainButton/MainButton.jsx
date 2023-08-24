@@ -11,16 +11,16 @@ const MainButton = ({
     type = 'red',
     maxWidth = '100%',
     onClick,
-    mb = '0px'
+    mb = '0px',
 }) => {
 
     // sizes = small, middle, big;
     // types = color,transparent
 
     const styles = {
-        ...style,
         maxWidth: `${maxWidth}`,
-        margin: `0 0 ${mb}`
+        margin: `0 0 ${mb}`,
+        ...style,
     }
     return (
         <Link

@@ -156,7 +156,7 @@ const Breadcrumbs = (props) => {
                             </Link>
                         />
                         <Route
-                            path='/Lk/*'
+                            path='/account/*'
                             element=<Link to='' className='breadcrumbs__link'>
                                 Личный кабинет
                             </Link>
