@@ -6,6 +6,10 @@ import MainButton from '../../../UI/Buttons/MainButton/MainButton';
 import Video from '../../Video/Video';
 import { useDispatch } from 'react-redux';
 import { setUserPageId } from '../../../../store/slices/userPageSlice/userPageSlice';
+import imagTable from '../../../../assets/images/catalog/table.jpg';
+import imagTableWebp from '../../../../assets/images/catalog/table.jpg?as=webp';
+import { Link } from 'react-router-dom';
+import Picture from '../../../UI/Picture/Picture';
 
 let styleView = {
     display: 'block',
@@ -100,12 +104,19 @@ const TabsUserItem = ({ description, videoSrc, id }) => {
                         style={view === 'calendar' ? styleView : {}}
                         className='tabs-item-catalog__item'
                     >
-                        3
+                        <Link to='/teacher'
+                            onClick={onProfileClickHandler}>
+                            <Picture
+                                img={imagTable}
+                                webp={imagTableWebp}
+                                alt={'Календарь'}
+                            />
+                        </Link>
                     </div>
                 </div>
             </div>
             <div className='tabs-item-catalog__footer'>
-                <MainButton style={{ maxWidth: '161px' }}>
+                <MainButton maxWidth='161px'>
                     {titlesBtn.lesson}
                 </MainButton>
                 <MainButton to='/teacher' type='white' onClick={onProfileClickHandler}>

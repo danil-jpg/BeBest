@@ -1,8 +1,14 @@
 export const formattedDate = (isoDate) => {
 	const now = new Date();
+	const startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 	const date = new Date(isoDate);
-	const isToday = getTimeDiff(now, date) < 1;
-	const isYesterday = getTimeDiff(now, date) < 2;
+
+	const isToday =
+		startDate.getDate() === date.getDate() &&
+		startDate.getMonth() === date.getMonth() &&
+		startDate.getFullYear() === date.getFullYear();
+	
+	const isYesterday = getTimeDiff(now, date) === 0;
 
 	if (isToday) {
 		return `Сегодня, ${date.getHours()}:${date.getMinutes()}`;
@@ -15,9 +21,9 @@ export const formattedDate = (isoDate) => {
 	return `${date.getDate() + 1}.${addZero(date.getMonth() + 1)}.${date.getFullYear()}`;
 
 }
-	
+
 function getTimeDiff(now, date) {
-	return ((now - date) / 1000) / (60 * 60 * 24);
+	return Math.floor((now - date) / 1000 / (60 * 60 * 24));
 }
 
 function addZero(num) {
