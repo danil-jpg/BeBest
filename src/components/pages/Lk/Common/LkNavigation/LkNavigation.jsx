@@ -41,7 +41,7 @@ const LkNavigation = ({ type = 'student', active = 1 }) => {
                 </li>
                 <li
                     className={active === 6 ? 'lk__nav_li active' : 'lk__nav_li'}
-                    onClick={() => navigate('')}>
+                    onClick={() => navigate('../Statistics')}>
                     <IconRenderer id={'statistic'} />
                     <p className='lk__nav_text'>Статистика</p>
                 </li>
