@@ -32,7 +32,7 @@ const Catalog = (props) => {
     useEffect(() => {
         const getUsers = async () => {
             let res = await axios.get(
-                'http://bebest.pp.ua/api/users/?populate=*'
+                'http://bebest.pp.ua/api/users/?populate=*&filters[role][type][$eq]=teacher'
             );
             dispatch(setUserList(res.data));
 
@@ -60,10 +60,7 @@ const Catalog = (props) => {
                     <Title>{data.title}</Title>
                     <div className='catalog__row'>
                         <div className='catalog__filter'>
-                            <FilterCatalog
-                                users={userData}
-                                setUsers={setUserData}
-                            />
+                            <FilterCatalog users={userData} setUsers={setUserData} />
                         </div>
                         <div className='catalog__body'>
                             <UserListCatalog users={users} />

@@ -6,14 +6,14 @@ import MainButton from '../../../UI/Buttons/MainButton/MainButton';
 import CalendarBooking from './CalendarBooking/CalendarBooking';
 import useFetch from '../../../../utils/useFetch';
 
-const TeacherCalendar = () => {
+const TeacherCalendar = ({ title = true, book = true }) => {
     let [weekCounter, setWeekCounter] = useState(0);
 
     const obj = useFetch('calendars/');
 
     return (
         <div className='teacher__calendar'>
-            <p className='teacher__calendar__title'>Расписание</p>
+            <p className='teacher__calendar__title'>{title ? 'Расписание' : ''}</p>
             <div className='teacher__calendar__wr'>
                 <div className='teacher__calendar_date-wr'>
                     <div
@@ -68,6 +68,7 @@ const TeacherCalendar = () => {
                             <div className='teacher__calendar__wr_column' key={v1()}>
                                 {element.time.map((el, index) => (
                                     <CalendarBooking
+                                        visible={book}
                                         el={el}
                                         date={element.date}
                                         month={element.month}

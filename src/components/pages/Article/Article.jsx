@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Article.scss';
 import ContainerMain from '../../common/ContainerMain/ContainerMain';
 import Title from '../../UI/Title/Title';
@@ -16,8 +16,25 @@ import workingW from '../../../assets/images/article/working.png?as=webp';
 import goal from '../../../assets/images/article/goal.png';
 import goalW from '../../../assets/images/article/goal.png?as=webp';
 import importantSign from '../../../assets/icons/important.svg';
+import TeacherCalendar from '../Teachers/TeacherCalendar/TeacherCalendar';
 
 const Article = () => {
+    const [tab, setTab] = useState([false, true]);
+    const [tab2, setTab2] = useState([true, false, false]);
+
+    const revertedText = ` Укрепление и развитие структуры позволяет выполнять важные задания
+    по разработке системы обучения кадров, соответствует насущным
+    потребностям. По своей сути рыбатекст является альтернативой
+    традиционному lorem ipsum, который вызывает у некторых людей
+    недоумение при попытках прочитать рыбу текст. В отличии от lorem
+    ipsum, текст рыба на русском языке наполнит любой макет непонятным
+    смыслом и придаст неповторимый колорит советских времен. По своей
+    сути рыбатекст является альтернативой традиционному lorem ipsum.
+    `
+        .split('')
+        .reverse()
+        .join('');
+
     return (
         <ContainerMain>
             <div className='acticle'>
@@ -124,16 +141,20 @@ const Article = () => {
                         </div>
                         <div className='article__tabs'>
                             <div className='tabs_top'>
-                                <div className='tabs_top-tab'>
+                                <div
+                                    className={tab[0] ? 'tabs_top-tab active' : 'tabs_top-tab'}
+                                    onClick={() => setTab([true, false])}>
                                     <img src={importantSign} />
                                     <p className='tab_text'>Информация</p>
                                 </div>
-                                <div className='tabs_top-tab'>
+                                <div
+                                    className={tab[1] ? 'tabs_top-tab active' : 'tabs_top-tab'}
+                                    onClick={() => setTab([false, true])}>
                                     <img src={importantSign} />
                                     <p className='tab_text'>Еще информация</p>
                                 </div>
                             </div>
-                            <div className='tabs_descr'>
+                            <div className={tab[0] ? 'tabs_descr active' : 'tabs_descr'}>
                                 Укрепление и развитие структуры позволяет выполнять важные задания
                                 по разработке системы обучения кадров, соответствует насущным
                                 потребностям. По своей сути рыбатекст является альтернативой
@@ -143,18 +164,45 @@ const Article = () => {
                                 смыслом и придаст неповторимый колорит советских времен. По своей
                                 сути рыбатекст является альтернативой традиционному lorem ipsum.
                             </div>
-                            <div className='tabs_descr'>
-                                Укрепление и развитие структуры позволяет выполнять важные задания
-                                по разработке системы обучения кадров, соответствует насущным
-                                потребностям. По своей сути рыбатекст является альтернативой
-                                традиционному lorem ipsum, который вызывает у некторых людей
-                                недоумение при попытках прочитать рыбу текст. В отличии от lorem
-                                ipsum, текст рыба на русском языке наполнит любой макет непонятным
-                                смыслом и придаст неповторимый колорит советских времен. По своей
-                                сути рыбатекст является альтернативой традиционному lorem ipsum.
+                            <div className={tab[1] ? 'tabs_descr active' : 'tabs_descr'}>
+                                {revertedText}
                             </div>
                         </div>
-                        <div className='article__tabs2'></div>
+                        <div className='article__tabs article__tabs_2'>
+                            <div className='tabs_top'>
+                                <div
+                                    className={tab2[0] ? 'tabs_top-tab active' : 'tabs_top-tab'}
+                                    onClick={() => setTab2([true, false, false])}>
+                                    <p className='tab_text'>Информация</p>
+                                </div>
+                                <div
+                                    className={tab2[1] ? 'tabs_top-tab active' : 'tabs_top-tab'}
+                                    onClick={() => setTab2([false, true, false])}>
+                                    <p className='tab_text'>Описание</p>
+                                </div>
+                                <div
+                                    className={tab2[2] ? 'tabs_top-tab active' : 'tabs_top-tab'}
+                                    onClick={() => setTab2([false, false, true])}>
+                                    <p className='tab_text'>Календарь</p>
+                                </div>
+                            </div>
+                            <div className={tab2[0] ? 'tabs_descr active' : 'tabs_descr'}>
+                                Укрепление и развитие структуры позволяет выполнять важные задания
+                                по разработке системы обучения кадров, соответствует насущным
+                                потребностям. По своей сути рыбатекст является альтернативой
+                                традиционному lorem ipsum, который вызывает у некторых людей
+                                недоумение при попытках прочитать рыбу текст. В отличии от lorem
+                                ipsum, текст рыба на русском языке наполнит любой макет непонятным
+                                смыслом и придаст неповторимый колорит советских времен. По своей
+                                сути рыбатекст является альтернативой традиционному lorem ipsum.
+                            </div>
+                            <div className={tab2[1] ? 'tabs_descr active' : 'tabs_descr'}>
+                                {revertedText}
+                            </div>
+                            <div className={tab2[2] ? 'tabs_descr active' : 'tabs_descr'}>
+                                <TeacherCalendar />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

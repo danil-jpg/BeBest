@@ -85,6 +85,82 @@ const Breadcrumbs = (props) => {
                                 </Link>
                             }
                         />
+                        <Route
+                            path='/forum'
+                            element={
+                                <Link to='' className='breadcrumbs__link'>
+                                    Список разделов форума
+                                </Link>
+                            }
+                        />
+                        <Route
+                            path='/forum/topic/*'
+                            element={
+                                <>
+                                    <Link to='/forum' className='breadcrumbs__link'>
+                                        Список разделов форума
+                                    </Link>
+                                    <Link to='' className='breadcrumbs__link'>
+                                        Список тем форума
+                                    </Link>
+                                </>
+                            }
+                        />
+                        <Route
+                            path='/forum/view/*'
+                            element={
+                                <>
+                                    <Link to='/forum' className='breadcrumbs__link'>
+                                        Список разделов форума
+                                    </Link>
+                                    <Link to='' className='breadcrumbs__link'>
+                                        Список тем форума
+                                    </Link>
+                                </>
+                            }
+                        />
+                        <Route
+                            path='/registration/registrationProposal?'
+                            element=<Link to='' className='breadcrumbs__link'>
+                                Регистрация
+                            </Link>
+                        />
+                        <Route
+                            path='/registration/RegistrationStudent1'
+                            element=<Link to='' className='breadcrumbs__link'>
+                                Регистрация
+                            </Link>
+                        />
+                        <Route
+                            path='/registration/registrationStudentSucc'
+                            element=<Link to='' className='breadcrumbs__link'>
+                                Регистрация
+                            </Link>
+                        />
+                        <Route
+                            path='/registration/RegistrationTeacher'
+                            element=<Link to='' className='breadcrumbs__link'>
+                                Регистрация
+                            </Link>
+                        />
+                        <Route
+                            path='/registration/RegistrationComp'
+                            element=<Link to='' className='breadcrumbs__link'>
+                                Регистрация
+                            </Link>
+                        />
+                        <Route
+                            path='/registration/Authorize'
+                            element=<Link to='' className='breadcrumbs__link'>
+                                Авторизация
+                            </Link>
+                        />
+                        <Route
+                            path='/Lk/*'
+                            element=<Link to='' className='breadcrumbs__link'>
+                                Личный кабинет
+                            </Link>
+                        />
                     </Routes>
                 </div>
             </ContainerMain>

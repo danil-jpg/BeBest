@@ -1,8 +1,8 @@
-import MainButton from "./MainButton";
+import TeacherQuotes from './TeacherQuotes';
 
 export default {
-	title: 'Button/MainButton',
-	component: MainButton,
+	title: 'Teacher/Quotes',
+	component: TeacherQuotes,
 	parameters: {
 		// Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
 		layout: 'centered',
@@ -15,19 +15,12 @@ export default {
 	},
 };
 
-export const Small = {
+export const Default = {
 	args: {
-		children: 'Button',
-		size: "small"
+		classname: ''
 	},
 };
 
-export const Middle = {
-	args: {
-		children: 'Button',
-		size: "middle"
-	},
-};
 
 // export const Warning = {
 // 	args: {

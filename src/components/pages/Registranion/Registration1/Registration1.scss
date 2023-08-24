@@ -1,0 +1,107 @@
+.registration {
+    .title {
+        text-align: center;
+    }
+}
+.smallContainer {
+}
+.registration__form {
+}
+.registration-proposal-container {
+    max-width: 1146px;
+    display: block;
+    margin: 0 auto;
+}
+.registration__ul {
+    display: flex;
+    justify-content: space-between;
+}
+.registration__choose {
+    border-radius: 10px;
+
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    padding: 20px;
+    width: 350px;
+    height: 280px;
+    justify-content: flex-start;
+    padding-top: 80px;
+    box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+    transition: 0.3s;
+    &::after {
+        content: '';
+        width: 104px;
+        height: 104px;
+        background: rgba(243, 247, 252, 1);
+        position: absolute;
+        border-radius: 50%;
+        z-index: 0;
+        bottom: 40%;
+    }
+    &.active {
+        border: 1px solid #f04973;
+        .registration__choose__circle {
+            border: 1px solid #f04973;
+            &::after {
+                content: '';
+                width: 11px;
+                height: 11px;
+                background: rgb(240, 73, 115);
+                border-radius: 50%;
+                left: 50%;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+            }
+        }
+    }
+}
+
+.registration__image {
+    position: relative;
+    z-index: 1;
+}
+.registration__choose__circle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    border: 1px solid rgba(198, 206, 211, 1);
+    top: 20px;
+    right: 20px;
+    border-radius: 50%;
+}
+.registration__choose__text {
+    color: #292c32;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.22; /* 122.222% */
+    margin-top: 50px;
+}
+
+.registration__next-btn {
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.22; /* 122.222% */
+    border-radius: 7px;
+    background: transparent;
+    border: 1px solid black;
+    padding: 10px 20px;
+    margin: 25px auto;
+    display: block;
+    transition: 0.3;
+
+    &.active {
+        color: #fff;
+        background: linear-gradient(90deg, #f04973 0%, #fa6655 100%);
+        box-shadow: 0px 15px 25px 0px rgba(193, 42, 61, 0.2);
+    }
+}

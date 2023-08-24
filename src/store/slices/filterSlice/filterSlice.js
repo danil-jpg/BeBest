@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-    updateListSelection,
-} from '../../../utils/updateListSelection';
+import { updateListSelection } from '../../../utils/updateListSelection';
 import { addSelectItems } from '../../../utils/addSelectItem';
+import { v1 } from 'uuid';
 
 const initialState = {
     lessonSpeak: {
@@ -45,6 +44,18 @@ const initialState = {
         value: 'yearLearn',
         list: [],
     },
+    sb: [
+        {
+            id: v1(),
+            title: 'first',
+            selected: false,
+        },
+        {
+            id: v1(),
+            title: 'second',
+            selected: false,
+        },
+    ],
 };
 
 export const filterSlice = createSlice({
@@ -123,6 +134,12 @@ export const filterSlice = createSlice({
                 action.payload
             );
         },
+        selectSb: (state, action) => {
+            state.sb = updateListSelection(
+                state.sb,
+                action.payload
+            );
+        },
         clearFilter: (state, action) => {
             for (let item in state) {
                 let obj = { ...state[item] };
@@ -154,5 +171,6 @@ export const {
     setAspectLearn,
     setYearLearn,
     clearFilter,
+    selectSb
 } = filterSlice.actions;
 export default filterSlice.reducer;
