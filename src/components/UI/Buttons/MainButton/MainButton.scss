@@ -17,15 +17,29 @@
 		padding: 13px 5px;
 		border-radius: 7px;
 	}
+	&_big{
+		padding: 23px 50px;
+		box-shadow: 0px 15px 25px 0px rgba(193, 42, 61, 0.20);
+		border-radius: 7px;
+		color: #FFF;
+		font-family: Montserrat;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
 	&_white {
 		background:
 			linear-gradient(white, white) padding-box,
 			linear-gradient(90deg, #f04973 0%, #fa6655 100%) border-box;
-		border: 1px solid transparent;
+			border: 1px solid transparent;
 	}
 	&_red {
 		background: linear-gradient(90deg, #f04973 0%, #fa6655 100%);
 		box-shadow: 0px 15px 25px 0px rgba(193, 42, 61, 0.2);
+	}
+	&_blue{
+		background: linear-gradient(90deg, #00d2ff 0%, #2596ff 100%);
+		box-shadow: 0px 15px 25px 0px rgba(193, 42, 61, 0.2);
+
 	}
 	&_width-content {
 		width: max-content;

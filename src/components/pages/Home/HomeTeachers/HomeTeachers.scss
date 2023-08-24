@@ -1,0 +1,16 @@
+.home-teachers{ 
+    overflow: hidden;
+    position: relative;
+    margin-top: 130px;
+    padding-left: 205px;
+    &__image{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    &__title{
+        padding-top: 5px;
+    }
+}

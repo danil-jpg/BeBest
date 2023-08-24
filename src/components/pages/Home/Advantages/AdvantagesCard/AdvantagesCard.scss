@@ -1,0 +1,52 @@
+@import "../../../../../styles/media-breakpoints.scss";
+.advantages-card{
+
+    max-width: 350px;
+    height: 340px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    padding-left: 28px;
+    padding-right: 28px;
+
+    @include media-breakpoint-down(lg){
+        max-width: 280px;
+        padding: 20px;
+    }
+
+    &__image{
+        width: 104px;
+        height: 104px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #F3F7FC;
+    }
+
+    &__title{
+        color: #292C32;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 22px; 
+        padding-top: 21px;
+    }
+
+    &__description{
+        color: #454B58;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 25px;
+        padding-top: 14px;
+        
+    }
+
+}
