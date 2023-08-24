@@ -1,12 +1,12 @@
-import React from "react";
-import OnlineLessonMeet from "./OnlineLessonMeet/OnlineLessonMeet";
-import ContainerMain from "../../common/ContainerMain/ContainerMain";
+import React from 'react';
+import OnlineLessonMeet from './OnlineLessonMeet/OnlineLessonMeet';
+import ContainerMain from '../../common/ContainerMain/ContainerMain';
 const OnlineLesson = () => {
-    return ( 
+    return (
         <ContainerMain>
-             <OnlineLessonMeet  />
+            <OnlineLessonMeet />
         </ContainerMain>
-     );
-}
- 
+    );
+};
+
 export default OnlineLesson;
