@@ -23,8 +23,7 @@ export const store = configureStore({
                 userPageSlice,
                 forumSlice,
                 userContentSlice: teachterFetchUsers,
-,
-        lesson:createLessonSlise
+                lesson: createLessonSlise
         },
         devTools: true,
 });

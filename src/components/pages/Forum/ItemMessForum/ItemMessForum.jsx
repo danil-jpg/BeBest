@@ -18,6 +18,8 @@ const ItemMessForum = ({ num, el }) => {
 	const getCreateDate = () => el.author.data.attributes.createdAt;
 	const getAmountMess = () => el.author.data.attributes.messages.data.length;
 
+	console.log(getAuthorRate());
+
 	return (
 		<div className='mess-forum'>
 			<div className="mess-forum__user-info">
