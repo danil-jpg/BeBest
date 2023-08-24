@@ -14,6 +14,9 @@
 }
 .payment__form {
     max-width: 328px;
+    &.hidden {
+        display: none;
+    }
 }
 .payment__title {
     color: #292c32;
@@ -22,6 +25,7 @@
     font-weight: 700;
     line-height: 126.667%;
     margin-bottom: 20px; /* */
+    margin-top: 44px;
 }
 .payment__bottom-wr {
     display: flex;
@@ -47,6 +51,31 @@
     width: 363px;
     display: flex;
     align-items: center;
+    margin-top: 44px;
+    position: relative;
+}
+.payment__card_del {
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    display: flex;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    svg {
+        width: 12.647px;
+        height: 16px;
+        margin-right: 7px;
+    }
+}
+.payment__card_del_text {
+    color: #8b919e;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 182.85%; /* 23.771px */
+    text-decoration-line: underline;
 }
 .payment__card_img {
     margin-right: 22px;
