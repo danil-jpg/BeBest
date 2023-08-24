@@ -19,6 +19,7 @@ const Student = () => {
 
     const id = window.sessionStorage.getItem('id');
     console.log(id);
+
     useEffect(() => {
         const fetchData = async () => {
             await axios
@@ -36,10 +37,6 @@ const Student = () => {
         setEmail(userData.email);
     }, [id, userData.username, userData.email, userData.phone]);
 
-    if (!userData) {
-        <Loading></Loading>;
-    }
-
     const onButtonClickHandler = (e) => {
         e.preventDefault();
         axios
@@ -56,7 +53,7 @@ const Student = () => {
                 console.log(e.message);
             });
     };
-    console.log(username);
+
     return (
         <Constructor
             leftContent={

@@ -91,9 +91,12 @@ const Authorize = () => {
                                     );
                                     window.sessionStorage.setItem('id', res.data.user.id);
                                     console.log(res);
-                                    // navigation('../../Lk/studentAccount');
+                                    navigation('../../Lk/student/account');
                                 })
-                                .catch((e) => console.log(e));
+                                .catch((e) => {
+                                    alert('Неверный логин или пароль');
+                                    console.log(e);
+                                });
                         }
                     }}>
                     Войти

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './UserMenuHeader.scss';
 import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import iconUser from '../../../../assets/icons/user.svg';
 import LangSelectFrom from '../../../UI/Forms/LangSelectFrom/LangSelectFrom';
 import { useSelector } from 'react-redux';
 import headerSlice from '../../../../store/slices/headerSlice/headerSlice';
 
 const UserMenuHeader = (props) => {
+    const navigation = useNavigate();
     const [login, setLogin] = useState(false);
     const langList = useSelector((state) => state.headerSlice.langList);
     const data = {
@@ -17,7 +18,8 @@ const UserMenuHeader = (props) => {
     };
 
     const onEnterClickHandler = () => {
-        setLogin(!login);
+        // navigation('registration/registrationProposal');
+        // setLogin(!login);
     };
 
     return (
@@ -36,7 +38,10 @@ const UserMenuHeader = (props) => {
                 </div>
             ) : (
                 <div className='user-header__link-list'>
-                    <Link to='' className='user-header__link' onClick={onEnterClickHandler}>
+                    <Link
+                        to='registration/Authorize'
+                        className='user-header__link'
+                        onClick={onEnterClickHandler}>
                         <img
                             className='user-header__icon user-header__icon_user'
                             src={iconUser}

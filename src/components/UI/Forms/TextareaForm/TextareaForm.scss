@@ -1,29 +1,29 @@
 .textarea {
-	&__input {
-		padding: 16px 21px;
-		color: #454b58;
-		font-size: 13px;
-		border: 1px solid #dce3e8;
-		background: #fff;
-		display: block;
-		width: 100%;
-		resize: none;
-		min-height: 221px;
-		font-weight: 500;
+    &__input {
+        padding: 16px 21px;
+        color: #454b58;
+        font-size: 13px;
+        border: 1px solid #dce3e8;
+        background: #fff;
+        display: block;
+        width: 100%;
+        resize: none;
+        min-height: 221px;
+        font-weight: 500;
 
-		&::placeholder {
-			color: #7f838b;
-		}
-		&:hover {
-			box-shadow: 0 0 1px rgb(42, 51, 66);
-		}
-		&:focus {
-			border-color: #f04973;
-		}
-	}
-	&__title {
-		color: #8B919E;
-		font-size: 16px;
-		margin: 0 0 10px;
-	}
+        &::placeholder {
+            color: #7f838b;
+        }
+        &:hover {
+            box-shadow: 0 0 1px rgb(42, 51, 66);
+        }
+        &:focus {
+            border-color: #f04973;
+        }
+    }
+    &__title {
+        color: #8b919e;
+        font-size: 16px;
+        margin: 0 0 10px;
+    }
 }
