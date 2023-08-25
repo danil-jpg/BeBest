@@ -37,7 +37,7 @@ const Account = () => {
     ];
 
     useEffect(() => {
-        sessionStorage.setItem('id', 37);
+        // sessionStorage.setItem('id', 37);
 
         const fetchData = async () => {
             try {
@@ -53,7 +53,6 @@ const Account = () => {
     }, [id]);
 
     if (!user) return <Loading />;
-    console.log(user);
     return (
         <>
             <Constructor
@@ -61,7 +60,7 @@ const Account = () => {
                     <>
                         <LkStatus
                             name={user.username}
-                            photoSrc={user.avatar.url}
+                            photoSrc={user.avatar?.url}
                             type={user.type}
                         />
                         <LkNavigation type={'company'} />
