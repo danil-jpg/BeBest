@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import Account from './Student/Account/Account';
 import PersonData from './PersonData/PersonData';
 import MyLessons from './MyLessons/MyLessons';
 import Payment from './Payment/Payment';
@@ -17,24 +16,6 @@ import Favorite from './Favorite/Favorite';
 const Account = () => {
     const [user, setUser] = useState('');
     const id = window.sessionStorage.getItem('id');
-
-    const personArr = [
-        {
-            name: 'Алексей Кузьменко Андреевич',
-            lessons: '4',
-            futureLessons: '8',
-        },
-        {
-            name: 'Вера Кошкина',
-            lessons: '14',
-            futureLessons: '32',
-        },
-        {
-            name: 'Дэн Миллман',
-            lessons: '5',
-            futureLessons: '4',
-        },
-    ];
 
     useEffect(() => {
         // sessionStorage.setItem('id', 37);
@@ -63,7 +44,7 @@ const Account = () => {
                             photoSrc={user.avatar?.url}
                             type={user.type}
                         />
-                        <LkNavigation type={'company'} />
+                        <LkNavigation type={'student'} />
                     </>
                 }
                 rightContent={
@@ -71,7 +52,7 @@ const Account = () => {
                         <Route index element={<Profile user={user} type={user.type} />} />
                         <Route
                             path='/profile'
-                            element={<PersonData user={user} type={user.type} />}
+                            element={<PersonData user={user} type={'student'} />}
                         />
                         <Route
                             path='/lessons'
@@ -79,10 +60,7 @@ const Account = () => {
                         />
                         <Route path='/favorite' element={<Favorite />} />
                         <Route path='/payment' element={<Payment />} />
-                        <Route
-                            path='/stat'
-                            element={<Statistics user={user} personArr={personArr} />}
-                        />
+                        <Route path='/stat' element={<Statistics user={user} type={'student'} />} />
                         <Route path='/chat' element={<>Chat</>} />
                     </Routes>
                 }

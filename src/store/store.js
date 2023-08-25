@@ -11,6 +11,7 @@ import createLessonSlise from './slices/createLessonSlice/createLessonSlise';
 import registrationSlice from './slices/registrationSlice/registrationSlice';
 import forumSlice from './slices/forumSlice/forumSlice';
 import authorizeSlice from './slices/authorizeSlice/authorizeSlice';
+import profileSlice from './slices/profileSlice/profileSlice';
 
 export const store = configureStore({
         reducer: {
@@ -25,7 +26,8 @@ export const store = configureStore({
                 forumSlice,
                 userContentSlice: teachterFetchUsers,
                 lesson: createLessonSlise,
-                authorize: authorizeSlice
+                authorize: authorizeSlice,
+                profileSlice
         },
         devTools: true,
 });

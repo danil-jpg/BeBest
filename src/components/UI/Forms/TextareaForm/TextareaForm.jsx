@@ -11,7 +11,8 @@ const TextareaForm = ({
 	style = {},
 	mb = '29px',
 	maxWidth = '100%',
-	variant = ''
+	variant = '',
+	height = '121px'
 }) => {
 
 	const onInputChangeHandler = e => {
@@ -24,6 +25,10 @@ const TextareaForm = ({
 		margin: `0 0 ${mb}`,
 	}
 
+	const textareaStyles = {
+		height: height
+	}
+
 	return (
 		<div className='textarea'
 			style={styles}>
@@ -34,12 +39,16 @@ const TextareaForm = ({
 			}
 
 			<textarea
-				className={`textarea__input textarea__input_variant-${variant}`}
+				className={
+					`textarea__input 
+					textarea__input_variant-${variant}`
+				}
 				type='text'
 				placeholder={ph}
 				name={name}
 				aria-label={name}
 				value={value}
+				style={textareaStyles}
 				onChange={e => { onInputChangeHandler(e) }}
 			></textarea>
 		</div>
