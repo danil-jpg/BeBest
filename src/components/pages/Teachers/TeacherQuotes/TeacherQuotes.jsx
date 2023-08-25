@@ -5,7 +5,9 @@ import Picture from '../../../UI/Picture/Picture';
 import { Link } from 'react-router-dom';
 import './TeacherQuotes.scss';
 
-const TeacherQuotes = ({ className }) => {
+const TeacherQuotes = ({ className, bio = 'default text' }) => {
+    console.log();
+
     return (
         <div className={`teacher__about ${className}`}>
             <p className='teacher__about_title'>Обо мне</p>
@@ -14,14 +16,7 @@ const TeacherQuotes = ({ className }) => {
                     <Picture img={quotes} webp={quotesWebp} />
                 </div>
                 <div className='teacher__about_text_right'>
-                    <p className='teacher__about_text'>
-                        Укрепление и развитие структуры позволяет выполнять важные задания по
-                        разработке системы обучения кадров, соответствует насущным потребностям.
-                        Таким образом реализация намеченных плановых заданий способствует подготовки
-                        и реализации модели развития. Идейные соображения высшего порядка, а также
-                        консультация с широким активом способствует подготовки и реализации модели
-                        развития.
-                    </p>
+                    <p className='teacher__about_text'>{bio}</p>
                     <Link to={''} className='teacher__about_translate'>
                         Перевести текст
                     </Link>
