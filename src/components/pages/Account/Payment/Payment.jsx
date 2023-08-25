@@ -5,12 +5,12 @@ import MainButton from '../../../UI/Buttons/MainButton/MainButton';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
-import Loading from '../../../common/Loading/Loading';
 import Picture from '../../../UI/Picture/Picture';
 import visa from '../../../../assets/images/Lk/visa.png';
 import visaW from '../../../../assets/images/Lk/visa.png?as=webp';
 import { v1 } from 'uuid';
 import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer';
+import Title from '../../../UI/Title/Title';
 
 const Payment = () => {
     const [cardNum, setCardNum] = useState('1111 1111 1111 1111');
@@ -38,7 +38,7 @@ const Payment = () => {
 
     return (
         <div className='account account__payment'>
-            <p className='account__title'>Платежная информация</p>
+            <Title type="subtitle">Платежная информация</Title>
             <p className='account__subTitle'>Список привязанных карт</p>
             {
                 cardsArr.map((el) => (

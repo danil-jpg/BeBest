@@ -12,7 +12,7 @@ const Profile = ({ user }) => {
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
     const [pass, setPass] = useState('');
-    const [phone, setPhone] = useState('');
+    const [phone, setPhone] = useState(user.phone ? user.phone : '');
 
     const id = window.sessionStorage.getItem('id');
 
