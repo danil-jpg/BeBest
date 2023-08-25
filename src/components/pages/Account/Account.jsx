@@ -38,6 +38,10 @@ const Account = () => {
 
     if (!user) return <Loading />
     console.log(user)
+
+
+    // types = teacher, company, student
+
     return (
         <>
             <Constructor
@@ -48,7 +52,7 @@ const Account = () => {
                             photoSrc={user.avatar.url}
                             type={user.type}
                         />
-                        <LkNavigation type={'company'} />
+                        <LkNavigation type={'student'} />
                     </>
                 }
                 rightContent={
@@ -57,19 +61,19 @@ const Account = () => {
                             <Profile user={user} type={user.type} />
                         } />
                         <Route path="/profile" element={
-                            <PersonData user={user} type={user.type} />
+                            <PersonData user={user} type={'student'} />
                         } />
                         <Route path='/lessons' element={
                             <MyLessons user={user} type={user.type} />
                         } />
                         <Route path='/favorite' element={
-                            <Favorite  />
+                            <Favorite />
                         } />
                         <Route path='/payment' element={
                             <Payment />
                         } />
                         <Route path='/stat' element={
-                            <Statistics user={user} />
+                            <Statistics user={user} type={'student'}  />
                         } />
                         <Route path='/chat' element={
                             <>Chat</>

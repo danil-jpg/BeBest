@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import InputForm from '../../../UI/Forms/InputForm/InputForm';
-import Loading from '../../../common/Loading/Loading';
 import Title from '../../../UI/Title/Title';
 
 const Profile = ({ user }) => {
