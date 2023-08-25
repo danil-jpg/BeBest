@@ -8,9 +8,7 @@
         display: block;
         width: 100%;
         resize: none;
-        min-height: 221px;
         font-weight: 500;
-
         &::placeholder {
             color: #7f838b;
         }
@@ -30,6 +28,9 @@
                 border-color: rgb(42, 51, 66);
             }
         }
+    }
+    & textarea::-webkit-scrollbar {
+        display: none;
     }
     &__title {
         color: #8b919e;
