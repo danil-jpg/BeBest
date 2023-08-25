@@ -17,6 +17,7 @@ import goal from '../../../assets/images/article/goal.png';
 import goalW from '../../../assets/images/article/goal.png?as=webp';
 import importantSign from '../../../assets/icons/important.svg';
 import TeacherCalendar from '../Teachers/TeacherCalendar/TeacherCalendar';
+import PopularCourse from '../Home/PopularCourse/PopularCourse';
 
 const Article = () => {
     const [tab, setTab] = useState([false, true]);
@@ -203,6 +204,14 @@ const Article = () => {
                                 <TeacherCalendar />
                             </div>
                         </div>
+                    </div>
+                    <PopularCourse></PopularCourse>
+                    <div className='article__ul-wr'>
+                        <ul className='article__ul'>
+                            <li className='article__li'></li>
+                            <li className='article__li'></li>
+                            <li className='article__li'></li>
+                        </ul>
                     </div>
                 </div>
             </div>
