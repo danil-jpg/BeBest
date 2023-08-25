@@ -1,7 +1,7 @@
 import React from 'react';
 import './TeacherPosibility.scss';
 
-const TeacherPosibility = () => {
+const TeacherPosibility = ({ obj }) => {
     return (
         <div className='teacher__pos'>
             <p className='teacher__pos_title'>Возможности преподавателя</p>
