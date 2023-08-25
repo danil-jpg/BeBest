@@ -34,11 +34,6 @@ const Account = () => {
     }, [id]);
 
     if (!user) return <Loading />
-    console.log(user)
-
-
-    // types = teacher, company, student
-
 
     return (
         <>
@@ -59,7 +54,7 @@ const Account = () => {
                             <Profile user={user} type={user.type} />
                         } />
                         <Route path="/profile" element={
-                            <PersonData user={user} type={'student'} />
+                            <PersonData user={user} type={'teacher'} />
                         } />
                         <Route path='/lessons' element={
                             <MyLessons user={user} type={user.type} />
