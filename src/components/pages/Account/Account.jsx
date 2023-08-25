@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import Account from './Student/Account/Account';
 import PersonData from './PersonData/PersonData';
 import MyLessons from './MyLessons/MyLessons';
 import Payment from './Payment/Payment';
@@ -18,13 +17,30 @@ const Account = () => {
     const [user, setUser] = useState('');
     const id = window.sessionStorage.getItem('id');
 
+    const personArr = [
+        {
+            name: 'Алексей Кузьменко Андреевич',
+            lessons: '4',
+            futureLessons: '8',
+        },
+        {
+            name: 'Вера Кошкина',
+            lessons: '14',
+            futureLessons: '32',
+        },
+        {
+            name: 'Дэн Миллман',
+            lessons: '5',
+            futureLessons: '4',
+        },
+    ];
+
     useEffect(() => {
         sessionStorage.setItem('id', 37);
 
         const fetchData = async () => {
             try {
-                let res =
-                    await axios.get(`http://bebest.pp.ua/api/users/${id}?populate=*`);
+                let res = await axios.get(`http://bebest.pp.ua/api/users/${id}?populate=*`);
 
                 setUser(res.data);
             } catch (error) {
@@ -33,7 +49,6 @@ const Account = () => {
         };
 
         fetchData();
-
     }, [id]);
 
     if (!user) return <Loading />
@@ -41,6 +56,7 @@ const Account = () => {
 
 
     // types = teacher, company, student
+
 
     return (
         <>
@@ -73,16 +89,16 @@ const Account = () => {
                             <Payment />
                         } />
                         <Route path='/stat' element={
-                            <Statistics user={user} type={'student'}  />
+                            <Statistics user={user} type={'student'} personArr={personArr}   />
                         } />
                         <Route path='/chat' element={
                             <>Chat</>
                         } />
                     </Routes>
                 }
-
             />
-        </>)
+        </>
+    );
 };
 
 export default Account;
