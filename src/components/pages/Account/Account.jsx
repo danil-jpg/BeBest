@@ -19,12 +19,12 @@ const Account = () => {
     const id = window.sessionStorage.getItem('id');
 
     useEffect(() => {
-        sessionStorage.setItem('id', 20);
+        sessionStorage.setItem('id', 37);
 
         const fetchData = async () => {
             try {
                 let res =
-                    await axios.get(`http://bebest.pp.ua/api/users/${id}`);
+                    await axios.get(`http://bebest.pp.ua/api/users/${id}?populate=*`);
 
                 setUser(res.data);
             } catch (error) {
@@ -37,30 +37,43 @@ const Account = () => {
     }, [id]);
 
     if (!user) return <Loading />
-
+    console.log(user)
     return (
         <>
             <Constructor
                 leftContent={
                     <>
-                        <LkStatus name={'Test'} />
-                        <LkNavigation />
+                        <LkStatus
+                            name={user.username}
+                            photoSrc={user.avatar.url}
+                            type={user.type}
+                        />
+                        <LkNavigation type={'company'} />
                     </>
                 }
                 rightContent={
                     <Routes>
-                        <Route index element={<Profile user={user} />} />
-                        <Route path="/profile" element={<PersonData user={user} />} />
-                        <Route path='/lessons' element={<MyLessons user={user} />} />
-                        <Route path='/favorite' element={<Favorite />} />
-                        <Route path='/payment' element={<Payment />} />
-                        <Route path='/stat' element={<Statistics user={user} />} />
-                        <Route path='/chat' element={<>Chat</>} />
-                        {/* <Route path='profile' element={<PersonData />} />
-                        <Route path='lessons' element={<MyLessons />} />
-                        <Route path='favorite' element={<Favourite />} />
-                        <Route path='payment' element={<Payment />} />
-                        <Route path='stat' element={<Statistics />} /> */}
+                        <Route index element={
+                            <Profile user={user} type={user.type} />
+                        } />
+                        <Route path="/profile" element={
+                            <PersonData user={user} type={user.type} />
+                        } />
+                        <Route path='/lessons' element={
+                            <MyLessons user={user} type={user.type} />
+                        } />
+                        <Route path='/favorite' element={
+                            <Favorite  />
+                        } />
+                        <Route path='/payment' element={
+                            <Payment />
+                        } />
+                        <Route path='/stat' element={
+                            <Statistics user={user} />
+                        } />
+                        <Route path='/chat' element={
+                            <>Chat</>
+                        } />
                     </Routes>
                 }
 

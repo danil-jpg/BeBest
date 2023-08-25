@@ -2,26 +2,36 @@ import React from 'react';
 import './LkStatus.scss';
 import { useNavigate } from 'react-router-dom';
 
-const LkStatus = ({ active = 1, name = 'John Doe', img }) => {
-    const navigation = useNavigate();
+const LkStatus = ({ name, photoSrc, type }) => {
+    
+    const getAccount = (type) => {
+        switch (type) {
+            case 'teacher':
+                return 'Учитель';
+            case 'student':
+                return 'Студент';
+            case 'company':
+                return 'Компания';
+            default:
+                return type;
+        }
 
+    }
     return (
         <div className='lk__status'>
             <div className='lk__avatar'>
                 <img
-                    src={'http://bebest.pp.ua/uploads/photo2_2518c3a0c3.png'}
+                    src={`http://bebest.pp.ua${photoSrc}`}
                     className='lk__avatar_img'
                 />
             </div>
             <div className='lk__types'>
                 <p className='lk__name'>{name}</p>
                 <ul className='lk__types-wr'>
-                    <li
-                        className={active === 1 ? 'lk__types_li active' : 'lk__types_li'}
-                        onClick={() => navigation('')}>
-                        Ученик
+                    <li className={'lk__types_li active'}>
+                        {getAccount(type)}
                     </li>
-                    <li
+                    {/*  <li
                         className={active === 2 ? 'lk__types_li active' : 'lk__types_li'}
                         onClick={() => navigation('')}>
                         Учитель
@@ -30,8 +40,8 @@ const LkStatus = ({ active = 1, name = 'John Doe', img }) => {
                         className={active === 3 ? 'lk__types_li active' : 'lk__types_li'}
                         onClick={() => navigation('')}>
                         Компания
-                    </li>
-                    <li className={'lk__types_li'} onClick={() => navigation('')}>
+                    </li>*/}
+                    <li className={'lk__types_li'}>
                         Выйти
                     </li>
                 </ul>

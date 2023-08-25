@@ -1,11 +1,12 @@
 import React from 'react';
 import './Statistics.scss';
 import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer';
+import Title from '../../../UI/Title/Title';
 
 const Statistics = ({user}) => {
     return (
         <div className='account account__statistics'>
-            <p className='account__title'>Статистика</p>
+            <Title type="subtitle">Статистика</Title>
             <p className='account__statistics_subtitle'>Список преподавателей</p>
             <div className='statistiscs-wr'>
                 <div className='statistics__card'>
