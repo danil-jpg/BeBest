@@ -61,11 +61,19 @@
         padding: 25px;
     }
     .lesson_list_top {
-        border-radius: 20px;
-        background: #c7f2eb;
-        padding: 6px 8px;
-        // width: 126px;
-        width: fit-content;
+        gap: 10px;
+        &_inner {
+            display: flex;
+            border-radius: 20px;
+            background: #c7f2eb;
+            padding: 6px 11px;
+            &_date {
+                border-radius: 20px;
+                background: #ffdee4;
+                fill: rgba(241, 74, 115, 1);
+            }
+        }
+
         svg {
             width: 16px;
             height: 15px;
@@ -77,7 +85,7 @@
             line-height: 14px; /* 116.667% */
         }
     }
-    .lesson_list_bottom {
+    .lesson_list_prebottom {
         margin-top: 17px;
         color: #292c32;
         font-family: Montserrat;
@@ -86,6 +94,26 @@
         font-weight: 700;
         line-height: 19px; /* 126.667% */
     }
+}
+
+.lesson_list_bottom {
+    display: flex;
+    justify-content: space-between;
+}
+.lesson_list_bottom_item {
+}
+.lesson_list_bottom_item_title {
+    color: #8b919e;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 164.286%; /* */
+}
+.lesson_list_bottom_item_text {
+    color: #292c32;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 160%; /**/
 }
 
 .account__lessons_group {
