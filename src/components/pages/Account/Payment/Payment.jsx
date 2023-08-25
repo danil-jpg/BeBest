@@ -38,39 +38,30 @@ const Payment = () => {
 
     return (
         <div className='account account__payment'>
-            <Title type="subtitle">Платежная информация</Title>
+            <Title type='subtitle'>Платежная информация</Title>
             <p className='account__subTitle'>Список привязанных карт</p>
-            {
-                cardsArr.map((el) => (
-                    <div key={el.id} className='payment__card'>
-                        <Picture webp={visaW} img={visa} className='payment__card_img' />
-                        <div>
-                            <p className='card__name'>Visa Classic</p>
-                            <p className='card__num'>{`**** ${el.cardNum.slice(
-                                4,
-                                -10
-                            )}`}</p>
-                            <div
-                                className='payment__card_del'
-                                onClick={() => {
-                                    setCardArr((prev) => [
-                                        ...prev.filter(
-                                            (innerElem) => innerElem.id !== el.id
-                                        ),
-                                    ]);
-                                }}>
-                                <IconRenderer id={'trashCan'} />
-                                <p className='payment__card_del_text'>Удалить</p>
-                            </div>
+            {cardsArr.map((el) => (
+                <div key={el.id} className='payment__card'>
+                    <Picture webp={visaW} img={visa} className='payment__card_img' />
+                    <div>
+                        <p className='card__name'>Visa Classic</p>
+                        <p className='card__num'>{`**** ${el.cardNum.slice(4, -10)}`}</p>
+                        <div
+                            className='payment__card_del'
+                            onClick={() => {
+                                setCardArr((prev) => [
+                                    ...prev.filter((innerElem) => innerElem.id !== el.id),
+                                ]);
+                            }}>
+                            <IconRenderer id={'trashCan'} />
+                            <p className='payment__card_del_text'>Удалить</p>
                         </div>
                     </div>
-                ))
-            }
+                </div>
+            ))}
             <MainButton
                 style={
-                    createFormBtn
-                        ? { width: '240px', marginTop: '30px' }
-                        : { display: 'none' }
+                    createFormBtn ? { width: '240px', margin: '30px 0 0 0' } : { display: 'none' }
                 }
                 onClick={() => onCreateButtonClickHandler()}>
                 Добавить карту
@@ -93,7 +84,7 @@ const Payment = () => {
                     <InputFormContainer
                         value={cvv || ''}
                         setValue={setCvv}
-                        style={{ flexShrink: '4', marginLeft: '25px' }}
+                        style={{ flexShrink: '4', margin: '0 0 0 25px ' }}
                         title={'CVV'}></InputFormContainer>
                 </div>
                 <div className='payment__save_wr'>
