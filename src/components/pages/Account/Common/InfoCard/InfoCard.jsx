@@ -1,6 +1,5 @@
 import React from 'react';
 import { IconRenderer } from '../../../../UI/IconRenderer/IconRenderer';
-import './InfoCard.scss';
 
 const InfoCard = ({
     type = 'default',
