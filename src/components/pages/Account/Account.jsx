@@ -17,24 +17,6 @@ const Account = () => {
     const [user, setUser] = useState('');
     const id = window.sessionStorage.getItem('id');
 
-    const personArr = [
-        {
-            name: 'Алексей Кузьменко Андреевич',
-            lessons: '4',
-            futureLessons: '8',
-        },
-        {
-            name: 'Вера Кошкина',
-            lessons: '14',
-            futureLessons: '32',
-        },
-        {
-            name: 'Дэн Миллман',
-            lessons: '5',
-            futureLessons: '4',
-        },
-    ];
-
     useEffect(() => {
         sessionStorage.setItem('id', 37);
 
@@ -89,7 +71,7 @@ const Account = () => {
                             <Payment />
                         } />
                         <Route path='/stat' element={
-                            <Statistics user={user} type={'student'} personArr={personArr}   />
+                            <Statistics user={user} type={'student'} />
                         } />
                         <Route path='/chat' element={
                             <>Chat</>
