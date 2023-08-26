@@ -32,7 +32,8 @@ import SelectFormContainer from '../../../../UI/Forms/SelectFormContainer/Select
 
 const titles = {
     personal: 'Личные данные',
-    prices: 'Стоимость уроков'
+    prices: 'Стоимость уроков',
+    btn: 'Сохранить изменения'
 }
 
 const titleInputs = {
@@ -195,7 +196,7 @@ const TeacherPersonView = ({ user }) => {
             <MainButton
                 style={{ marginTop: '30px', width: '240px' }}
                 onClick={(e) => onButtonClickHandler(e)}>
-                Сохранить изменения
+                {titles.btn}
             </MainButton>
 
 
