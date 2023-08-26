@@ -173,6 +173,32 @@ const initialState = {
             ],
         ],
     },
+    lessonDuration: {
+        title: 'Длительность урока',
+        value: 'lessonDuration',
+        list: [
+            {
+                id: v1(),
+                title: '30 мин',
+                selected: true,
+            },
+            {
+                id: v1(),
+                title: '45 мин',
+                selected: false,
+            },
+            {
+                id: v1(),
+                title: '60 мин',
+                selected: false,
+            },
+            {
+                id: v1(),
+                title: '90 мин',
+                selected: false,
+            },
+        ],
+    },
 };
 
 export const profileSlice = createSlice({
@@ -227,7 +253,15 @@ export const profileSlice = createSlice({
         selectProfit: (state, action) => {
             updateListSelectionProfile(state.profit.lists, action.payload);
         },
-
+        addLessonDuration: (state, action) => {
+            addSelectItems(state.lessonDuration.list, action.payload);
+        },
+        selectLessonDuration: (state, action) => {
+            state.lessonDuration.list = updateListSelection(
+                state.lessonDuration.list,
+                action.payload
+            );
+        },
     }
 });
 
@@ -240,6 +274,7 @@ export const {
     addEducation,
     addAccents,
     addProfit,
+    addLessonDuration,
     selectLessonLangSpeak,
     selectLangSpeak,
     selectAgeStudents,
@@ -248,5 +283,6 @@ export const {
     selectEducation,
     selectAccents,
     selectProfit,
+    selectLessonDuration,
 } = profileSlice.actions;
 export default profileSlice.reducer;

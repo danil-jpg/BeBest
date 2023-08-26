@@ -3,9 +3,14 @@ import SelectForm from '../SelectForm/SelectForm';
 import s from './SelectFormContainer.module.scss';
 import PropTypes from 'prop-types';
 
-const SelectFormContainer = ({ style, title = '', list, setItem }) => {
+const SelectFormContainer = ({ style = {}, title = '', list, setItem, mb = '23px' }) => {
+    let styles = {
+        marginBottom: `${mb}`,
+        ...style
+    }
     return (
-        <div className={`${s.selectContainer}`} style={style ? style : {}}>
+        <div className={`${s.selectContainer}`}
+            style={styles}>
             <p className={s.selectContainer__title}>{title}</p>
             <SelectForm list={list} setItem={setItem} />
         </div>

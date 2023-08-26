@@ -1,7 +1,15 @@
 .personal-data {
-    // display: flex;
-}
-.personal-data__input-wrap{
-    flex-basis: 330px;
-    margin-right: 40px;
+    max-width: 700px;
+    &__block {
+        margin-bottom: 40px;
+    }
+    &__inputs-inner,
+    &__selects-list {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 40px;
+    }
+    &__selects-wrap {
+        display: flex;
+    }
 }

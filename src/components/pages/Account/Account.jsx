@@ -45,7 +45,7 @@ const Account = () => {
                             photoSrc={user.avatar.url}
                             type={user.type}
                         />
-                        <LkNavigation type={'student'} />
+                        <LkNavigation type={user.type} />
                     </>
                 }
                 rightContent={
@@ -54,7 +54,7 @@ const Account = () => {
                             <Profile user={user} type={user.type} />
                         } />
                         <Route path="/profile" element={
-                            <PersonData user={user} type={'teacher'} />
+                            <PersonData user={user} type={user.type} />
                         } />
                         <Route path='/lessons' element={
                             <MyLessons user={user} type={user.type} />
@@ -66,7 +66,7 @@ const Account = () => {
                             <Payment />
                         } />
                         <Route path='/stat' element={
-                            <Statistics user={user} type={'student'} />
+                            <Statistics user={user} type={user.type} />
                         } />
                         <Route path='/chat' element={
                             <>Chat</>
