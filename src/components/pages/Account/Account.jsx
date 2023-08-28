@@ -12,13 +12,14 @@ import axios from 'axios';
 import Loading from '../../common/Loading/Loading';
 import Favorite from './Favorite/Favorite';
 import Services from './Services/Services';
+import CompanyTeam from './CompanyTeam/CompanyTeam';
 
 const Account = () => {
     const [user, setUser] = useState('');
     const id = window.sessionStorage.getItem('id');
 
     useEffect(() => {
-        sessionStorage.setItem('id', 37);
+        sessionStorage.setItem('id', 40);
 
         const fetchData = async () => {
             try {
@@ -71,6 +72,9 @@ const Account = () => {
 
                         <Route path='/services' element={
                             <Services user={user} type={user.type} />
+                        } />
+                        <Route path='/team' element={
+                            <CompanyTeam user={user} type={user.type} />
                         } />
                         <Route path='/chat' element={
                             <>Chat</>

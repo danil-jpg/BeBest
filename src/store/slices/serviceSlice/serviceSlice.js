@@ -50,7 +50,7 @@ const initialState = {
                 price: 2500
             },
         ]
-    }
+    },
 };
 
 export const serviceSlice = createSlice({
