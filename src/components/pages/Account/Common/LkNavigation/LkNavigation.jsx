@@ -17,7 +17,12 @@ const LkNavigation = ({ type }) => {
 
             <NavLink to='/account/profile' className='lk__nav_li'>
                 <IconRenderer id={'key'} />
-                <p className='lk__nav_text'>Личные данные</p>
+                <p className='lk__nav_text'>
+                    {isCompany
+                        ? 'Данные компании'
+                        : 'Личные данные'
+                    }
+                </p>
             </NavLink>
 
             <NavLink to='/account/lessons' className='lk__nav_li'>
