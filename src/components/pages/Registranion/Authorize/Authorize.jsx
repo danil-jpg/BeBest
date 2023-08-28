@@ -84,7 +84,6 @@ const Authorize = () => {
                                 })
                                 .then((res) => {
                                     dispatch(setAuthorizeState(true));
-                                    console.log(headerIsLogedIn);
                                     window.sessionStorage.setItem('id', res.data.user.id);
                                     console.log(res);
                                     navigation('../../Account');

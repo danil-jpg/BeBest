@@ -13,15 +13,18 @@ import cameraW from '../../../../assets/images/registration/camera.png?as=webp';
 import { setRegDataTeacher } from '../../../../store/slices/registrationSlice/registrationSlice';
 
 const RegistrationTeacher = () => {
+    const randomMail = `${Math.random() * 10000}@gmail.com`;
+    const randomLogin = `${Math.random() * 10000}xxx${Math.random() * 100}`;
+
     const [formState, setFormState] = useState(1);
 
-    const [username, setLogin] = useState('user111111');
+    const [username, setLogin] = useState(randomLogin);
     const [password, setPassword] = useState('user111111');
     const [confirmPassword, setConfirmPassword] = useState('user111111');
-    const [email, setEmail] = useState('user1111112@gmail.com');
+    const [email, setEmail] = useState(randomMail);
     const [phoneNum, setPhoneNum] = useState('111111111111');
     //
-    const [photo, setPhoto] = useState('');
+    const [photo, setPhoto] = useState();
     const [passport, setPassport] = useState('2222222222');
     const [country, setCountry] = useState('3333333333');
     const [city, setCity] = useState('4444444');
@@ -30,7 +33,6 @@ const RegistrationTeacher = () => {
     const [edu, setEdu] = useState('1111111111');
     const [exp, setExp] = useState('22222222');
     //
-    const [buttonType, setButtonType] = useState('text');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     const [checkboxState, setCheckBoxState] = useState(true);
 
@@ -186,12 +188,16 @@ const RegistrationTeacher = () => {
                 <ul className='registration-student__ul'>
                     <li className='registration-student__li registration-input-image_wr'>
                         <input
-                            value={photo}
-                            onChange={(e) => setPhoto(photo)}
+                            onChange={(event) => {
+                                setPhoto(event.target.files[0]);
+                            }}
                             type='file'
                             className='registration-input__input'
                         />
-                        <Picture webp={cameraW} img={camera} />
+                        <img
+                            className='registration__avatar'
+                            src={photo ? URL.createObjectURL(photo) : camera}
+                        />
                         <p className='regisration-input__text'>Загрузить фотографию</p>
                     </li>
                     <li className='registration-student__li'>
@@ -364,7 +370,13 @@ const RegistrationTeacher = () => {
                                     exp: exp,
                                 })
                             );
+                            console.log(photo);
+                            const formData = new FormData();
+                            formData.append('image', photo);
 
+                            for (var pair of formData.entries()) {
+                                console.log(pair[0] + ', ' + pair[1]);
+                            }
                             axios
                                 .post('http://bebest.pp.ua/api/auth/local/register', {
                                     ...teacherData,
@@ -378,12 +390,16 @@ const RegistrationTeacher = () => {
                                     adress: adress,
                                     edu: edu,
                                     exp: exp,
+                                    avatar: photo,
                                 })
                                 .then((res) => {
                                     console.log(res);
                                 })
                                 .then(() => navigation('../registrationStudentSucc'))
-                                .catch((e) => console.log(e));
+                                .catch((e) => {
+                                    alert(e);
+                                    console.log(e);
+                                });
                         }
                     }}>
                     Завершить регистрацию
