@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './UserMenuHeader.scss';
 import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import iconUser from '../../../../assets/icons/user.svg';
 import LangSelectFrom from '../../../UI/Forms/LangSelectFrom/LangSelectFrom';
 import { useSelector } from 'react-redux';

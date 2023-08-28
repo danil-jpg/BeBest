@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Title from '../../../UI/Title/Title';
 import InputFormContainer from '../../../UI/Forms/InputFormContainer/InputFormContainer';
-import { setAuthorize } from '../../../../store/slices/registrationSlice/registrationSlice';
 import { setAuthorizeState } from '../../../../store/slices/authorizeSlice/authorizeSlice';
 
 const Authorize = () => {
