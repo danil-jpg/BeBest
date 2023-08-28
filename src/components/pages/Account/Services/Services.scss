@@ -1,0 +1,24 @@
+.services {
+    &__row {
+        max-width: 749px;
+    }
+    &__subtitle {
+        color: #292c32;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.26;
+        margin-bottom: 10px;
+    }
+    &__text {
+        line-height: 1.8;
+        margin-bottom: 25px;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 25px;
+    }
+    &__rating-popup-wrap {
+        position: relative;
+    }
+}
