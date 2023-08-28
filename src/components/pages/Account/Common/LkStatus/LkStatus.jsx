@@ -1,7 +1,13 @@
 import React from 'react';
 import './LkStatus.scss';
+import { useNavigate } from 'react-router-dom';
+import { setAuthorizeState } from '../../../../../store/slices/authorizeSlice/authorizeSlice';
+import { useDispatch } from 'react-redux';
 
 const LkStatus = ({ name, photoSrc, type }) => {
+    const dispatch = useDispatch();
+    const navigation = useNavigate();
+
     const getAccount = (type) => {
         switch (type) {
             case 'teacher':
@@ -14,6 +20,7 @@ const LkStatus = ({ name, photoSrc, type }) => {
                 return type;
         }
     };
+
     return (
         <div className='lk__status'>
             <div className='lk__avatar'>
@@ -30,17 +37,14 @@ const LkStatus = ({ name, photoSrc, type }) => {
                 <p className='lk__name'>{name}</p>
                 <ul className='lk__types-wr'>
                     <li className={'lk__types_li active'}>{getAccount(type)}</li>
-                    {/*  <li
-                        className={active === 2 ? 'lk__types_li active' : 'lk__types_li'}
-                        onClick={() => navigation('')}>
-                        Учитель
-                    </li>
                     <li
-                        className={active === 3 ? 'lk__types_li active' : 'lk__types_li'}
-                        onClick={() => navigation('')}>
-                        Компания
-                    </li>*/}
-                    <li className={'lk__types_li'}>Выйти</li>
+                        className={'lk__types_li'}
+                        onClick={() => {
+                            dispatch(setAuthorizeState(false));
+                            navigation('../registration/Authorize');
+                        }}>
+                        Выйти
+                    </li>
                 </ul>
             </div>
         </div>
