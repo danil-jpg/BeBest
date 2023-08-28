@@ -18,7 +18,7 @@ const Account = () => {
     const id = window.sessionStorage.getItem('id');
 
     useEffect(() => {
-        sessionStorage.setItem('id', 37);
+        // sessionStorage.setItem('id', 37);
 
         const fetchData = async () => {
             try {
@@ -34,6 +34,11 @@ const Account = () => {
     }, [id]);
 
     if (!user) return <Loading />
+    console.log(user)
+
+
+    // types = teacher, company, student
+
 
     return (
         <>
@@ -42,7 +47,7 @@ const Account = () => {
                     <>
                         <LkStatus
                             name={user.username}
-                            photoSrc={user.avatar.url}
+                            photoSrc={user.avatar?.url}
                             type={user.type}
                         />
                         <LkNavigation type={user.type} />
