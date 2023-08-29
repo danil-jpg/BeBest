@@ -1,10 +1,10 @@
 import React from 'react';
 import InputForm from '../../../UI/Forms/InputForm/InputForm.jsx';
-import MainButton from '../../../UI/Buttons/MainButton/MainButton.jsx';
 import { useState } from 'react';
 import { v1 } from 'uuid';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer.jsx';
 
 const LongPulling = () => {
     const [messages, setMessages] = useState([]);
@@ -34,17 +34,22 @@ const LongPulling = () => {
 
     return (
         <div className='longPulling'>
-            <h1>LongPulling</h1>
-            <div className='form'>
-                <InputForm value={value} setValue={setValue} />
-                <MainButton onClick={sendMessageHandler}>отправить</MainButton>
-            </div>
             <div className='messages'>
                 {messages.map((el) => (
                     <div key={v1()} className='messages__item'>
                         {el.message}
                     </div>
                 ))}
+            </div>
+            <div className='messages__input-wr'>
+                <input
+                    className='messages__input'
+                    value={value || ''}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+                <div className='messages__send'>
+                    <IconRenderer id='send' />
+                </div>
             </div>
         </div>
     );
