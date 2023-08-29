@@ -71,7 +71,7 @@ const Account = () => {
                             <Payment />
                         } />
                         <Route path='/stat' element={
-                            <Statistics user={user} type={'student'} />
+                            <Statistics user={user} type={'teacher'} />
                         } />
                         <Route path='/chat' element={
                             <>Chat</>

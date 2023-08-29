@@ -10,10 +10,11 @@ const Catalog = React.lazy(() => import('../../pages/Catalog/Catalog'));
 const Teacher = React.lazy(() => import('../../pages/Teachers/Teacher'));
 const Article = React.lazy(() => import('../../pages/Article/Article'));
 const Registration = React.lazy(() => import('../../pages/Registranion/Registration'));
-// const OnlineLesson = React.lazy(() => import('../../pages/OnlineLesson/OnlineLesson'));
-
+const OnlineLesson = React.lazy(() => import('../../pages/OnlineLesson/OnlineLesson'));
+const Lesson = React.lazy(() => import('../../pages/LessonForm/Lesson/Lesson'));
 const Forum = React.lazy(() => import('../../pages/Forum/Forum'));
 const Account = React.lazy(() => import('../../pages/Account/Account.jsx'));
+const Error = React.lazy(()=>import('../../pages/Account/404/404'))
 
 const Main = () => {
     return (
@@ -28,7 +29,9 @@ const Main = () => {
                     <Route path='registration/*' element={<Registration />} />
                     <Route path='account/*' element={<Account />} />
                     <Route path='forum/*' element={<Forum />} />
-                    {/* <Route path='lesson' element={<OnlineLesson />} /> */}
+                    <Route path='404' element ={<Error/>}/>
+                    <Route path='onlineLesson' element={<OnlineLesson />} />
+                    <Route path='lesson' element={<Lesson />} />
                 </Routes>
             </Suspense>
         </main>

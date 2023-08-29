@@ -1,21 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import axios from "axios";
+import React from "react";
+import { useState,useEffect } from "react";
 
-const LessonDisplay  = ({ lesson }) => {
-    const createdLesson = useSelector((state) => state.lesson.createdLesson);
-    if (!createdLesson) {
-        return <div>Урок не создан</div>;
-      }
-    return  (
+const LessonsDisplay = () => {
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        axios.get('http://bebest.pp.ua/api/users/?populate=*')
+          .then((response) => {
+            console.log(response.data)
+            setUsers(response.data);
+          })
+          .catch((error) => {
+            console.error('Error fetching data', error);
+          });
+      }, []);
+    return ( 
         <div>
-          <h2>{lesson.title}</h2>
-          <p>Дата: {lesson.date}</p>
-          <p>Длительность: {lesson.duration}</p>
-          <p>Выбранный флаг: {lesson.selectedCountry}</p>
 
         </div>
-      );
-
+     );
 }
  
-export default LessonDisplay ;
+export default LessonsDisplay;

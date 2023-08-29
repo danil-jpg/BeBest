@@ -1,0 +1,53 @@
+@import "../../../../../../styles/media-breakpoints.scss";
+.teachers-table{
+    width: 1030px;
+    @include media-breakpoint-down(l){
+        display: none;
+    }
+    &__header{
+        background: rgba(240, 73, 115, 0.15);
+        display: flex;
+        padding: 8px 22px 8px 30px;
+        align-items: center;
+        &-info{
+            display: flex;
+            align-items: center;
+            gap: 78px;
+            margin-left: 198px;
+        }
+        &-title{
+            color: #292C32;
+            text-align: center;
+            font-family: Montserrat;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 17px; 
+            width: 156px;
+        }
+    }
+
+    &__block{
+        width: 100%;
+        display: flex;
+        padding: 11px 37px 11px 30px;
+        border: 1px solid #DCE3E8;
+        &-info{
+            display: flex;
+            align-items: center;
+            gap: 159px;
+            margin-left: 275px;
+            p{
+                width: 77px;
+
+            }
+        }
+        &-name{
+            color: #292C32;
+            font-family: Montserrat;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+        }
+    }
+}
