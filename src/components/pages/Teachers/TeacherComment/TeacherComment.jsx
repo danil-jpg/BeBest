@@ -25,8 +25,7 @@ const TeacherComment = () => {
     const dispatch = useDispatch();
     const users = useSelector((state) => state.userContentSlice.users);
     const selectsData = useSelector((state) => state.userContentSlice.selects);
-    // const selectsDataSex = useSelector((state) => state.userContentSlice.selectsSex);
-    console.log(selectsData);
+
     useEffect(() => {
         dispatch(fetchAllUsers());
     }, [dispatch]);
