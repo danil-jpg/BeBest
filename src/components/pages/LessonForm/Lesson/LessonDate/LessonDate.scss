@@ -1,0 +1,21 @@
+.lesson-date{
+    position: relative;
+    &__main{
+        &-big{
+            width: 330px;
+        }
+        &-small{
+            width: 154px;
+        }
+        border-radius: 20px;
+        background: #F2F5FA;
+        height: 35px;
+        padding-left: 15px;
+    }
+    
+    &__icon{
+        position: absolute;
+        top: 10px;
+        right:17px;
+    }
+}

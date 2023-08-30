@@ -1,0 +1,28 @@
+.teacher-statistic__student{
+    max-width: 104px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    &-avatar{
+        max-width: 104px;
+        max-height: 104px;
+        border-radius: 50%;
+        &:hover{
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+    }
+
+    &-name{
+        color: #454B58;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 17px;
+    }
+
+}

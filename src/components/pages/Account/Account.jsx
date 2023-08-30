@@ -13,6 +13,7 @@ import Loading from '../../common/Loading/Loading';
 import Favorite from './Favorite/Favorite';
 import Services from './Services/Services';
 import CompanyTeam from './CompanyTeam/CompanyTeam';
+import Chat from './Chat/Chat';
 
 const Account = () => {
     const [user, setUser] = useState('');
@@ -55,7 +56,7 @@ const Account = () => {
                             <Profile user={user} type={user.type} />
                         } />
                         <Route path="/profile" element={
-                            <PersonData user={user} type={user.type} />
+                            <PersonData user={user} type={'student'} />
                         } />
                         <Route path='/lessons' element={
                             <MyLessons user={user} type={user.type} />
@@ -67,7 +68,7 @@ const Account = () => {
                             <Payment />
                         } />
                         <Route path='/stat' element={
-                            <Statistics user={user} type={user.type} />
+                            <Statistics user={user} type={'teacher'} />
                         } />
 
                         <Route path='/services' element={

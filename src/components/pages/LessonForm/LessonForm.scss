@@ -1,0 +1,97 @@
+.lesson-form{
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    &__main{
+        border-radius: 10px;
+        background: #FFF;
+        box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
+        max-width: 780px;
+        width: 100%;
+        padding: 40px 45px 50px;
+
+    }
+}
+.form-top{
+    &__name{
+        &-title{
+            color: #8B919E;
+            font-family: Montserrat;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 500;
+            padding-top: 5px;
+            padding-bottom:8px;
+        }
+    }
+    &__teacher{
+        margin-top: 15px;
+    }
+}
+
+.form-bottom{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 27px;
+    &__decor{
+        width: 7px;
+        height: 1px;
+        background-color: #8B919E;
+
+    }
+    &__left{
+        padding-top:15px;
+        max-width: 330px;
+    }
+    &__right{
+        max-width: 330px;
+        padding-top: 15px;
+        &-age{
+            padding-top: 17px;
+        }
+        &-description{
+            padding-top: 17px;
+            textarea{
+                border-radius: 20px;
+                background: #F2F5FA;
+                width: 328px;
+                height: 189px;
+                padding: 20px;
+            }
+        }
+        &-quantity{
+            padding-top: 13px;
+        }
+    }
+    &__time-lesson{
+        padding-top: 17px;
+        &-input{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &-time{
+            padding-top: 15px;
+        }
+        &-duration{
+            padding-top: 15px;
+        }
+        &-price{
+            padding-top: 17px;
+            position: relative;
+            img{
+                position: absolute;
+                top: 55px;
+                right: 15px;
+                z-index: 2;
+            }
+        }
+        &-quantity{
+            padding-top: 17px;
+        }
+    }
+}
