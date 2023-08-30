@@ -4,7 +4,6 @@ import PersonData from './PersonData/PersonData';
 import MyLessons from './MyLessons/MyLessons';
 import Payment from './Payment/Payment';
 import Statistics from './Statistics/Statistics';
-import ContainerMain from '../../common/ContainerMain/ContainerMain';
 import Constructor from './Common/LkConstructor/Constructor';
 import LkStatus from './Common/LkStatus/LkStatus';
 import LkNavigation from './Common/LkNavigation/LkNavigation';
@@ -12,6 +11,8 @@ import Profile from './Profile/Profile';
 import axios from 'axios';
 import Loading from '../../common/Loading/Loading';
 import Favorite from './Favorite/Favorite';
+import Services from './Services/Services';
+import CompanyTeam from './CompanyTeam/CompanyTeam';
 import Chat from './Chat/Chat';
 
 const Account = () => {
@@ -19,7 +20,7 @@ const Account = () => {
     const id = window.sessionStorage.getItem('id');
 
     useEffect(() => {
-        // sessionStorage.setItem('id', 37);
+        sessionStorage.setItem('id', 40);
 
         const fetchData = async () => {
             try {
@@ -34,7 +35,8 @@ const Account = () => {
         fetchData();
     }, [id]);
 
-    if (!user) return <Loading />;
+    if (!user) return <Loading />
+
     return (
         <>
             <Constructor
@@ -45,7 +47,7 @@ const Account = () => {
                             photoSrc={user.avatar?.url}
                             type={user.type}
                         />
-                        <LkNavigation type={'student'} />
+                        <LkNavigation type={user.type} />
                     </>
                 }
                 rightContent={
@@ -63,6 +65,27 @@ const Account = () => {
                         <Route path='/payment' element={<Payment />} />
                         <Route path='/stat' element={<Statistics user={user} type={'student'} />} />
                         <Route path='/chat' element={<Chat></Chat>} />
+                        <Route index element={
+                            <Profile user={user} type={user.type} />
+                        } />
+                        <Route path="/profile" element={
+                            <PersonData user={user} type={'student'} />
+                        } />
+                        <Route path='/lessons' element={
+                            <MyLessons user={user} type={user.type} />
+                        } />
+                        <Route path='/favorite' element={
+                            <Favorite />
+                        } />
+                        <Route path='/payment' element={
+                            <Payment />
+                        } />
+                        <Route path='/stat' element={
+                            <Statistics user={user} type={'teacher'} />
+                        } />
+                        <Route path='/chat' element={
+                            <>Chat</>
+                        } />
                     </Routes>
                 }
             />

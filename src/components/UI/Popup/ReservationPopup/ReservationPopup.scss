@@ -1,0 +1,14 @@
+.reservation-popup {
+	&__text {
+		margin-bottom: 16px;
+		line-height: 1.5;
+		font-size: 15px;
+		span {
+			display: inline-block;
+		}
+		span:last-child {
+			font-weight: 600;
+			margin: 0 0 0 4px;
+		}
+	}
+}

@@ -9,7 +9,7 @@ const InputForm = ({
     value,
     setValue,
     style = {},
-    mb = '15px'
+    mb = '23px'
 }) => {
     const [inputType, setInputType] = useState(type);
 
@@ -22,7 +22,7 @@ const InputForm = ({
     };
 
     return (
-        <>
+        <div>
             {
                 title
                     ? <p className="input__title">{title}</p>
@@ -52,7 +52,7 @@ const InputForm = ({
                 }
 
             </div>
-        </>
+        </div>
     );
 };
 

@@ -12,6 +12,7 @@ import registrationSlice from './slices/registrationSlice/registrationSlice';
 import forumSlice from './slices/forumSlice/forumSlice';
 import authorizeSlice from './slices/authorizeSlice/authorizeSlice';
 import profileSlice from './slices/profileSlice/profileSlice';
+import serviceSlice from './slices/serviceSlice/serviceSlice';
 
 export const store = configureStore({
         reducer: {
@@ -27,7 +28,8 @@ export const store = configureStore({
                 userContentSlice: teachterFetchUsers,
                 lesson: createLessonSlise,
                 authorize: authorizeSlice,
-                profileSlice
+                profileSlice,
+                serviceSlice
         },
         devTools: true,
 });

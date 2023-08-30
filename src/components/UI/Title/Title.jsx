@@ -2,10 +2,10 @@ import React from 'react';
 import './Title.scss';
 import PropTypes from 'prop-types';
 
-const Title = ({ children, style = {}, align = 'left', type }) => {
+const Title = ({ children, style = {}, align = 'left', type, mb='0' }) => {
     return (
         <h1
-            style={style}
+            style={{...style, marginBottom: 'mb'}}
             className={`title title_align-${align} ${type ? `title_type-${type}` : ''
                 }`}
         >

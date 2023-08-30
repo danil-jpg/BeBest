@@ -6,6 +6,9 @@ import LessonDropdown from "./Lesson/LessonDropdown/LessonDropdown";
 import LessonDate from "./Lesson/LessonDate/LessonDate";
 import priceIcon from "../../../assets/images/lesson/dollar.svg"
 import LessonsDisplay from "./LessonDisplay/LessonDisplay";
+import MainButton from "../../UI/Buttons/MainButton/MainButton";
+import GroupeLesson from "./GroupeLesson/GroupeLesson";
+import { Link } from "react-router-dom";
 const LessonForm = () => {
     const teachers = ['Суровская Александрина Георгиевна', 'Homer Simpson', 'Peater Griffin', ];
     const timeLesson =['10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00'];
@@ -90,8 +93,15 @@ const LessonForm = () => {
                 <LessonsDisplay/>
             </div>
             </div>
+            <div className="lesson-form__buttons">
+              <div className='lesson-form__buttons-big'><MainButton to={'/groupeLesson'}>Создать урок</MainButton></div>
+              <div className='lesson-form__buttons-small'><MainButton  type="white">Отменить</MainButton> </div>
+            </div>
         </div>
      );
 }
  
 export default LessonForm;
+
+
+
