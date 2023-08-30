@@ -64,7 +64,7 @@ const Chat = () => {
                     <div className='messages__input-wr'>
                         <input
                             className='messages__input'
-                            value={value || ''}
+                            value={value}
                             onChange={(e) => setValue(e.target.value)}
                         />
                         <div className='messages__send' onClick={sendMessageHandler}>
