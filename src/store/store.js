@@ -10,6 +10,7 @@ import userPageSlice from './slices/userPageSlice/userPageSlice';
 import createLessonSlise from './slices/createLessonSlice/createLessonSlise';
 import registrationSlice from './slices/registrationSlice/registrationSlice';
 import forumSlice from './slices/forumSlice/forumSlice';
+import authorizeSlice from './slices/authorizeSlice/authorizeSlice';
 import profileSlice from './slices/profileSlice/profileSlice';
 
 export const store = configureStore({
@@ -25,6 +26,7 @@ export const store = configureStore({
                 forumSlice,
                 userContentSlice: teachterFetchUsers,
                 lesson: createLessonSlise,
+                authorize: authorizeSlice,
                 profileSlice
         },
         devTools: true,

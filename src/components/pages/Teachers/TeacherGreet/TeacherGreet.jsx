@@ -10,30 +10,12 @@ import time from '../../../../assets/icons/time.svg';
 import star from '../../../../assets/icons/star.svg';
 import { useSelector } from 'react-redux';
 import Loading from '../../../common/Loading/Loading';
+import { v1 } from 'uuid';
 
-const TeacherGreet = () => {
-    const [user, setUser] = useState();
+const TeacherGreet = ({ user }) => {
     const arr = new Array(5).fill(0);
-    const userId = useSelector((state) => state.userPageSlice.userId);
-    const userList = useSelector((state) => state.catalogSlice.users);
-
-    useEffect(() => {
-        if (userId) {
-            setUser({ ...userList.filter((el) => el.id === userId) }[0]);
-        } else {
-            const fetchData = async () => {
-                const res = await axios.get('http://bebest.pp.ua/api/users/?populate=*');
-
-                setUser({ ...res.data[0] });
-            };
-
-            fetchData();
-        }
-    }, [userId]);
-
-    if (!user) {
-        return <Loading />;
-    }
+    console.log(user);
+    if (!user) return <Loading />;
     return (
         <div className='teacher__vid'>
             <iframe
@@ -47,16 +29,16 @@ const TeacherGreet = () => {
                         className='teacher__descr_avatar'
                     />
                     <ul className='teacher__descr_stars'>
-                        {arr.map((el, index) => {
+                        {arr.map((index) => {
                             return index > user.stars ? (
                                 <IconRenderer
-                                    key={index}
+                                    key={v1()}
                                     id='star'
                                     className='teacher__descr_star '
                                 />
                             ) : (
                                 <IconRenderer
-                                    key={index}
+                                    key={v1()}
                                     id='star'
                                     className='teacher__descr_star teacher__descr_star_filled'
                                 />

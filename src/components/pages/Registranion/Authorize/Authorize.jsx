@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Title from '../../../UI/Title/Title';
 import InputFormContainer from '../../../UI/Forms/InputFormContainer/InputFormContainer';
-import { setAuthorize } from '../../../../store/slices/registrationSlice/registrationSlice';
+import { setAuthorizeState } from '../../../../store/slices/authorizeSlice/authorizeSlice';
 
 const Authorize = () => {
-    const [username, setLogin] = useState('adress111');
-    const [password, setPassword] = useState('adress111111');
+    const [username, setLogin] = useState('Дэн Миллман');
+    const [password, setPassword] = useState('111111');
     const [buttonType, setButtonType] = useState('');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
 
@@ -17,6 +17,7 @@ const Authorize = () => {
     const navigation = useNavigate();
 
     const personData = useSelector((state) => state.regData);
+    const headerIsLogedIn = useSelector((state) => state.authorize);
 
     return (
         <div className='registration-student'>
@@ -82,16 +83,10 @@ const Authorize = () => {
                                     identifier: username,
                                 })
                                 .then((res) => {
-                                    dispatch(
-                                        setAuthorize({
-                                            password: password,
-                                            identifier: username,
-                                            id: res.data.user.id,
-                                        })
-                                    );
+                                    dispatch(setAuthorizeState(true));
                                     window.sessionStorage.setItem('id', res.data.user.id);
                                     console.log(res);
-                                    navigation('../../Lk/student/account');
+                                    navigation('../../Account');
                                 })
                                 .catch((e) => {
                                     alert('Неверный логин или пароль');

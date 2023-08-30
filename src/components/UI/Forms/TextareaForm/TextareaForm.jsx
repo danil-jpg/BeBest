@@ -9,7 +9,7 @@ const TextareaForm = ({
 	value,
 	setValue,
 	style = {},
-	mb = '29px',
+	mb = '0',
 	maxWidth = '100%',
 	variant = '',
 	height = '121px'
