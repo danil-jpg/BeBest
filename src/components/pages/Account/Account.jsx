@@ -13,14 +13,16 @@ import Loading from '../../common/Loading/Loading';
 import Favorite from './Favorite/Favorite';
 import Services from './Services/Services';
 import CompanyTeam from './CompanyTeam/CompanyTeam';
-import Chat from './Chat/Chat';
+import Chat from './ChatRoom/ChatRoom.jsx';
+import ChatRoom from './ChatRoom/ChatRoom.jsx';
+import NotAuth from './NotAuth/NotAuth';
 
 const Account = () => {
     const [user, setUser] = useState('');
     const id = window.sessionStorage.getItem('id');
 
     useEffect(() => {
-        sessionStorage.setItem('id', 40);
+        // sessionStorage.setItem('id', 36);
 
         const fetchData = async () => {
             try {
@@ -35,6 +37,7 @@ const Account = () => {
         fetchData();
     }, [id]);
 
+    if (!sessionStorage.getItem('id')) return <NotAuth />
     if (!user) return <Loading />
 
     return (
@@ -78,7 +81,7 @@ const Account = () => {
                             <CompanyTeam user={user} type={user.type} />
                         } />
                         <Route path='/chat' element={
-                            <>Chat</>
+                            <ChatRoom user={user} />
                         } />
                     </Routes>
                 }

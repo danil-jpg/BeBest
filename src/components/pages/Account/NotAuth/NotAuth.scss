@@ -1,0 +1,19 @@
+.not-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    &__row {
+        flex: 0 0 100%;
+    }
+    &__text {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+}
