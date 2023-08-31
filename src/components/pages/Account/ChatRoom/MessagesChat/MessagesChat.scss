@@ -116,13 +116,6 @@
     &:last-child {
         margin: 0;
     }
-    &.reverse {
-        flex-direction: row-reverse;
-        & .mess-chat__text {
-            border-radius:0 15px 15px 15px;
-            background: #F2F5FA;
-        }
-    }
     &__text {
         border-radius: 15px 0 15px 15px;
         background: #fde4ea;

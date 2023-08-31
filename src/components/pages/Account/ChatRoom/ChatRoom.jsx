@@ -3,50 +3,51 @@ import './ChatRoom.scss';
 import { useState } from 'react';
 import { v1 } from 'uuid';
 import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer.jsx';
+import { GroupChat } from './GroupChat/GroupChat';
+import { getImage, getUser } from '../../../../utils/isActive';
+import { Routes, Route } from 'react-router-dom';
+import { MessagesChat } from './MessagesChat/MessagesChat';
+import axios from 'axios';
 import io from 'socket.io-client';
 
 const socket = io.connect('http://localhost:5000');
 
 const ChatRoom = ({ user }) => {
-    const [messages, setMessages] = useState([]);
+    const [currentMessages, setCurrentMessages] = useState();
+    const [currentGroupID, setCurrentGroupID] = useState();
     const [message, setMessage] = useState('');
     const [searchValue, setSearchValue] = useState('');
+    const id = sessionStorage.getItem('id');
 
     useEffect(() => {
         socket.on('response', async (data) => {
-            setMessages([...messages, data]);
+            setCurrentMessages([...data]);
         })
 
-    }, [messages, socket]);
 
-    console.log(user);
+    }, [currentMessages]);
 
-    const getImage = (src) => `http://bebest.pp.ua${src}`;
+    const sendMessageHandler = async () => {
+        let obj = {
+            message: message,
+            author: user.id,
+            group: currentGroupID
+        }
 
-    const sendMessageHandler = () => {
-        socket.emit('message', {
-            text: message,
-            name: user.username,
-            id: socket.id,
-            socketID: socket.id
-        });
+        let post = await axios.post('http://bebest.pp.ua/api/chat-messages', {
+            data: obj
+        })
+
+        let res = await axios.get(`http://bebest.pp.ua/api/users/${id}?populate[chat_groups][populate][0]=users&populate[avatar][populate][1]=avatar&populate[chat_mess][populate][2]=author&populate[chat_groups][populate][3]=users.avatar&populate[chat_groups][populate][4]=messages&populate[chat_groups][populate][5]=messages.author&populate[chat_groups][populate][6]=messages.author.avatar`);
+
+        let listGroup = res.data.chat_groups.filter(el => el.id === currentGroupID);
+
+        console.log(listGroup[0].messages)
+
+        socket.emit('message', listGroup[0].messages);
 
         setMessage('');
     };
-
-
-    const getUser = (el) => {
-        let list = [...el.users].filter(el => el.username !== user.username);
-        return list[0];
-    }
-
-    const getLastMess = () => {
-        if (messages.length) {
-            return messages[messages.length - 1].text;
-        }
-
-        return 'Нет сообщений'
-    }
 
     return (
         <div className='chat'>
@@ -65,44 +66,42 @@ const ChatRoom = ({ user }) => {
                         {
                             user.chat_groups.map((el, index) => (
                                 <GroupChat
+                                    currentMessages={currentMessages}
+                                    setCurrentMessages={setCurrentMessages}
+                                    setCurrentGroupID={setCurrentGroupID}
                                     key={index}
-                                    imageSrc={getImage(getUser(el).avatar.url)}
-                                    name={getUser(el).username}
-                                    text={getLastMess()}
+                                    elem={el}
+                                    imageSrc={getImage(getUser(el, user).avatar.url)}
+                                    name={getUser(el, user).username}
+                                // text={getLastMess()}
                                 />
                             ))
                         }
                     </ul>
                 </div>
                 <div className='chat__body'>
-                    <div className='chat__messages-wrap'>
-                        <ul className="chat__message-list">
-                            {
-                                messages.map((el, index) =>
-                                    <MessageChat
-                                        key={index}
-                                        imageSrc={getImage(user.avatar.url)}
-                                        text={el.text}
-                                    />
-                                )
-                            }
-                        </ul>
-                    </div>
+                    <MessagesChat
+                        currentMessages={currentMessages}
+                        setCurrentMessages={setCurrentMessages}
+                        user={user}
+                    />
+                    {currentGroupID
+                        ? <div className="chat__bottom">
+                            <input
+                                type="text"
+                                className="chat__mess-inp"
+                                value={message}
+                                onChange={e => setMessage(e.target.value)}
+                            />
+                            <button
+                                className="chat__send-btn"
+                                onClick={sendMessageHandler}
+                            >
+                                Send
+                            </button>
+                        </div>
+                        : <></>}
 
-                    <div className="chat__bottom">
-                        <input
-                            type="text"
-                            className="chat__mess-inp"
-                            value={message}
-                            onChange={e => setMessage(e.target.value)}
-                        />
-                        <button
-                            className="chat__send-btn"
-                            onClick={sendMessageHandler}
-                        >
-                            Send
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -110,29 +109,3 @@ const ChatRoom = ({ user }) => {
 };
 
 export default ChatRoom;
-
-export const GroupChat = ({ imageSrc, name, text }) => {
-    return (
-        <li className="group-item">
-            <div className='group-item__image-wrap'>
-                <img className='group-item__image' src={imageSrc} alt='image' />
-            </div>
-            <div className='group-item__body'>
-                <p className='group-item__name'>{name}</p>
-                <p className='group-item__text'>{text}</p>
-            </div>
-        </li>
-    )
-}
-
-export const MessageChat = ({ type, imageSrc, text }) => {
-    return (
-        <li className={`mess-chat ${type ? 'reverse' : ''}`}>
-            <p className="mess-chat__text">{text}</p>
-
-            <div className='mess-chat__image-wrap'>
-                <img className='mess-chat__image' src={imageSrc} alt='image' />
-            </div>
-        </li>
-    )
-}
