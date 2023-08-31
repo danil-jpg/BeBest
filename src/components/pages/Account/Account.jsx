@@ -26,7 +26,7 @@ const Account = () => {
 
         const fetchData = async () => {
             try {
-                let res = await axios.get(`http://bebest.pp.ua/api/users/${id}?populate=*`);
+                let res = await axios.get(`http://bebest.pp.ua/api/users/${id}?populate[chat_groups][populate][0]=users&populate[avatar][populate][1]=avatar&populate[chat_mess][populate][2]=author&populate[chat_groups][populate][3]=users.avatar`);
 
                 setUser(res.data);
             } catch (error) {
