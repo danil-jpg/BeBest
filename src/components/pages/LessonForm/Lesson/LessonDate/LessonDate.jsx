@@ -1,7 +1,6 @@
 // DatePickerComponent.js
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import './LessonDate.scss';
 import iconCalendar from "../../../../../assets/images/lesson/calendar.svg"
 const LessonDate = ({size}) => {

@@ -11,38 +11,33 @@ const initialState = {
     list: [
         {
             id: v1(),
-            title: 'Курсы',
-            to: '',
-        },
-        {
-            id: v1(),
             title: 'Уроки',
-            to: '',
+            to: '/onlineLesson',
         },
         {
             id: v1(),
             title: 'О проекте',
-            to: '',
+            to: '/lol',
         },
         {
             id: v1(),
             title: 'Преподаватели',
-            to: '',
+            to: '/catalog',
         },
         {
             id: v1(),
             title: 'Компании',
-            to: '',
+            to: '/teacher',
         },
         {
             id: v1(),
             title: 'Статьи',
-            to: '',
+            to: '/article',
         },
         {
             id: v1(),
             title: 'Сообщество',
-            to: '',
+            to: '/forum',
         },
     ],
     langList: [
