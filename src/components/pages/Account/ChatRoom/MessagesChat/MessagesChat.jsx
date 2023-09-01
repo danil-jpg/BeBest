@@ -1,20 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import '../ChatRoom.scss';
 import { getImage } from '../../../../../utils/isActive';
 
 export const MessagesChat = ({
     user,
     currentMessages,
+    titleChat
 }) => {
+    let listRef = useRef();
 
     const isAuthor = (el) =>
         user.username !== el.author.username ? 'reverse' : '';
 
+    const scrollBottom = () => {
+        listRef.current.scrollTop = listRef.current.scrollHeight;
+    }
+
+    useEffect(() => {
+        scrollBottom();
+    }, [currentMessages])
+
     return (
         <>
-            <h2 className="chat__title"></h2>
-            <div className='chat__messages-wrap'>
-                <ul className="chat__message-list">
+            <h2 className="chat__title">{titleChat}</h2>
+            <div className='chat__messages-wrap' ref={listRef}>
+                <ul className="chat__message-list" >
                     {
                         currentMessages?.map((el, index) =>
                             <li key={index}
@@ -31,8 +41,8 @@ export const MessagesChat = ({
                             </li>
                         )
                     }
-                    {!currentMessages?.length ? <li>Здесь пока нет сообщений</li>: ''}
-                    
+                    {!currentMessages?.length ? <li>Выберите диалог или отправь сообщение</li> : ''}
+
                 </ul>
             </div>
         </>

@@ -33,6 +33,7 @@
         font-weight: 700;
         line-height: 1.33;
         padding: 10px 19px;
+        flex: 0 0 auto;
     }
     &__body {
         position: relative;
@@ -41,8 +42,20 @@
     }
     &__messages-wrap {
         flex: 1 1 auto;
-        padding: 26px 20px 80px;
+        padding: 26px 20px 30px;
+        margin: 0 0 50px;
         overflow: auto;
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        &::-webkit-scrollbar-track {
+            background: #fff;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #f04973;
+            border-radius: 5px;
+            border: 1px solid #fff;
+        }
     }
     &__bottom {
         position: absolute;

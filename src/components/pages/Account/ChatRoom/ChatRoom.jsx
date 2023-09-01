@@ -17,6 +17,7 @@ const ChatRoom = ({ user }) => {
     const [currentGroupID, setCurrentGroupID] = useState();
     const [message, setMessage] = useState('');
     const [searchValue, setSearchValue] = useState('');
+    const [titleChat, setTitleChat] = useState();
     const id = sessionStorage.getItem('id');
 
     useEffect(() => {
@@ -41,8 +42,6 @@ const ChatRoom = ({ user }) => {
         let res = await axios.get(`http://bebest.pp.ua/api/users/${id}?populate[chat_groups][populate][0]=users&populate[avatar][populate][1]=avatar&populate[chat_mess][populate][2]=author&populate[chat_groups][populate][3]=users.avatar&populate[chat_groups][populate][4]=messages&populate[chat_groups][populate][5]=messages.author&populate[chat_groups][populate][6]=messages.author.avatar`);
 
         let listGroup = res.data.chat_groups.filter(el => el.id === currentGroupID);
-
-        console.log(listGroup[0].messages)
 
         socket.emit('message', listGroup[0].messages);
 
@@ -73,7 +72,7 @@ const ChatRoom = ({ user }) => {
                                     elem={el}
                                     imageSrc={getImage(getUser(el, user).avatar.url)}
                                     name={getUser(el, user).username}
-                                // text={getLastMess()}
+                                    setTitleChat={setTitleChat}
                                 />
                             ))
                         }
@@ -84,6 +83,7 @@ const ChatRoom = ({ user }) => {
                         currentMessages={currentMessages}
                         setCurrentMessages={setCurrentMessages}
                         user={user}
+                        titleChat={titleChat}
                     />
                     {currentGroupID
                         ? <div className="chat__bottom">

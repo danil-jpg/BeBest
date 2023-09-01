@@ -7,30 +7,49 @@ export const GroupChat = ({
     name,
     currentMessages,
     setCurrentMessages,
-    setCurrentGroupID
+    setCurrentGroupID,
+    setTitleChat
 }) => {
     const [lastMess, setLastMess] = useState('Нет сообщений');
 
     const handleClick = () => {
         setCurrentMessages([...elem.messages]);
-        setCurrentGroupID(elem.id)
+        setCurrentGroupID(elem.id);
+        setTitleChat(name);
+    }
+
+    const getFirstEl = (el) => el[0];
+
+    const getLastMess = (elem, current) => {
+        let elemAuthor = getFirstEl(elem).author.username;
+        let elemMess = getFirstEl(elem).message;
+        let elemID = getFirstEl(elem).id;
+        let currentAuthor = getFirstEl(current).author.username;
+        let currentMess = getFirstEl(current).message;
+        let currentID = getFirstEl(current).id;
+
+        let isTrue =
+            elemAuthor === currentAuthor
+            && elemID === currentID
+            && currentMess === elemMess;
+        
+        if (isTrue) {
+            setLastMess(current[current.length - 1].message)
+        }
     }
 
     useEffect(() => {
-        // if (currentMessages) {
-        //     let lastIndex = currentMessages?.length - 1;
-        //     setLastMess(currentMessages[lastIndex].message)
-        // }
+        if (elem.messages.length && currentMessages && currentMessages.length) {
+            getLastMess(elem.messages, currentMessages);
+        }
+
+        // if(elem)
+
         if (elem.messages.length && !currentMessages) {
             setLastMess(elem.messages[elem.messages.length - 1].message);
         }
 
-        console.log(elem.messages)
 
-        // if (currentMessages) {
-        //     let lastIndex = currentMessages?.length - 1;
-        //     setLastMess(currentMessages[lastIndex].message);
-        // }
     }, [currentMessages])
 
 
