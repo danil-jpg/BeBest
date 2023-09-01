@@ -117,6 +117,7 @@
         "reactjs-popup": "^2.0.5",
         "redux-thunk": "^2.4.2",
         "socket.io": "^4.7.2",
+        "socket.io-client": "^4.7.2",
         "swiper": "^9.4.1",
         "uuid": "^9.0.0",
         "ws": "^8.13.0"
