@@ -86,7 +86,7 @@ const Authorize = () => {
                                     dispatch(setAuthorizeState(true));
                                     window.sessionStorage.setItem('id', res.data.user.id);
                                     console.log(res);
-                                    navigation('../../Account');
+                                    navigation('../../account');
                                 })
                                 .catch((e) => {
                                     alert('Неверный логин или пароль');
