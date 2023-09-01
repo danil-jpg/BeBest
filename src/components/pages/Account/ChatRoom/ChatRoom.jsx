@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import './ChatRoom.scss';
 import { useState } from 'react';
-import { v1 } from 'uuid';
-import { IconRenderer } from '../../../UI/IconRenderer/IconRenderer.jsx';
 import { GroupChat } from './GroupChat/GroupChat';
 import { getImage, getUser } from '../../../../utils/isActive';
-import { Routes, Route } from 'react-router-dom';
 import { MessagesChat } from './MessagesChat/MessagesChat';
 import axios from 'axios';
 import io from 'socket.io-client';
