@@ -15,7 +15,8 @@ const Lesson = React.lazy(() => import('../../pages/LessonForm/Lesson/Lesson'));
 const Forum = React.lazy(() => import('../../pages/Forum/Forum'));
 const Account = React.lazy(() => import('../../pages/Account/Account.jsx'));
 const Error = React.lazy(()=>import('../../pages/Account/404/404'))
-
+const Chat = React.lazy(()=>import('../../pages/Account/ChatRoom/ChatRoom'))
+const GroupeLesson = React.lazy(() => import('../../pages/LessonForm/GroupeLesson/GroupeLesson'));
 const Main = () => {
     return (
         <main className='main'>
@@ -33,6 +34,7 @@ const Main = () => {
                     <Route path='onlineLesson' element={<OnlineLesson />} />
                     <Route path='lesson' element={<Lesson />} />
                     <Route path='groupeLesson' element={<GroupeLesson />} />
+                    <Route path='chat' element={<Chat />} />
                 </Routes>
             </Suspense>
         </main>
