@@ -43,8 +43,6 @@ export const GroupChat = ({
             getLastMess(elem.messages, currentMessages);
         }
 
-        // if(elem)
-
         if (elem.messages.length && !currentMessages) {
             setLastMess(elem.messages[elem.messages.length - 1].message);
         }

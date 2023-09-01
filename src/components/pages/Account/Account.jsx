@@ -18,12 +18,9 @@ import NotAuth from './NotAuth/NotAuth';
 
 const Account = () => {
     const [user, setUser] = useState('');
-    const [ws, setWs] = useState({ change: '' });
     const id = window.sessionStorage.getItem('id');
 
     useEffect(() => {
-        // sessionStorage.setItem('id', 36);
-
         const fetchData = async () => {
             try {
                 let res = await axios.get(`http://bebest.pp.ua/api/users/${id}?populate[chat_groups][populate][0]=users&populate[avatar][populate][1]=avatar&populate[chat_mess][populate][2]=author&populate[chat_groups][populate][3]=users.avatar&populate[chat_groups][populate][4]=messages&populate[chat_groups][populate][5]=messages.author&populate[chat_groups][populate][6]=messages.author.avatar`);
@@ -85,8 +82,6 @@ const Account = () => {
                         } />
                         <Route path='/chat/:id' element={
                             <ChatRoom
-                                ws={ws}
-                                setWs={setWs}
                                 user={user} />
                         } />
                     </Routes>
