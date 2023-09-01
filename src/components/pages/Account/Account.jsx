@@ -13,18 +13,17 @@ import Loading from '../../common/Loading/Loading';
 import Favorite from './Favorite/Favorite';
 import Services from './Services/Services';
 import CompanyTeam from './CompanyTeam/CompanyTeam';
-import Chat from './Chat/Chat';
+import ChatRoom from './ChatRoom/ChatRoom.jsx';
+import NotAuth from './NotAuth/NotAuth';
 
 const Account = () => {
     const [user, setUser] = useState('');
     const id = window.sessionStorage.getItem('id');
 
     useEffect(() => {
-        sessionStorage.setItem('id', 40);
-
         const fetchData = async () => {
             try {
-                let res = await axios.get(`http://bebest.pp.ua/api/users/${id}?populate=*`);
+                let res = await axios.get(`http://bebest.pp.ua/api/users/${id}?populate[chat_groups][populate][0]=users&populate[avatar][populate][1]=avatar&populate[chat_mess][populate][2]=author&populate[chat_groups][populate][3]=users.avatar&populate[chat_groups][populate][4]=messages&populate[chat_groups][populate][5]=messages.author&populate[chat_groups][populate][6]=messages.author.avatar`);
 
                 setUser(res.data);
             } catch (error) {
@@ -35,6 +34,7 @@ const Account = () => {
         fetchData();
     }, [id]);
 
+    if (!sessionStorage.getItem('id')) return <NotAuth />
     if (!user) return <Loading />
 
     return (
@@ -84,7 +84,11 @@ const Account = () => {
                             <Statistics user={user} type={'teacher'} />
                         } />
                         <Route path='/chat' element={
-                            <>Chat</>
+                            <ChatRoom user={user} />
+                        } />
+                        <Route path='/chat/:id' element={
+                            <ChatRoom
+                                user={user} />
                         } />
                     </Routes>
                 }

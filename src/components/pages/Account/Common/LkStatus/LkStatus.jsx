@@ -41,7 +41,8 @@ const LkStatus = ({ name, photoSrc, type }) => {
                         className={'lk__types_li'}
                         onClick={() => {
                             dispatch(setAuthorizeState(false));
-                            navigation('../registration/Authorize');
+                            navigation('/');
+                            sessionStorage.removeItem('id');
                         }}>
                         Выйти
                     </li>
