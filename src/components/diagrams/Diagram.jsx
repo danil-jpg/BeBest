@@ -8,7 +8,7 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
 } from 'reactflow';
-import 'reactflow/dist/style.css';
+// import 'reactflow/dist/style.css';
 const nodeColor = (node) => {
   switch (node.type) {
     case 'input':

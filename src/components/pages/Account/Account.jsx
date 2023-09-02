@@ -64,12 +64,11 @@ const Account = () => {
                         <Route path='/favorite' element={<Favorite />} />
                         <Route path='/payment' element={<Payment />} />
                         <Route path='/stat' element={<Statistics user={user} type={'student'} />} />
-                        <Route path='/chat' element={<Chat></Chat>} />
                         <Route index element={
                             <Profile user={user} type={user.type} />
                         } />
                         <Route path="/profile" element={
-                            <PersonData user={user} type={'student'} />
+                            <PersonData user={user} type={user.type} />
                         } />
                         <Route path='/lessons' element={
                             <MyLessons user={user} type={user.type} />
@@ -79,6 +78,9 @@ const Account = () => {
                         } />
                         <Route path='/payment' element={
                             <Payment />
+                        } />
+                        <Route path='/services' element={
+                            <Services />
                         } />
                         <Route path='/stat' element={
                             <Statistics user={user} type={'teacher'} />
