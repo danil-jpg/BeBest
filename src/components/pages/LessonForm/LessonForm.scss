@@ -5,6 +5,18 @@
         justify-content: space-between;
     }
 
+    &__buttons{
+        display: flex;
+        gap: 15px;
+        margin: 40px 0 100px;
+
+        &-big{
+            width: 200px;
+        }
+        &-small{
+            width: 130px;
+        }
+    }
 
     &__main{
         border-radius: 10px;
@@ -12,7 +24,8 @@
         box-shadow: 0px 10px 60px 0px rgba(42, 102, 193, 0.15);
         max-width: 780px;
         width: 100%;
-        padding: 40px 45px 50px;
+        padding: 40px 45px 30px;
+        max-height: 690px;
 
     }
 }

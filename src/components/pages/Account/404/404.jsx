@@ -29,7 +29,7 @@ const Error = () => {
                     <img className="main-error__image-heart-small" src={smallHeart} alt="" />
                 </div>
                 <div className="main-error__btn">
-                    <MainButton children={'Перейти на главную'}/>
+                    <MainButton to="/home" children={'Перейти на главную'}/>
                 </div>
             </div>
             

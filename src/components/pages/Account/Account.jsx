@@ -52,11 +52,23 @@ const Account = () => {
                 }
                 rightContent={
                     <Routes>
+                        <Route index element={<Profile user={user} type={user.type} />} />
+                        <Route
+                            path='/profile'
+                            element={<PersonData user={user} type={'student'} />}
+                        />
+                        <Route
+                            path='/lessons'
+                            element={<MyLessons user={user} type={user.type} />}
+                        />
+                        <Route path='/favorite' element={<Favorite />} />
+                        <Route path='/payment' element={<Payment />} />
+                        <Route path='/stat' element={<Statistics user={user} type={'student'} />} />
                         <Route index element={
                             <Profile user={user} type={user.type} />
                         } />
                         <Route path="/profile" element={
-                            <PersonData user={user} type={'student'} />
+                            <PersonData user={user} type={user.type} />
                         } />
                         <Route path='/lessons' element={
                             <MyLessons user={user} type={user.type} />
@@ -67,15 +79,11 @@ const Account = () => {
                         <Route path='/payment' element={
                             <Payment />
                         } />
+                        <Route path='/services' element={
+                            <Services />
+                        } />
                         <Route path='/stat' element={
                             <Statistics user={user} type={'teacher'} />
-                        } />
-
-                        <Route path='/services' element={
-                            <Services user={user} type={user.type} />
-                        } />
-                        <Route path='/team' element={
-                            <CompanyTeam user={user} type={user.type} />
                         } />
                         <Route path='/chat' element={
                             <ChatRoom user={user} />

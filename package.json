@@ -114,6 +114,7 @@
         "react-select": "^5.7.3",
         "react-twitch-embed": "^3.0.1",
         "react-twitch-embed-video": "^3.0.3",
+        "reactflow": "^11.8.3",
         "reactjs-popup": "^2.0.5",
         "redux-thunk": "^2.4.2",
         "socket.io": "^4.7.2",

@@ -14,8 +14,10 @@ const OnlineLesson = React.lazy(() => import('../../pages/OnlineLesson/OnlineLes
 const Lesson = React.lazy(() => import('../../pages/LessonForm/Lesson/Lesson'));
 const Forum = React.lazy(() => import('../../pages/Forum/Forum'));
 const Account = React.lazy(() => import('../../pages/Account/Account.jsx'));
-const Error = React.lazy(() => import('../../pages/Account/404/404'))
-
+const Error = React.lazy(()=>import('../../pages/Account/404/404'))
+const Chat = React.lazy(()=>import('../../pages/Account/ChatRoom/ChatRoom'))
+const GroupeLesson = React.lazy(() => import('../../pages/LessonForm/GroupeLesson/GroupeLesson'));
+const Diagrams = React.lazy(() => import('../../diagrams/Diagram'));
 const Main = () => {
     return (
         <main className='main'>
@@ -32,6 +34,9 @@ const Main = () => {
                     <Route path='*' element={<Error />} />
                     <Route path='onlineLesson' element={<OnlineLesson />} />
                     <Route path='lesson' element={<Lesson />} />
+                    <Route path='groupeLesson' element={<GroupeLesson />} />
+                    <Route path='chat' element={<Chat />} />
+                    <Route path='diagrams' element={<Diagrams />} />
                 </Routes>
             </Suspense>
         </main>
